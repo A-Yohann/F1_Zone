@@ -86,6 +86,16 @@ class ImportCoursesCsvCommand extends Command
             $course->setNomGrandPrix($data['nomGp']);
             $course->setDateCourse(new \DateTime($data['dateCourse']));
             $course->setPosition(1);
+            // Barème F1 2024
+            $pointsBar = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1];
+            $points = $pointsBar[0]; // Par défaut 25 pts
+            if (isset($data['position'])) {
+                $pos = (int)$data['position'];
+                $course->setPosition($pos);
+                $points = ($pos >= 1 && $pos <= 10) ? $pointsBar[$pos-1] : 0;
+            }
+            $course->setPoints($points);
+            $output->writeln("Import GP: {$data['nomGp']} | Position: " . ($data['position'] ?? 'N/A') . " | Points: $points");
             if (isset($data['temps'])) {
                 $course->setTemps($data['temps']);
             }
