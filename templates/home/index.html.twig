@@ -47,35 +47,36 @@
     <h2>Les pilotes</h2>
 
     {# cards pilotes #}
+    {% set pilotes_top = pilotes|slice(0,5) %}
+    {% set pilotes_bottom = pilotes|slice(5,5) %}
     <div class="pilotes-cards">
-    {# card leclerc #}
-        <div class="pilote-card">
-            <img src="{{ asset('assets/img/leclerc.avif') }}" alt="Image pilote 1">
-            <div class="pilote-info">
-                <h3>Charles Leclerc</h3>
-                <div class="ecurie">Ferrari</div>
-                <a href="#" class="profil-btn">Voir Profil</a>
+        {% for pilote in pilotes_top %}
+            <div class="pilote-card">
+                <img src="{{ asset(pilote.photo ?: 'assets/img/default-pilote.jpg') }}" alt="Photo de {{ pilote.prenom }} {{ pilote.nom }}">
+                <div class="pilote-info">
+                    <h3>{{ pilote.prenom }} {{ pilote.nom }}</h3>
+                    <div class="ecurie">{{ pilote.ecurie ? pilote.ecurie.nom : 'Sans écurie' }}</div>
+                    <a href="#" class="profil-btn">Voir Profil</a>
+                </div>
             </div>
-        </div>
-        {# card George Russell #}
-        <div class="pilote-card">
-            <img src="{{ asset('assets/img/russell.avif') }}" alt="Image pilote 2">
-            <div class="pilote-info">
-                <h3>George Russel</h3>
-                <div class="ecurie">Mercedes</div>
-                <a href="#" class="profil-btn">Voir Profil</a>
-            </div>
-        </div>
-        {# card Lando Norris #}
-        <div class="pilote-card">
-            <img src="{{ asset('assets/img/norris.avif') }}" alt="Image pilote 3">
-            <div class="pilote-info">
-                <h3>Lando Norris</h3>
-                <div class="ecurie">Mc Laren</div>
-                <a href="#" class="profil-btn">Voir Profil</a>
-            </div>
-        </div>
+        {% endfor %}
     </div>
+    <div class="pilotes-cards">
+        {% for pilote in pilotes_bottom %}
+            <div class="pilote-card">
+                <img src="{{ asset(pilote.photo ?: 'assets/img/default-pilote.jpg') }}" alt="Photo de {{ pilote.prenom }} {{ pilote.nom }}">
+                <div class="pilote-info">
+                    <h3>{{ pilote.prenom }} {{ pilote.nom }}</h3>
+                    <div class="ecurie">{{ pilote.ecurie ? pilote.ecurie.nom : 'Sans écurie' }}</div>
+                    <a href="#" class="profil-btn">Voir Profil</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section>
+        <h2>Classement pilotes et constructeurs</h2>
 </section>
 
 {% endblock %}

@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity]
+#[ORM\Entity(repositoryClass: 'App\\Repository\\PiloteRepository')]
 #[ORM\Table(name: 'pilote')]
 #[ORM\Index(columns: ['ecurie_id'], name: 'idx_pilote_ecurie_id')]
 #[ORM\Index(columns: ['nom'], name: 'idx_pilote_nom')]
