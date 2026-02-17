@@ -8,13 +8,74 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<section>
+    <div class="hero">
+        <div>
+            <img src="{{ asset('assets/img/ferrari-hero-1.webp')}}" alt="image de la page d'accueil">
+        </div>
+        <h1>Bienvenue sur F1 Zone !</h1>
+        <p>Vivez la Formule 1 à pleine vitesse.</p>
+    </div>
+</section>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/atyoh/Desktop/F1_Zone/src/Controller/HomeController.php</code></li>
-        <li>Your template at <code>C:/Users/atyoh/Desktop/F1_Zone/templates/home/index.html.twig</code></li>
-    </ul>
-</div>
+{# cards actus #}
+<section>
+    <h2>Actualitées</h2>
+    <div class="news-cards">
+        <a href="#" class="news-card">
+            <h3>Resumé des GP</h3>
+            <img src="{{ asset('assets/img/news1.jpg') }}" alt="Image actu 1">
+        </a>
+        <a href="#" class="news-card">
+            <h3>Transfert pilotes</h3>
+            <img src="{{ asset('assets/img/pilotes-grp.webp') }}" alt="Image actu 2">
+        </a>
+        <a href="#" class="news-card">
+            <h3>Nouvelle reglementation</h3>
+            <img src="{{ asset('assets/img/Fia-logo.jpg') }}" alt="Image actu 3">
+        </a>
+        <a href="#" class="news-card">
+            <h3>dernier vainqueur</h3>
+            <img src="{{ asset('assets/img/japon-verstappen.jpg') }}" alt="Image actu 4">
+        </a>
+    </div>
+</section>
+
+{# section pilotes #}
+
+<section>
+    <h2>Les pilotes</h2>
+
+    {# cards pilotes #}
+    <div class="pilotes-cards">
+    {# card leclerc #}
+        <div class="pilote-card">
+            <img src="{{ asset('assets/img/leclerc.avif') }}" alt="Image pilote 1">
+            <div class="pilote-info">
+                <h3>Charles Leclerc</h3>
+                <div class="ecurie">Ferrari</div>
+                <a href="#" class="profil-btn">Voir Profil</a>
+            </div>
+        </div>
+        {# card George Russell #}
+        <div class="pilote-card">
+            <img src="{{ asset('assets/img/russell.avif') }}" alt="Image pilote 2">
+            <div class="pilote-info">
+                <h3>George Russel</h3>
+                <div class="ecurie">Mercedes</div>
+                <a href="#" class="profil-btn">Voir Profil</a>
+            </div>
+        </div>
+        {# card Lando Norris #}
+        <div class="pilote-card">
+            <img src="{{ asset('assets/img/norris.avif') }}" alt="Image pilote 3">
+            <div class="pilote-info">
+                <h3>Lando Norris</h3>
+                <div class="ecurie">Mc Laren</div>
+                <a href="#" class="profil-btn">Voir Profil</a>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}
