@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block title %}Articles F1{% endblock %}
+{% block body %}
+<div class="articles-container">
+    <h1 class="articles-title">Actualités & Analyses F1</h1>
+    <div class="articles-list">
+        {% for article in articles %}
+            <article class="article-card">
+                <div class="article-img">
+                    {% if article.image %}
+                        <img src="{{ asset('assets/img/' ~ article.image) }}" alt="{{ article.titre }}">
+                    {% endif %}
+                </div>
+                <div class="article-content">
+                    <h2>{{ article.titre }}</h2>
+                    <p class="article-date">{{ article.createdAt|date('d/m/Y') }}</p>
+                    <div class="article-description">
+                        {{ article.contenu|striptags|length > 180 ? article.contenu|striptags|slice(0,180) ~ '...' : article.contenu|striptags }}
+                    </div>
+                    <a href="{{ path('article_show', {id: article.id}) }}" class="btn-voir-plus">Voir plus</a>
+                </div>
+            </article>
+        {% else %}
+            <p>Aucun article pour le moment.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

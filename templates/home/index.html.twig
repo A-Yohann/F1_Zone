@@ -49,7 +49,7 @@
     <div class="pilotes-cards">
         {% for pilote in pilotes_top %}
             <div class="pilote-card">
-                <img src="{{ asset(pilote.photo ?: 'assets/img/default-pilote.jpg') }}" alt="Photo de {{ pilote.prenom }} {{ pilote.nom }}">
+                <img src="{{ asset('assets/img/' ~ (pilote.photo ?: 'pilotes-grp.webp')) }}" alt="Photo de {{ pilote.prenom }} {{ pilote.nom }}">
                 <div class="pilote-info">
                     <h3>{{ pilote.prenom }} {{ pilote.nom }}</h3>
                     <div class="ecurie">{{ pilote.ecurie ? pilote.ecurie.nom : 'Sans écurie' }}</div>
@@ -61,7 +61,7 @@
     <div class="pilotes-cards">
         {% for pilote in pilotes_bottom %}
             <div class="pilote-card">
-                <img src="{{ asset(pilote.photo ?: 'assets/img/default-pilote.jpg') }}" alt="Photo de {{ pilote.prenom }} {{ pilote.nom }}">
+                <img src="{{ asset('assets/img/' ~ (pilote.photo ?: 'pilotes-grp.webp')) }}" alt="Photo de {{ pilote.prenom }} {{ pilote.nom }}">
                 <div class="pilote-info">
                     <h3>{{ pilote.prenom }} {{ pilote.nom }}</h3>
                     <div class="ecurie">{{ pilote.ecurie ? pilote.ecurie.nom : 'Sans écurie' }}</div>

@@ -1,0 +1,98 @@
+// Styles pour la page pilotes (reprend _home.scss)
+.pilotes-title {
+	font-size: 2.2rem;
+	font-weight: bold;
+	margin-bottom: 2.5rem;
+	margin-top: 1.5rem;
+	text-align: center;
+	color: #e10600;
+	letter-spacing: 1px;
+	text-shadow: 0 2px 8px #0008;
+}
+
+.pilotes-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 2.5rem;
+	margin: 2rem 0;
+	justify-items: center;
+}
+
+.pilote-card {
+	background: #232323;
+	border-radius: 1.2rem;
+	box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+	overflow: hidden;
+	width: 100%;
+	max-width: 270px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transition: box-shadow 0.2s, transform 0.2s;
+	border: 2px solid #222;
+}
+.pilote-card:hover {
+	box-shadow: 0 8px 32px #e1060044;
+	border-color: #e10600;
+	transform: translateY(-8px) scale(1.04);
+}
+.pilote-card img {
+	width: 120px;
+	height: 120px;
+	object-fit: cover;
+	border-radius: 50%;
+	margin: 1.2rem auto 0.7rem auto;
+	box-shadow: 0 2px 12px #0008;
+	background: #181818;
+	border: 3px solid #fff2;
+	display: block;
+}
+.pilote-info {
+	background: #333d;
+	padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 0 0 1.2rem 1.2rem;
+}
+.pilote-info h3 {
+	margin: 0.5rem 0 0.2rem 0;
+	font-size: 1.15rem;
+	color: #fff;
+	font-weight: 700;
+	text-align: center;
+	letter-spacing: 0.5px;
+}
+.pilote-info .ecurie {
+	color: #e0e0e0;
+	font-size: 1rem;
+	margin-bottom: 1rem;
+	text-align: center;
+	font-weight: 400;
+}
+.pilote-info .numero {
+	color: #e10600;
+	font-size: 1.1rem;
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+}
+.profil-btn {
+	background: #e10600;
+	color: #fff;
+	border: none;
+	border-radius: 0.3rem;
+	padding: 0.5rem 1.5rem;
+	font-size: 1rem;
+	font-weight: 500;
+	text-align: center;
+	text-decoration: none;
+	margin-top: 0.5rem;
+	transition: background 0.2s;
+	cursor: pointer;
+	display: block;
+	box-shadow: 0 2px 8px #0004;
+}
+.profil-btn:hover {
+	background: #b80000;
+}
