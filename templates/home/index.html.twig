@@ -42,11 +42,8 @@
 </section>
 
 {# section pilotes #}
-
 <section>
     <h2>Les pilotes</h2>
-
-    {# cards pilotes #}
     {% set pilotes_top = pilotes|slice(0,5) %}
     {% set pilotes_bottom = pilotes|slice(5,5) %}
     <div class="pilotes-cards">
@@ -75,8 +72,83 @@
     </div>
 </section>
 
-<section>
-        <h2>Classement pilotes et constructeurs</h2>
+{# section classement #}
+<section id="classement">
+    <h2>Classements</h2>
+
+    <form method="get" action="#classement" class="gp-filter-form" style="margin-bottom:1.5rem;">
+        <label for="grand_prix">Filtrer par Grand Prix :</label>
+        <select name="grand_prix" id="grand_prix" onchange="this.form.submit()">
+            <option value="">Classement général</option>
+            {% for gp in grand_prix_list %}
+                <option value="{{ gp }}" {% if gp == selected_gp %}selected{% endif %}>{{ gp }}</option>
+            {% endfor %}
+        </select>
+    </form>
+
+    <div class="classement-flex">
+        <div class="classement-box">
+            <div class="classement-title">Classement pilotes</div>
+            <table class="classement-table">
+                <tbody>
+                {% for pilote in classement_pilotes|slice(0,3) %}
+                    <tr>
+                        <td>#{{ loop.index }}</td>
+                        <td>{{ pilote.prenom }} {{ pilote.nom }}</td>
+                        <td class="pts">{{ pilote.totalPoints }} pts</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tbody id="all-pilotes" style="display:none;">
+                {% for pilote in classement_pilotes|slice(3) %}
+                    <tr>
+                        <td>#{{ loop.index + 3 }}</td>
+                        <td>{{ pilote.prenom }} {{ pilote.nom }}</td>
+                        <td class="pts">{{ pilote.totalPoints }} pts</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <button class="toggle-btn" onclick="toggleClassement('all-pilotes', this)">▼</button>
+        </div>
+        <div class="classement-box">
+            <div class="classement-title">Classement constructeur</div>
+            <table class="classement-table">
+                <tbody>
+                {% for ecurie in classement_ecuries|slice(0,3) %}
+                    <tr>
+                        <td>#{{ loop.index }}</td>
+                        <td>{{ ecurie.nom }}</td>
+                        <td class="pts">{{ ecurie.totalPoints }} pts</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tbody id="all-ecuries" style="display:none;">
+                {% for ecurie in classement_ecuries|slice(3) %}
+                    <tr>
+                        <td>#{{ loop.index + 3 }}</td>
+                        <td>{{ ecurie.nom }}</td>
+                        <td class="pts">{{ ecurie.totalPoints }} pts</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <button class="toggle-btn" onclick="toggleClassement('all-ecuries', this)">▼</button>
+        </div>
+    </div>
+
+    <script>
+    function toggleClassement(id, btn) {
+        const tbody = document.getElementById(id);
+        if (tbody.style.display === 'none') {
+            tbody.style.display = '';
+            btn.textContent = '▲';
+        } else {
+            tbody.style.display = 'none';
+            btn.textContent = '▼';
+        }
+    }
+    </script>
 </section>
 
 {% endblock %}

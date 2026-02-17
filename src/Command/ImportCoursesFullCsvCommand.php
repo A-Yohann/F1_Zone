@@ -36,37 +36,42 @@ class ImportCoursesFullCsvCommand extends Command
 
         $handle = fopen($file, 'r');
         if ($handle === false) {
-            $output->writeln('<error>Impossible d’ouvrir le fichier CSV.</error>');
+            $output->writeln('<error>Impossible d\'ouvrir le fichier CSV.</error>');
             return Command::FAILURE;
         }
 
-        $header = fgetcsv($handle);
+        // ✅ En-tête hardcodée — le CSV est instable (header au milieu, données dès la 1ère ligne)
+        $header = ['round', 'nomGp', 'dateCourse', 'nomCircuit', 'ville', 'pays', 'codePays', 'position', 'pilote', 'ecurie', 'temps', 'points'];
+        $nbCols = count($header);
+
         $count = 0;
         while (($row = fgetcsv($handle)) !== false) {
+            // ✅ Ignore les lignes vides, incomplètes, ou les lignes d'en-tête parasites
+            if (count($row) !== $nbCols || $row[0] === 'round' || !is_numeric($row[0])) {
+                continue;
+            }
+
             $data = array_combine($header, $row);
 
             // Recherche du circuit
             $circuit = $this->entityManager->getRepository(Circuit::class)->findOneBy([
-                'nomGp' => $data['nomGp'],
                 'nomCircuit' => $data['nomCircuit'],
             ]);
             if (!$circuit) {
-                $output->writeln("<comment>Circuit non trouvé pour {$data['nomGp']} ({$data['nomCircuit']})</comment>");
+                $output->writeln("<comment>Circuit non trouvé : {$data['nomCircuit']}</comment>");
                 continue;
             }
 
-            // Recherche du pilote (nom et prénom)
-            $vainqueur = $data['pilote'];
-            $vainqueurParts = explode(' ', $vainqueur, 2);
-            $nom = $vainqueurParts[1] ?? $vainqueurParts[0];
-            $prenom = $vainqueurParts[1] ? $vainqueurParts[0] : null;
-            $criteria = ['nom' => $nom];
-            if ($prenom) {
-                $criteria['prenom'] = $prenom;
-            }
-            $pilote = $this->entityManager->getRepository(Pilote::class)->findOneBy($criteria);
+            // Recherche du pilote — le CSV contient "Prénom Nom" dans une seule colonne
+            $parts = explode(' ', trim($data['pilote']), 2);
+            $prenom = $parts[0];
+            $nom = $parts[1] ?? '';
+            $pilote = $this->entityManager->getRepository(Pilote::class)->findOneBy([
+                'prenom' => $prenom,
+                'nom'    => $nom,
+            ]);
             if (!$pilote) {
-                $output->writeln("<comment>Pilote non trouvé : {$data['pilote']} (nom: $nom, prenom: $prenom)</comment>");
+                $output->writeln("<comment>Pilote non trouvé : {$data['pilote']}</comment>");
                 continue;
             }
 
@@ -79,26 +84,34 @@ class ImportCoursesFullCsvCommand extends Command
                 continue;
             }
 
+            // ✅ Vérifie si ce résultat existe déjà en base pour éviter les doublons
+            $existing = $this->entityManager->getRepository(Course::class)->findOneBy([
+                'nomGrandPrix' => $data['nomGp'],
+                'pilote'       => $pilote,
+                'position'     => (int) $data['position'],
+            ]);
+            if ($existing) {
+                continue;
+            }
+
             $course = new Course();
             $course->setCircuit($circuit);
             $course->setPilote($pilote);
             $course->setEcurie($ecurie);
             $course->setNomGrandPrix($data['nomGp']);
             $course->setDateCourse(new \DateTime($data['dateCourse']));
-            $course->setPosition((int)$data['position']);
-            if (isset($data['temps'])) {
-                $course->setTemps($data['temps']);
-            }
-            if (isset($data['points'])) {
-                $course->setPoints((int)$data['points']);
-            }
+            $course->setPosition((int) $data['position']);
+            $course->setTemps($data['temps']);
+            $course->setPoints((int) $data['points']);
+
             $this->entityManager->persist($course);
             $count++;
         }
+
         fclose($handle);
         $this->entityManager->flush();
 
-        $output->writeln("<info>$count résultats de courses importés avec succès !</info>");
+        $output->writeln("<info>$count résultats importés avec succès !</info>");
         return Command::SUCCESS;
     }
 }
