@@ -14,3 +14,10 @@
 @use "layout/footer";
 @use "layout/header";
 @use "layout/hero";
+
+
+// pages
+
+@use "pages/home";
+@use "pages/circuits";
+@use "pages/pilotes";
