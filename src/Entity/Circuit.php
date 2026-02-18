@@ -29,6 +29,12 @@ class Circuit
     private string $nomCircuit;
 
     #[ORM\Column(length: 100, nullable: true)]
+    private ?string $imageSvg = null;
+
+    #[ORM\Column(length: 100, nullable: true)]
+    private ?string $imageAvif = null;
+
+    #[ORM\Column(length: 100, nullable: true)]
     private ?string $ville = null;
 
     #[ORM\Column(length: 100, nullable: true)]
@@ -99,8 +105,15 @@ class Circuit
     public function getNomGp(): string { return $this->nomGp; }
     public function setNomGp(string $nomGp): static { $this->nomGp = $nomGp; return $this; }
 
+
     public function getNomCircuit(): string { return $this->nomCircuit; }
     public function setNomCircuit(string $nomCircuit): static { $this->nomCircuit = $nomCircuit; return $this; }
+
+    public function getImageSvg(): ?string { return $this->imageSvg; }
+    public function setImageSvg(?string $imageSvg): static { $this->imageSvg = $imageSvg; return $this; }
+
+    public function getImageAvif(): ?string { return $this->imageAvif; }
+    public function setImageAvif(?string $imageAvif): static { $this->imageAvif = $imageAvif; return $this; }
 
     public function getVille(): ?string { return $this->ville; }
     public function setVille(?string $ville): static { $this->ville = $ville; return $this; }

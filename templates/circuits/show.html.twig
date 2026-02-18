@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ circuit.nomCircuit }} | Circuit{% endblock %}
+
+
+{% block body %}
+<div class="circuit-detail-container">
+  <a href="{{ path('app_circuits') }}" class="circuit-back-btn">← Retour aux circuits</a>
+  <div class="circuit-detail-flex">
+    <div class="circuit-detail-img">
+      {% if circuit.imageAvif %}
+        <img src="{{ asset('assets/img/' ~ circuit.imageAvif) }}" alt="{{ circuit.nomCircuit }}">
+      {% endif %}
+    </div>
+    <div class="circuit-detail-info">
+      <h2 class="circuit-detail-title">{{ circuit.nomCircuit }}</h2>
+      <div class="circuit-detail-block">
+        <span class="circuit-detail-label">Circuit Length</span>
+        <span class="circuit-detail-value">{{ circuit.longueurKm }}km</span>
+      </div>
+      <div class="circuit-detail-row">
+        <div>
+          <span class="circuit-detail-label">First Grand Prix</span>
+          <span class="circuit-detail-value">{{ circuit.premiereApparition }}</span>
+        </div>
+        <div>
+          <span class="circuit-detail-label">Number of Laps</span>
+          <span class="circuit-detail-value">{{ circuit.nombreTours }}</span>
+        </div>
+      </div>
+      <div class="circuit-detail-row">
+        <div>
+          <span class="circuit-detail-label">Fastest lap time</span>
+          <span class="circuit-detail-value">{{ circuit.meilleurTemps|default('N/A') }}</span>
+          <span class="circuit-detail-label circuit-detail-pilote">{{ circuit.piloteMeilleurTemps|default('') }}</span>
+        </div>
+        <div>
+          <span class="circuit-detail-label">Race Distance</span>
+          <span class="circuit-detail-value">{{ circuit.distanceTotaleKm }}km</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

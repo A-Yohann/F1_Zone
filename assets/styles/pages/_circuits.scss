@@ -1,0 +1,127 @@
+.circuit-detail-container {
+  margin-top: 2rem;
+}
+.circuit-back-btn {
+  display: inline-block;
+  margin-bottom: 2rem;
+  padding: 0.5em 1.2em;
+  background: #181924;
+  color: #ff2d2d;
+  border: 2px solid #ff2d2d;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.circuit-back-btn:hover {
+  background: #ff2d2d;
+  color: #181924;
+}
+.circuit-detail-flex {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+}
+.circuit-detail-img img {
+  max-width: 90%;
+  max-height: 500px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #0003;
+}
+.circuit-detail-info {
+  max-width: 500px;
+}
+.circuit-detail-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #ff2d2d;
+}
+.circuit-detail-block {
+  margin: 1.5rem 0 2rem 0;
+}
+.circuit-detail-label {
+  font-size: 1.2rem;
+  color: #ff2d2d;
+  display: block;
+  margin-bottom: 0.2em;
+}
+.circuit-detail-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  display: block;
+  margin-bottom: 1em;
+}
+.circuit-detail-row {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+.circuit-detail-pilote {
+  font-size: 1rem;
+  color: #ff2d2d;
+  margin-top: 0.2em;
+}
+.circuits-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: stretch;
+}
+.circuit-card {
+  background: #181924;
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #0003;
+  padding: 2rem 2.5rem 1.5rem 2.5rem;
+  min-width: 340px;
+  max-width: 370px;
+  width: 100%;
+  position: relative;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  transition: transform 0.15s;
+}
+.circuit-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 6px 24px #0005;
+}
+.circuit-card .circuit-img {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 90px;
+  height: auto;
+  opacity: 0.95;
+  filter: brightness(0) invert(1);
+}
+.circuit-card .circuit-flag {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: 0.7em;
+  vertical-align: middle;
+}
+.circuit-card .circuit-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.2em;
+  display: flex;
+  align-items: center;
+}
+.circuit-card .circuit-gp {
+  font-size: 1.1rem;
+  color: #bdbdbd;
+  margin-bottom: 0.7em;
+}
+.circuit-card .circuit-date {
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-top: 1.2em;
+}
