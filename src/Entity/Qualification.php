@@ -7,7 +7,25 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity]
 class Qualification
 {
-    // Setters
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
+    private int $id;
+
+    #[ORM\Column(type: 'string', length: 100)]
+    private string $circuit;
+
+    #[ORM\Column(type: 'string', length: 100)]
+    private string $grandPrix;
+
+    #[ORM\Column(type: 'datetime')]
+    private \DateTimeInterface $dateHeure;
+
+    public function getDateHeure(): \DateTimeInterface
+    {
+        return $this->dateHeure;
+    }
+
     public function setCircuit(string $circuit): self
     {
         $this->circuit = $circuit;
@@ -25,19 +43,4 @@ class Qualification
         $this->dateHeure = $dateHeure;
         return $this;
     }
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column(type: 'integer')]
-    private int $id;
-
-    #[ORM\Column(type: 'string', length: 100)]
-    private string $circuit;
-
-    #[ORM\Column(type: 'string', length: 100)]
-    private string $grandPrix;
-
-    #[ORM\Column(type: 'datetime')]
-    private \DateTimeInterface $dateHeure;
-
-    // getters/setters ...
 }

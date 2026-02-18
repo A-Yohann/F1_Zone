@@ -1,3 +1,111 @@
+// Sessions block
+.circuit-sessions {
+  margin: 2.5rem 0 2.5rem 0;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.circuit-session-row {
+  background: #23243a;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #0002;
+  padding: 1.2em 1.7em;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.5em;
+}
+.circuit-session-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.5em;
+}
+.circuit-session-day {
+  font-size: 2.1rem;
+  font-weight: bold;
+  color: #ff2d2d;
+  line-height: 1;
+}
+.circuit-session-month {
+  font-size: 1.1rem;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.circuit-session-type {
+  font-size: 1.1rem;
+  color: #ff2d2d;
+  font-weight: bold;
+  margin-bottom: 0.2em;
+}
+.circuit-session-time {
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+// Classement table
+.circuit-classement {
+  margin: 2.5rem 0 2.5rem 0;
+}
+.circuit-classement-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #23243a;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px #0002;
+}
+.circuit-classement-table th, .circuit-classement-table td {
+  padding: 0.8em 1.2em;
+  text-align: center;
+}
+.circuit-classement-table th {
+  background: #181924;
+  color: #ff2d2d;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.circuit-classement-table td {
+  color: #fff;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #23243a;
+}
+.circuit-classement-table tr:last-child td {
+  border-bottom: none;
+}
+
+// Classement constructeurs
+.circuit-constructeurs {
+  margin: 2.5rem 0 2.5rem 0;
+}
+.circuit-constructeurs-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #23243a;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px #0002;
+}
+.circuit-constructeurs-table th, .circuit-constructeurs-table td {
+  padding: 0.8em 1.2em;
+  text-align: center;
+}
+.circuit-constructeurs-table th {
+  background: #181924;
+  color: #ff2d2d;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.circuit-constructeurs-table td {
+  color: #fff;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #23243a;
+}
+.circuit-constructeurs-table tr:last-child td {
+  border-bottom: none;
+}
 .circuit-detail-container {
   margin-top: 2rem;
 }
@@ -21,6 +129,13 @@
   display: flex;
   align-items: flex-start;
   gap: 3rem;
+  justify-content: center;
+}
+.circuit-detail-img,
+.circuit-detail-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .circuit-detail-img img {
   max-width: 90%;
@@ -72,7 +187,7 @@
 }
 .circuit-card {
   background: #181924;
-  color: #fff;
+  color: #ff2d2d;
   border-radius: 12px;
   box-shadow: 0 2px 8px #0003;
   padding: 2rem 2.5rem 1.5rem 2.5rem;
@@ -113,6 +228,7 @@
   margin-bottom: 0.2em;
   display: flex;
   align-items: center;
+  color: #ff2d2d;
 }
 .circuit-card .circuit-gp {
   font-size: 1.1rem;
@@ -124,4 +240,5 @@
   font-weight: bold;
   letter-spacing: 2px;
   margin-top: 1.2em;
+  color: #fff;
 }

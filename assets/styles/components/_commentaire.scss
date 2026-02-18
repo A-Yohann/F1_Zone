@@ -1,0 +1,63 @@
+.gp-resume-comments {
+  margin-top: 2.5rem;
+  background: #23243a;
+  border-radius: 12px;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  box-shadow: 0 2px 8px #0002;
+}
+.gp-resume-comments h2 {
+  color: #ff2d2d;
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+#comments-list {
+  margin-bottom: 2rem;
+}
+.gp-comment {
+  background: #181924;
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 1px 4px #0002;
+}
+.gp-comment-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: #aaa;
+  margin-bottom: 0.5rem;
+}
+.gp-comment-pseudo {
+  font-weight: bold;
+  color: #ff2d2d;
+}
+.gp-comment-content {
+  color: #fff;
+  font-size: 1.08rem;
+}
+.gp-comment-input,
+.gp-comment-textarea {
+  width: 100%;
+  background: #181924;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #fff;
+  padding: 0.7rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  resize: none;
+}
+.gp-comment-btn {
+  background: #ff2d2d;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.gp-comment-btn:hover {
+  background: #c91e1e;
+}

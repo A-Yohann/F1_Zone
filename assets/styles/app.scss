@@ -7,6 +7,7 @@
 // Components
 @use "components/cards";
 @use "components/button";
+@use "components/commentaire";
 
 
 // Layout
@@ -17,8 +18,9 @@
 
 
 // pages
-
 @use "pages/home";
 @use "pages/circuits";
 @use "pages/pilotes";
+@use "pages/reglementation";
+@use "pages/gp_resume";
 @import 'pages/_article';

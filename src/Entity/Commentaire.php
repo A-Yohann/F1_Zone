@@ -24,6 +24,10 @@ class Commentaire
     #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private ?Article $article = null;
 
+    #[ORM\ManyToOne(targetEntity: ResumeVideo::class)]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'CASCADE')]
+    private ?ResumeVideo $resumeVideo = null;
+
     #[ORM\Column(type: 'text')]
     private string $contenu;
 
@@ -62,6 +66,17 @@ class Commentaire
     public function setArticle(?Article $article): self
     {
         $this->article = $article;
+        return $this;
+    }
+
+    public function getResumeVideo(): ?ResumeVideo
+    {
+        return $this->resumeVideo;
+    }
+
+    public function setResumeVideo(?ResumeVideo $resumeVideo): self
+    {
+        $this->resumeVideo = $resumeVideo;
         return $this;
     }
 

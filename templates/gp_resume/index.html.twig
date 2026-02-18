@@ -1,0 +1,244 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vidéos Résumés Grands Prix{% endblock %}
+
+{% block body %}
+<div class="gp-resume-container">
+  <h1 class="gp-resume-title">Vidéos Résumés des Grands Prix</h1>
+  <div class="gp-resume-filter">
+    <label for="resume-type">Filtrer par&nbsp;:</label>
+    <select id="resume-type" onchange="filterResumes()">
+      <option value="all">Tous</option>
+      <option value="gp">Grands Prix</option>
+      <option value="sprint">Sprints</option>
+    </select>
+  </div>
+  <div class="gp-resume-list gp-resume-grid">
+    <a href="{{ path('gp_resume_show', {'id': 1}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Grand Prix 1</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/q1R-fZR1QDA?si=B10hUkqffIgudYdB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 2}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Grand Prix 2</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/zSaa-g50M0E?si=rQdgz0-A-EPpbAAF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 3}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Grand Prix 3</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/V7K3s0Lf3kY?si=dhjgKTV-L89UcKAI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 4}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Grand Prix 4</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/5Ie_sMk5GAA?si=bhtI4dFY00W2gJF0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 5}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Sprint GP Chine</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/GBimHNq4xOU?si=m07Hfq6Fp66lfeW4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 6}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>GP Chine (Course)</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/fCv-JWGPzXM?si=z-lzOQ9GttU4aMd8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 7}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Sprint Miami</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/FaOXQJ7Cwi8?si=RP-_EKOjY87PXRvF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 8}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Grand Prix de Miami (Course)</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/yWYizcKduxU?si=OXXSt9gZcRHqm7o6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 9}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Grand Prix d'Imola</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/VBliAw4kLQ4?si=Wyn3FEklP4Kgdtzv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 10}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Grand Prix d'Espagne</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/1oJUTuT7oyA?si=dCFlbOarXOOePdur" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 11}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Sprint Autriche</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/d1JTE-xxDyw?si=tF6lFtDBypWpnshy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 12}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Grand Prix d'Autriche</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/N408-PQVxYA?si=Qd81NJ6DA0d4kovI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 13}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Grand Prix de Grande-Bretagne</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/rmEkhRFxKuk?si=T4MWdoMos599wmAQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 14}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Grand Prix de Belgique</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/IjGKlBzW2pA?si=oId2iRJ9MlRBZBFq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 15}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Grand Prix d'Italie</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/aOz91jvrQyA?si=5ng_rG2Cvh7eiPSk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 16}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Grand Prix d'Azerbaïdjan</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/F_TtGp1qFDs?si=1f3b_9GPtoDbsZwe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 17}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Grand Prix de Singapour</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/OL57L9duSgs?si=5nKN1nnY8lq5-nuT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 18}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Sprint États-Unis</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/V-7EwdiHB2o?si=_F-6ORE1FMpD33G-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 19}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Grand Prix des États-Unis</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/z_WQq9fZWac?si=GPj1jQu2ZqfbufxM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 20}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Grand Prix du Mexique</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/JXGGU-v8BFI?si=vW9qtrOVbmGwRIrh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 21}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Sprint Brésil</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/-jxU29-6mIA?si=vSAB9fbw_Yns7zBq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 22}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Grand Prix du Brésil</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/4D-z9A-RQ-8?si=fqzmn_Yv0rp3SvG9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 23}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Grand Prix de Las Vegas</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/oriNUOn5Ag4?si=Dot69Pgpl3EY5KOm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 24}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Sprint Qatar</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/YseSvoTEEGc?si=6vc2wxMG7ykzJ_S1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 25}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Grand Prix du Qatar</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/ckznNrCMpYs?si=ZokK5oppEHreYQlL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+    <a href="{{ path('gp_resume_show', {'id': 26}) }}" class="gp-resume-card-link">
+      <div class="gp-resume-card">
+        <h2>Grand Prix d'Abu Dhabi</h2>
+        <div class="gp-resume-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/21UdTGCoGfw?si=b2mJ5JcsEO26Vm_X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </a>
+  </div>
+  <script>
+    function filterResumes() {
+      const select = document.getElementById('resume-type');
+      const value = select.value;
+      const cards = document.querySelectorAll('.gp-resume-card');
+      cards.forEach(card => {
+        const title = card.querySelector('h2').textContent.toLowerCase();
+        if (value === 'all') {
+          card.style.display = '';
+        } else if (value === 'gp') {
+          card.style.display = title.includes('sprint') ? 'none' : '';
+        } else if (value === 'sprint') {
+          card.style.display = title.includes('sprint') ? '' : 'none';
+        }
+      });
+    }
+  </script>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Résumé {{ video.titre }}{% endblock %}
+
+{% block body %}
+<div class="gp-resume-detail-container">
+  <h1 class="gp-resume-title">{{ video.titre }}</h1>
+  <div class="gp-resume-video-detail">
+    <iframe width="560" height="315" src="{{ video.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+  <div class="gp-resume-comments">
+    <h2>Commentaires</h2>
+    <div id="comments-list">
+      {% if commentaires is empty %}
+        <p>Aucun commentaire pour l'instant.</p>
+      {% else %}
+        {% for commentaire in commentaires %}
+          <div class="gp-comment">
+            <div class="gp-comment-meta">
+              <span class="gp-comment-pseudo">{{ commentaire.user ? commentaire.user.username : 'Anonyme' }}</span>
+              <span class="gp-comment-date">{{ commentaire.createdAt|date('d/m/Y H:i') }}</span>
+            </div>
+            <div class="gp-comment-content">{{ commentaire.contenu }}</div>
+            <div class="gp-comment-actions" style="margin-top:0.5rem;">
+              <a href="{{ path('commentaire_edit', {'id': commentaire.id}) }}" class="gp-comment-btn" style="background:#444; font-size:0.95rem; padding:0.4rem 1.2rem; margin-right:0.5rem;">Éditer</a>
+              <a href="{{ path('commentaire_delete', {'id': commentaire.id}) }}" class="gp-comment-btn" style="background:#c91e1e; font-size:0.95rem; padding:0.4rem 1.2rem;">Supprimer</a>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <form method="post" action="">
+      <input type="text" name="pseudo" placeholder="Votre pseudo" required class="gp-comment-input" />
+      <textarea name="commentaire" placeholder="Votre commentaire" required class="gp-comment-textarea"></textarea>
+      <button type="submit" class="gp-comment-btn">Envoyer</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
