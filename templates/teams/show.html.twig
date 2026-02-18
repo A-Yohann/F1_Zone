@@ -3,16 +3,16 @@
 {% block title %}{{ ecurie.nom }}{% endblock %}
 
 {% block body %}
-<div class="team-detail-container" style="min-height:100vh; padding:2rem 0;">
+<div class="team-detail-container">
   <div class="team-banner bg-{{ ecurie.nom|lower|replace({' ': '-'}) }}">
-    <div style="position:relative;">
-      <img src="{{ asset('assets/img/' ~ ecurie.voitureImg) }}" alt="{{ ecurie.nom }} car" class="team-banner-car" style="position:relative;z-index:2;">
+    <div class="team-banner-img-rel">
+      <img src="{{ asset('assets/img/voiture-ecurie/' ~ ecurie.voitureImg) }}" alt="{{ ecurie.nom }} car" class="team-banner-car team-banner-car-rel">
     </div>
     <div class="team-banner-title">{{ ecurie.nom }}</div>
     <div class="drivers-list">
       {% for pilote in ecurie.pilotes %}
         <div class="driver-card">
-          <img src="{{ asset('assets/img/' ~ pilote.photo) }}" alt="{{ pilote.nom }} {{ pilote.prenom }}" class="driver-photo">
+          <img src="{{ asset('assets/img/pilote/' ~ pilote.photo) }}" alt="{{ pilote.nom }} {{ pilote.prenom }}" class="driver-photo">
           <div class="driver-info">
             <div class="driver-name">{{ pilote.prenom }} <b>{{ pilote.nom|upper }}</b></div>
           </div>

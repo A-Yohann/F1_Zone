@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Request;
-use App\Entity\ResumeVideo;
 use App\Entity\Commentaire;
 use App\Repository\ResumeVideoRepository;
 use App\Repository\CommentaireRepository;

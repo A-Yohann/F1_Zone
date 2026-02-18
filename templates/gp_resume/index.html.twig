@@ -7,7 +7,7 @@
   <h1 class="gp-resume-title">Vidéos Résumés des Grands Prix</h1>
   <div class="gp-resume-filter">
     <label for="resume-type">Filtrer par&nbsp;:</label>
-    <select id="resume-type" onchange="filterResumes()">
+    <select id="resume-type">
       <option value="all">Tous</option>
       <option value="gp">Grands Prix</option>
       <option value="sprint">Sprints</option>
@@ -223,22 +223,6 @@
       </div>
     </a>
   </div>
-  <script>
-    function filterResumes() {
-      const select = document.getElementById('resume-type');
-      const value = select.value;
-      const cards = document.querySelectorAll('.gp-resume-card');
-      cards.forEach(card => {
-        const title = card.querySelector('h2').textContent.toLowerCase();
-        if (value === 'all') {
-          card.style.display = '';
-        } else if (value === 'gp') {
-          card.style.display = title.includes('sprint') ? 'none' : '';
-        } else if (value === 'sprint') {
-          card.style.display = title.includes('sprint') ? '' : 'none';
-        }
-      });
-    }
-  </script>
+
 </div>
 {% endblock %}

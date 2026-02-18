@@ -1,3 +1,60 @@
+// Styles déplacés depuis home/index.html.twig
+.gp-filter-form-mb {
+	margin-bottom: 1.5rem;
+}
+.classement-hidden {
+	display: none;
+}
+// Styles déplacés depuis pilotes/show.html.twig
+.pilote-detail-container {
+	min-height: 100vh;
+	padding: 2rem 0;
+	color: #fff;
+}
+.pilote-banner {
+	background: linear-gradient(135deg, #222, #444 80%);
+	border-radius: 1.5rem;
+	text-align: center;
+	padding: 2rem;
+	margin-bottom: 2rem;
+}
+.pilote-photo-large {
+	width: 160px;
+	height: 160px;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 3px solid #fff3;
+}
+.pilote-banner-title {
+	font-size: 2.2rem;
+	font-weight: bold;
+	margin: 1rem 0 0.5rem 0;
+}
+.pilote-num-nat {
+	font-size: 1.2rem;
+}
+.pilote-stats-list {
+	list-style: none;
+	padding: 0;
+}
+// Styles déplacés depuis teams/show.html.twig
+.team-detail-container {
+	min-height: 100vh;
+	padding: 2rem 0;
+	color: #fff;
+}
+.team-banner-img-rel {
+	position: relative;
+}
+.team-banner-car-rel {
+	position: relative;
+	z-index: 2;
+}
+// Styles globaux déplacés depuis les templates
+.bg-dark {
+	min-height: 100vh;
+	padding: 2rem 0;
+}
 // Mega-menu Pilotes (même style que Teams)
 .navbar-megamenu-pilotes {
 	width: 1200px;
@@ -27,6 +84,15 @@
 	background: #23243a;
 	display: flex;
 	align-items: center;
+}
+
+/* Arrondi images pilotes dans le mega-menu pilotes */
+.navbar-megamenu-pilotes .team-card .team-car-img {
+	border-radius: 50%;
+	object-fit: cover;
+	border: 2px solid #fff3;
+	background: none;
+	margin-left: 1.2rem;
 }
 
 .navbar-megamenu-pilotes .team-car-img {
@@ -74,18 +140,67 @@
 	display: block;
 }
 
+
 .navbar-megamenu .teams-grid {
-	grid-template-columns: repeat(3, minmax(240px, 1fr));
-	gap: 1.5rem;
+	display: grid;
+	grid-template-columns: repeat(2, minmax(380px, 1fr));
+	gap: 2.5rem;
+	justify-items: center;
+	align-items: stretch;
 	margin: 0;
 }
 
+
 .navbar-megamenu .team-card {
-	min-width: 0;
-	min-height: 120px;
-	padding: 1rem 1.2rem;
-	box-shadow: 0 1px 8px #0003;
+	width: 95%;
+	max-width: 700px;
+	min-height: 180px;
+	aspect-ratio: 3.8/1;
+	border-radius: 1.5rem;
+	overflow: hidden;
+	position: relative;
+	box-shadow: 0 8px 32px #000b;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	padding: 0;
+	transition: transform 0.2s, box-shadow 0.2s;
+	margin-bottom: 0;
+	background-blend-mode: overlay;
 	font-size: 0.95rem;
+}
+.navbar-megamenu .team-card:hover {
+	transform: translateY(-8px) scale(1.03);
+	box-shadow: 0 16px 48px #000c;
+}
+
+/* Team name top left */
+.navbar-megamenu .team-card .team-name {
+	position: absolute;
+	top: 1.5rem;
+	left: 2rem;
+	font-size: 2rem;
+	font-weight: bold;
+	color: #fff;
+	margin: 0;
+	z-index: 2;
+	text-align: left;
+}
+
+/* Center car image horizontally */
+.navbar-megamenu .team-card .team-car-img {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	height: 80px;
+	width: auto;
+	max-width: 80%;
+	z-index: 1;
+	margin: 0;
+	background: none;
+	border-radius: 0;
 }
 
 .navbar-megamenu .team-car-img {

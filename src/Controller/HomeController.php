@@ -10,7 +10,6 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Repository\PiloteRepository;
 use App\Repository\CourseRepository;
-use App\Entity\Pilote;
 
 final class HomeController extends AbstractController
 {

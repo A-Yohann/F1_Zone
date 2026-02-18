@@ -3,7 +3,7 @@
 {% block title %}Teams{% endblock %}
 
 {% block body %}
-<div class="bg-dark" style="min-height:100vh; padding:2rem 0;">
+<div class="bg-dark">
   <div class="teams-cards-full">
     {% for ecurie in ecuries %}
     <a href="{{ path('app_team_show', {id: ecurie.id}) }}" class="team-card-link">
@@ -13,13 +13,13 @@
             <div class="team-name-full team-name-compact">{{ ecurie.nom }}</div>
             <div class="team-pilotes team-pilotes-compact">
               {% for pilote in ecurie.pilotes %}
-                <img src="{{ asset('assets/img/' ~ pilote.photo) }}" alt="{{ pilote.nom }} {{ pilote.prenom }}" class="pilote-avatar pilote-avatar-compact"> {{ pilote.prenom }} <b>{{ pilote.nom|upper }}</b>
+                <img src="{{ asset('assets/img/pilote/' ~ pilote.photo) }}" alt="{{ pilote.nom }} {{ pilote.prenom }}" class="pilote-avatar pilote-avatar-compact"> {{ pilote.prenom }} <b>{{ pilote.nom|upper }}</b>
               {% endfor %}
             </div>
           </div>
-          <img src="{{ asset('assets/img/' ~ ecurie.logo) }}" alt="{{ ecurie.nom }} logo" class="team-logo team-logo-compact">
+          <img src="{{ asset('assets/img/logo-ecurie/' ~ ecurie.logo) }}" alt="{{ ecurie.nom }} logo" class="team-logo team-logo-compact">
         </div>
-        <img src="{{ asset('assets/img/' ~ ecurie.voitureImg) }}" alt="{{ ecurie.nom }}" class="team-car-full team-car-compact">
+        <img src="{{ asset('assets/img/voiture-ecurie/' ~ ecurie.voitureImg) }}" alt="{{ ecurie.nom }}" class="team-car-full team-car-compact">
       </div>
     </a>
     {% endfor %}

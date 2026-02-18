@@ -3,16 +3,16 @@
 {% block title %}{{ pilote.prenom }} {{ pilote.nom }}{% endblock %}
 
 {% block body %}
-<div class="pilote-detail-container" style="min-height:100vh; padding:2rem 0; color:#fff;">
-  <div class="pilote-banner" style="background: linear-gradient(135deg, #222, #444 80%); border-radius:1.5rem; text-align:center; padding:2rem; margin-bottom:2rem;">
-    <img src="{{ asset('assets/img/' ~ pilote.photo) }}" alt="{{ pilote.nom }} {{ pilote.prenom }}" class="pilote-photo-large" style="width:160px;height:160px;border-radius:50%;object-fit:cover;border:3px solid #fff3;">
-    <div class="pilote-banner-title" style="font-size:2.2rem;font-weight:bold;margin:1rem 0 0.5rem 0;">{{ pilote.prenom }} <b>{{ pilote.nom|upper }}</b></div>
-    <div class="pilote-num-nat" style="font-size:1.2rem;">#{{ pilote.numero }} | {{ pilote.nationalite }}</div>
+<div class="pilote-detail-container">
+  <div class="pilote-banner">
+    <img src="{{ asset('assets/img/pilote/' ~ pilote.photo) }}" alt="{{ pilote.nom }} {{ pilote.prenom }}" class="pilote-photo-large">
+    <div class="pilote-banner-title">{{ pilote.prenom }} <b>{{ pilote.nom|upper }}</b></div>
+    <div class="pilote-num-nat">#{{ pilote.numero }} | {{ pilote.nationalite }}</div>
   </div>
   <h2 class="section-title">Statistiques 2024</h2>
   <div class="stats-section">
     <div class="stats-block">
-      <ul style="list-style:none;padding:0;">
+      <ul class="pilote-stats-list">
         <li>Kilomètres parcourus : <b>{{ stats2024.km|default(0) }}</b></li>
         <li>Points remportés : <b>{{ stats2024.points|default(0) }}</b></li>
       </ul>

@@ -2,10 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Commentaire;
-use App\Entity\ResumeVideo;
 use App\Repository\CommentaireRepository;
-use App\Repository\ResumeVideoRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
