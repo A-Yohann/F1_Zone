@@ -4,14 +4,19 @@
 
 {% block body %}
 <div class="team-detail-container" style="min-height:100vh; padding:2rem 0;">
-  <div class="team-banner" style="background: {{ ecurie.couleurPrincipale ? 'linear-gradient(135deg,' ~ ecurie.couleurPrincipale ~ ',#222)' : '#222'}};">
+  <div class="team-banner bg-{{ ecurie.nom|lower|replace({' ': '-'}) }}">
     <div style="position:relative;">
       <img src="{{ asset('assets/img/' ~ ecurie.voitureImg) }}" alt="{{ ecurie.nom }} car" class="team-banner-car" style="position:relative;z-index:2;">
     </div>
     <div class="team-banner-title">{{ ecurie.nom }}</div>
-    <div class="team-banner-pilotes">
+    <div class="drivers-list">
       {% for pilote in ecurie.pilotes %}
-        <span class="team-pilote-link" data-pilote-id="{{ pilote.id }}" style="cursor:pointer;text-decoration:underline dotted;">{{ pilote.prenom }} {{ pilote.nom }}</span>{% if not loop.last %} - {% endif %}
+        <div class="driver-card">
+          <img src="{{ asset('assets/img/' ~ pilote.photo) }}" alt="{{ pilote.nom }} {{ pilote.prenom }}" class="driver-photo">
+          <div class="driver-info">
+            <div class="driver-name">{{ pilote.prenom }} <b>{{ pilote.nom|upper }}</b></div>
+          </div>
+        </div>
       {% endfor %}
     </div>
   </div>
@@ -36,45 +41,6 @@
       {% endfor %}
     </tbody>
   </table>
-  <h2 class="section-title">Statistics 2024</h2>
-  <div class="stats-section">
-    <div class="stats-block" id="stats-block">
-      <h3 id="stats-title">2024 Season</h3>
-      <ul style="list-style:none;padding:0;" id="stats-list">
-        <li>Kilomètres parcourus : <b id="stat-km">{{ ecurie.stats2024.km|default(0) }}</b></li>
-        <li>Points remportés : <b id="stat-points">{{ ecurie.stats2024.points|default(0) }}</b></li>
-      </ul>
-    </div>
-    <div class="stats-block">
-      <h3>Team Summary</h3>
-      <!-- Ajoute ici d'autres stats si besoin -->
-    </div>
-  </div>
-</style>
-<script>
-// Simuler les stats pilotes (à remplacer par des vraies données dynamiques)
-const pilotesStats = {
-  {% for pilote in ecurie.pilotes %}
-    {{ pilote.id }}: { km: {{ pilote.stats2024.km|default(0) }}, points: {{ pilote.stats2024.points|default(0) }}, nom: '{{ pilote.prenom }} {{ pilote.nom|e('js') }}' },
-  {% endfor %}
-};
-const ecurieStats = { km: {{ ecurie.stats2024.km|default(0) }}, points: {{ ecurie.stats2024.points|default(0) }} };
-
-document.querySelectorAll('.team-pilote-link, .driver-card').forEach(el => {
-  el.addEventListener('click', function() {
-    const piloteId = this.getAttribute('data-pilote-id');
-    if (piloteId && pilotesStats[piloteId]) {
-      document.getElementById('stats-title').textContent = '2024 - ' + pilotesStats[piloteId].nom;
-      document.getElementById('stat-km').textContent = pilotesStats[piloteId].km;
-      document.getElementById('stat-points').textContent = pilotesStats[piloteId].points;
-    } else {
-      document.getElementById('stats-title').textContent = '2024 Season';
-      document.getElementById('stat-km').textContent = ecurieStats.km;
-      document.getElementById('stat-points').textContent = ecurieStats.points;
-    }
-  });
-});
-</script>
 </div>
 <style>
 .team-detail-container { color: #fff; }
