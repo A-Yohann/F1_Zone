@@ -1,0 +1,35 @@
+.stats-pilotes-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+.stats-pilotes-table th {
+  background: none;
+  color: #e00;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.7rem 1.2rem;
+  border-bottom: 2px solid #e00;
+  text-align: left;
+}
+.stats-pilotes-table td {
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 0.7rem 1.2rem;
+  border-bottom: 1px solid #222;
+}
+.stats-pilotes-table tr:last-child td {
+  border-bottom: none;
+}
+.stats-pilotes-table tr:hover td {
+  background: #222a;
+}
+.stats-pilotes-table .pilote-nom {
+  font-weight: bold;
+}
+.stats-pilotes-table .pilote-num {
+  color: #fff8;
+}
+.stats-pilotes-table .pilote-team {
+  color: #fff6;
+}

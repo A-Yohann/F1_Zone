@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Entity;
 
+namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Ecurie;
 
 #[ORM\Entity(repositoryClass: 'App\\Repository\\PiloteRepository')]
 #[ORM\Table(name: 'pilote')]
@@ -11,6 +12,19 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Index(columns: ['numero'], name: 'idx_pilote_numero')]
 class Pilote
 {
+    #[ORM\OneToOne(mappedBy: 'pilote', targetEntity: PiloteStat::class, cascade: ['persist', 'remove'])]
+    private ?PiloteStat $piloteStat = null;
+
+    public function getPiloteStat(): ?PiloteStat
+    {
+        return $this->piloteStat;
+    }
+
+    public function setPiloteStat(?PiloteStat $piloteStat): static
+    {
+        $this->piloteStat = $piloteStat;
+        return $this;
+    }
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]

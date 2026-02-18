@@ -1,0 +1,226 @@
+.team-logo.bg-red-bull-racing,
+.team-logo.bg-red-bull,
+.team-logo.bg-redbull,
+.team-logo.bg-rb,
+.team-logo.bg-mclaren {
+  background: rgba(10, 10, 20, 0.82) !important;
+  filter: none !important;
+}
+.bg-rb {
+  background: linear-gradient(90deg, #0038c2 0%, #fff 100%) !important;
+}
+.bg-aston-martin {
+  background: linear-gradient(90deg, #229971 0%, #0f4331 100%) !important;
+}
+.bg-williams {
+  background: linear-gradient(90deg, #1868db 0%, #082145 100%) !important;
+}
+.bg-haas {
+  background: linear-gradient(90deg, #dee1e2 0%, #667175 100%) !important;
+}
+.bg-alpine {
+  background: linear-gradient(90deg, #0090ff 0%, #ff5fc6 100%) !important;
+}
+.bg-red-bull-racing, .bg-red-bull, .bg-redbull {
+  background: linear-gradient(90deg, #142948 0%, #ffd600 100%) !important;
+}
+.bg-racing-bulls, .bg-racing-bulls-f1, .bg-visa-cash-app-rb {
+  background: linear-gradient(90deg, #fff 0%, #0038c2 100%) !important;
+}
+// Compact/override classes for team cards (used after removing inline styles from Twig)
+.team-header-compact {
+  padding: 1.2rem 1.5rem;
+}
+.team-name-compact {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.team-pilotes-compact {
+  gap: 0.7rem;
+  font-size: 1rem;
+}
+.pilote-avatar-compact {
+  width: 32px;
+  height: 32px;
+}
+.team-logo-compact {
+  width: 48px;
+  height: 48px;
+}
+.team-car-compact {
+  margin-top: 0.5rem;
+}
+
+// --- F1 Teams Cards ---
+// Grille 3 cards par ligne sur desktop
+
+// Grille 3 cards par ligne sur desktop
+.teams-cards-full {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+
+.team-card-link {
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  display: block;
+  height: 100%;
+}
+
+// Card principale avec overlay de points et logo en overlay
+.team-card-full {
+  width: 100%;
+  min-height: 320px;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 32px #000b;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 0;
+  background-blend-mode: overlay;
+}
+.team-card-full::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image: url('data:image/svg+xml;utf8,<svg width="100%25" height="100%25" viewBox="0 0 400 120" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.18"> <circle cx="10" cy="10" r="4" fill="white"/><circle cx="30" cy="10" r="4" fill="white"/><circle cx="50" cy="10" r="4" fill="white"/><circle cx="70" cy="10" r="4" fill="white"/><circle cx="90" cy="10" r="4" fill="white"/><circle cx="110" cy="10" r="4" fill="white"/><circle cx="130" cy="10" r="4" fill="white"/><circle cx="150" cy="10" r="4" fill="white"/><circle cx="170" cy="10" r="4" fill="white"/><circle cx="190" cy="10" r="4" fill="white"/><circle cx="210" cy="10" r="4" fill="white"/><circle cx="230" cy="10" r="4" fill="white"/><circle cx="250" cy="10" r="4" fill="white"/><circle cx="270" cy="10" r="4" fill="white"/><circle cx="290" cy="10" r="4" fill="white"/><circle cx="310" cy="10" r="4" fill="white"/><circle cx="330" cy="10" r="4" fill="white"/><circle cx="350" cy="10" r="4" fill="white"/><circle cx="370" cy="10" r="4" fill="white"/><circle cx="390" cy="10" r="4" fill="white"/></g></svg>');
+  background-repeat: repeat;
+  background-size: 120px 40px;
+  opacity: 0.18;
+}
+.team-card-full:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 16px 48px #000c;
+}
+.team-card-full:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 16px 48px #000c;
+}
+
+
+// Header compact, logo overlay à droite
+.team-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 2rem 2.2rem 0 2.2rem;
+  position: relative;
+  z-index: 2;
+}
+.team-name-full {
+  font-size: 2.1rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.7rem;
+  color: #fff;
+}
+.team-pilotes {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  font-size: 1.08rem;
+  color: #fff;
+}
+.pilote-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.3rem;
+  border: 2px solid #fff3;
+}
+.team-logo {
+  position: absolute;
+  top: 2rem;
+  right: 2.2rem;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  background: #fff2;
+  border-radius: 50%;
+  padding: 0.5rem;
+  z-index: 3;
+}
+.team-car-full {
+  width: 80%;
+  max-width: 520px;
+  margin: 1.2rem auto 1.2rem auto;
+  display: block;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+}
+
+
+// --- F1 Team Gradients ---
+.bg-alpine {
+  background: linear-gradient(90deg, #004e70 0%, #00a1e8 100%);
+}
+.bg-aston-martin {
+  background: linear-gradient(90deg, #0f4331 0%, #229971 100%);
+}
+.bg-kick-sauber {
+  background: linear-gradient(90deg, #0f3d1e 0%, #111 100%) !important;
+}
+.bg-cadillac {
+  background: linear-gradient(90deg, #001b36 0%, #bfc9d1 100%);
+}
+.bg-ferrari {
+  background: linear-gradient(90deg, #e8002d 0%, #fff 100%);
+}
+.bg-haas {
+  background: linear-gradient(90deg, #fff 0%, #e8002d 100%) !important;
+}
+.bg-mclaren {
+  background: linear-gradient(90deg, #ff8000 0%, #fff 100%);
+}
+.bg-mercedes {
+  background: linear-gradient(90deg, #27f4d2 0%, #222 100%);
+}
+.bg-racing-bulls {
+  background: linear-gradient(90deg, #fff 0%, #0038c2 100%);
+}
+.bg-redbull {
+  background: linear-gradient(90deg, #142948 0%, #ffd600 100%);
+}
+.bg-williams {
+  background: linear-gradient(90deg, #1e3a5c 0%, #a97c50 100%) !important;
+}
+
+// Responsive
+@media (max-width: 1200px) {
+  .teams-cards-full {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 800px) {
+  .teams-cards-full {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .team-card-full {
+    min-height: 220px;
+  }
+  .team-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.2rem 1rem 0.5rem 1rem;
+  }
+  .team-logo {
+    position: static;
+    margin-top: 1rem;
+    align-self: flex-end;
+  }
+}

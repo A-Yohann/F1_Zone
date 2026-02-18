@@ -16,9 +16,142 @@
         <header>
             <nav>
                 <img src="{{ asset('assets/img/casque-logo.png')}}" alt="Logo du site" class="logo-header">
-                <a href="{{ path('app_home') }}">Home</a>
-                <a href="{{ path('app_circuits') }}">Circuits</a>
-                <a href="{{ path('app_pilotes') }}">Pilotes</a>
+                                <a href="{{ path('app_home') }}">Home</a>
+                                <div class="navbar-megamenu-wrapper">
+                                    <a href="{{ path('app_teams') }}" class="navbar-megamenu-link">Teams</a>
+                                    <div class="navbar-megamenu">
+                                        <div class="teams-grid">
+                                            <div class="team-card bg-alpine">
+                                                <img src="{{ asset('assets/img/voiture-alpine.webp') }}" alt="Alpine" class="team-car-img">
+                                                <div><div class="team-name">Alpine</div></div>
+                                            </div>
+                                            <div class="team-card bg-aston-martin">
+                                                <img src="{{ asset('assets/img/voiture-aston-martin.avif') }}" alt="Aston Martin" class="team-car-img">
+                                                <div><div class="team-name">Aston Martin</div></div>
+                                            </div>
+                                            <div class="team-card bg-kick-sauber">
+                                                <img src="{{ asset('assets/img/voiture-kicksauber.avif') }}" alt="Kick Sauber" class="team-car-img">
+                                                <div><div class="team-name">Kick Sauber</div></div>
+                                            </div>
+                                            <div class="team-card bg-ferrari">
+                                                <img src="{{ asset('assets/img/voiture-ferrari.avif') }}" alt="Ferrari" class="team-car-img">
+                                                <div><div class="team-name">Ferrari</div></div>
+                                            </div>
+                                            <div class="team-card bg-haas">
+                                                <img src="{{ asset('assets/img/voiture-haas.avif') }}" alt="Haas F1 Team" class="team-car-img">
+                                                <div><div class="team-name">Haas F1 Team</div></div>
+                                            </div>
+                                            <div class="team-card bg-mclaren">
+                                                <img src="{{ asset('assets/img/voiture-mclaren.avif') }}" alt="McLaren" class="team-car-img">
+                                                <div><div class="team-name">McLaren</div></div>
+                                            </div>
+                                            <div class="team-card bg-mercedes">
+                                                <img src="{{ asset('assets/img/voiture-mercedes.avif') }}" alt="Mercedes" class="team-car-img">
+                                                <div><div class="team-name">Mercedes</div></div>
+                                            </div>
+                                            <div class="team-card bg-racing-bulls">
+                                                <img src="{{ asset('assets/img/voiture-racingbull.avif') }}" alt="Racing Bulls" class="team-car-img">
+                                                <div><div class="team-name">Racing Bulls</div></div>
+                                            </div>
+                                            <div class="team-card bg-redbull">
+                                                <img src="{{ asset('assets/img/voiture-redbull.avif') }}" alt="Red Bull Racing" class="team-car-img">
+                                                <div><div class="team-name">Red Bull Racing</div></div>
+                                            </div>
+                                            <div class="team-card bg-williams">
+                                                <img src="{{ asset('assets/img/voiture-williams.avif') }}" alt="Williams" class="team-car-img">
+                                                <div><div class="team-name">Williams</div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="navbar-megamenu-wrapper">
+                                    <a href="{{ path('app_pilotes') }}" class="navbar-megamenu-link">Pilotes</a>
+                                    <div class="navbar-megamenu navbar-megamenu-pilotes">
+                                        <div class="teams-grid">
+                                            <div class="team-card">
+                                                <img src="{{ asset('assets/img/verstappen.avif') }}" alt="Max Verstappen" class="team-car-img">
+                                                <div><div class="team-name">Max Verstappen</div></div>
+                                            </div>
+                                            <div class="team-card">
+                                                <img src="{{ asset('assets/img/perez.avif') }}" alt="Sergio Perez" class="team-car-img">
+                                                <div><div class="team-name">Sergio Perez</div></div>
+                                            </div>
+                                            <div class="team-card">
+                                                <img src="{{ asset('assets/img/leclerc.avif') }}" alt="Charles Leclerc" class="team-car-img">
+                                                <div><div class="team-name">Charles Leclerc</div></div>
+                                            </div>
+                                            <div class="team-card">
+                                                <img src="{{ asset('assets/img/sainz.avif') }}" alt="Carlos Sainz" class="team-car-img">
+                                                <div><div class="team-name">Carlos Sainz</div></div>
+                                            </div>
+                                            <div class="team-card">
+                                                <img src="{{ asset('assets/img/hamilton.avif') }}" alt="Lewis Hamilton" class="team-car-img">
+                                                <div><div class="team-name">Lewis Hamilton</div></div>
+                                            </div>
+                                            <div class="team-card">
+                                                <img src="{{ asset('assets/img/russell.avif') }}" alt="George Russell" class="team-car-img">
+                                                <div><div class="team-name">George Russell</div></div>
+                                            </div>
+                                            <div class="team-card">
+                                                <img src="{{ asset('assets/img/norris.avif') }}" alt="Lando Norris" class="team-car-img">
+                                                <div><div class="team-name">Lando Norris</div></div>
+                                            </div>
+                                            <div class="team-card">
+                                                <img src="{{ asset('assets/img/piastri.avif') }}" alt="Oscar Piastri" class="team-car-img">
+                                                <div><div class="team-name">Oscar Piastri</div></div>
+                                            </div>
+                                            <div class="team-card">
+                                                <img src="{{ asset('assets/img/alonso.avif') }}" alt="Fernando Alonso" class="team-car-img">
+                                                <div><div class="team-name">Fernando Alonso</div></div>
+                                            </div>
+                                            <div class="team-card">
+                                                <img src="{{ asset('assets/img/stroll.avif') }}" alt="Lance Stroll" class="team-car-img">
+                                                <div><div class="team-name">Lance Stroll</div></div>
+                                            </div>
+                                            <div class="team-card">
+                                                <img src="{{ asset('assets/img/ocon.avif') }}" alt="Esteban Ocon" class="team-car-img">
+                                                <div><div class="team-name">Esteban Ocon</div></div>
+                                            </div>
+                                            <div class="team-card">
+                                                <img src="{{ asset('assets/img/gasly.avif') }}" alt="Pierre Gasly" class="team-car-img">
+                                                <div><div class="team-name">Pierre Gasly</div></div>
+                                            </div>
+                                            <div class="team-card">
+                                                <img src="{{ asset('assets/img/bottas.avif') }}" alt="Valtteri Bottas" class="team-car-img">
+                                                <div><div class="team-name">Valtteri Bottas</div></div>
+                                            </div>
+                                            <div class="team-card">
+                                                <img src="{{ asset('assets/img/zhou.avif') }}" alt="Guanyu Zhou" class="team-car-img">
+                                                <div><div class="team-name">Guanyu Zhou</div></div>
+                                            </div>
+                                            <div class="team-card">
+                                                <img src="{{ asset('assets/img/tsunoda.avif') }}" alt="Yuki Tsunoda" class="team-car-img">
+                                                <div><div class="team-name">Yuki Tsunoda</div></div>
+                                            </div>
+                                            <div class="team-card">
+                                                <img src="{{ asset('assets/img/ricciardo.avif') }}" alt="Daniel Ricciardo" class="team-car-img">
+                                                <div><div class="team-name">Daniel Ricciardo</div></div>
+                                            </div>
+                                            <div class="team-card">
+                                                <img src="{{ asset('assets/img/magnussen.avif') }}" alt="Kevin Magnussen" class="team-car-img">
+                                                <div><div class="team-name">Kevin Magnussen</div></div>
+                                            </div>
+                                            <div class="team-card">
+                                                <img src="{{ asset('assets/img/hulkenberg.avif') }}" alt="Nico Hülkenberg" class="team-car-img">
+                                                <div><div class="team-name">Nico Hülkenberg</div></div>
+                                            </div>
+                                            <div class="team-card">
+                                                <img src="{{ asset('assets/img/albon.avif') }}" alt="Alex Albon" class="team-car-img">
+                                                <div><div class="team-name">Alex Albon</div></div>
+                                            </div>
+                                            <div class="team-card">
+                                                <img src="{{ asset('assets/img/sargeant.avif') }}" alt="Logan Sargeant" class="team-car-img">
+                                                <div><div class="team-name">Logan Sargeant</div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="{{ path('app_circuits') }}">Circuits</a>
                 <a href="{{ path('article_index') }}">Actus</a>
                 <a href="{{ path('app_reglementation_fia') }}">Réglementation FIA</a>
                 {% if app.user %}
