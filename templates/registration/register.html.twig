@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<div class="auth-form-container">
+    <h1 class="auth-form-title">Inscription</h1>
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="auth-form form-error-message" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+    {% for message in app.flashes('success') %}
+        <div class="auth-form form-success-message" role="alert">{{ message }}</div>
+    {% endfor %}
+    {% for message in app.flashes('danger') %}
+        <div class="auth-form form-error-message" role="alert">{{ message }}</div>
+    {% endfor %}
+    <form method="post" class="auth-form">
+        {# Affiche les erreurs globales du formulaire #}
+        {{ form_errors(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_errors(registrationForm.email) }}
+        {{ form_row(registrationForm.username, { label: 'Nom d\'utilisateur' }) }}
+        {{ form_errors(registrationForm.username) }}
+        {{ form_row(registrationForm.plainPassword, { label: 'Mot de passe' }) }}
+        {{ form_errors(registrationForm.plainPassword) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+        {{ form_errors(registrationForm.agreeTerms) }}
+        {{ form_row(registrationForm._token) }}
+        <button type="submit">S'inscrire</button>
+        <div class="form-links" style="margin-top: 1.5rem;">
+            <a href="{{ path('app_login') }}" class="auth-link-simple">Déjà inscrit ? Se connecter</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -21,7 +21,7 @@ class Commentaire
     private ?User $user = null;
 
     #[ORM\ManyToOne(targetEntity: Article::class, inversedBy: 'commentaires')]
-    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'CASCADE')]
     private ?Article $article = null;
 
     #[ORM\ManyToOne(targetEntity: ResumeVideo::class)]

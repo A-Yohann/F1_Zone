@@ -1,0 +1,131 @@
+.auth-form-container {
+  max-width: 420px;
+  margin: 3rem auto;
+  background: #181924;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px #0004;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  color: #fff;
+}
+.auth-form-title {
+  text-align: center;
+  color: #ff2d2d;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+.auth-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #ff2d2d;
+  font-weight: 500;
+}
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+  width: 100%;
+  background: #23243a;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #fff;
+  padding: 0.7rem 1rem;
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+}
+.auth-form input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+.auth-form .form-check-label {
+  color: #fff;
+  font-size: 1rem;
+}
+.auth-form button {
+  background: #ff2d2d;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 0.5rem;
+}
+.auth-form button:hover {
+  background: #c91e1e;
+}
+.auth-form .form-error-message {
+  color: #ff6b6b;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  text-align: center;
+}
+.auth-form .form-links {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+.auth-form .form-links a {
+  color: #ff2d2d;
+  text-decoration: underline;
+  margin: 0 0.5rem;
+  font-size: 1rem;
+}
+.auth-link {
+  color: #fff;
+  background: #23243a;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1.08rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  display: inline-block;
+}
+.auth-link span {
+  color: #ff2d2d;
+  font-weight: bold;
+  margin-left: 0.3rem;
+}
+.auth-link:hover {
+  background: #ff2d2d;
+  color: #fff;
+}
+.auth-link-alt {
+  color: #ff2d2d;
+  background: none;
+  border: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-decoration: underline;
+  padding: 0;
+  transition: color 0.2s;
+}
+.auth-link-alt span {
+  color: #fff;
+  background: #ff2d2d;
+  border-radius: 4px;
+  padding: 0.1rem 0.5rem;
+  margin-left: 0.3rem;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+.auth-link-alt:hover {
+  color: #fff;
+}
+.auth-link-alt:hover span {
+  background: #c91e1e;
+}
+.auth-link-simple {
+  color: #ff2d2d;
+  background: none;
+  border: none;
+  font-size: 1.08rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0;
+  transition: color 0.2s, text-decoration 0.2s;
+}
+.auth-link-simple:hover {
+  color: #ff2d2d;
+  text-decoration: underline;
+}

@@ -38,14 +38,17 @@ class GpResumeController extends AbstractController
         // Gestion du formulaire de commentaire
         if ($request->isMethod('POST')) {
             $contenu = $request->request->get('commentaire');
-            $pseudo = $request->request->get('pseudo');
-            if ($contenu && $pseudo) {
+            if ($contenu) {
+                if (!$this->getUser()) {
+                    $this->addFlash('danger', 'Vous devez être connecté pour poster un commentaire.');
+                    return $this->redirectToRoute('app_login');
+                }
                 $comment = new Commentaire();
                 $comment->setContenu($contenu);
                 $comment->setResumeVideo($video);
                 $comment->setIsApproved(true);
                 $comment->setCreatedAt(new \DateTimeImmutable());
-                // Si tu veux lier à un User, ajoute ici
+                $comment->setUser($this->getUser());
                 $em->persist($comment);
                 $em->flush();
                 return $this->redirectToRoute('gp_resume_show', ['id' => $id]);

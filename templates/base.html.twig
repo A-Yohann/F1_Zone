@@ -21,6 +21,15 @@
                 <a href="{{ path('app_pilotes') }}">Pilotes</a>
                 <a href="{{ path('article_index') }}">Actus</a>
                 <a href="{{ path('app_reglementation_fia') }}">Réglementation FIA</a>
+                {% if app.user %}
+                    {% if 'ROLE_ADMIN' in app.user.roles %}
+                        <a href="{{ path('admin') }}">Admin</a>
+                    {% endif %}
+                    <a href="{{ path('app_logout') }}">Déconnexion</a>
+                {% else %}
+                    <a href="{{ path('app_login') }}">Connexion</a>
+                    <a href="{{ path('app_register') }}">Inscription</a>
+                {% endif %}
             </nav>
         </header>
     <body>
