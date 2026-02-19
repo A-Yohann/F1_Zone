@@ -1,54 +1,86 @@
-.team-logo.bg-red-bull-racing,
-.team-logo.bg-red-bull,
-.team-logo.bg-redbull,
-.team-logo.bg-rb,
-.team-logo.bg-mclaren {
-  background: rgba(10, 10, 20, 0.82) !important;
-  filter: none !important;
+// Styles déplacés depuis le template show.html.twig
+.team-detail-container { color: #fff; }
+.team-banner {
+  position: relative;
+  border-radius: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  text-align: center;
 }
-.bg-rb {
-  background: linear-gradient(90deg, #0038c2 0%, #fff 100%) !important;
+.team-banner-car {
+  width: 60%;
+  max-width: 600px;
+  margin-bottom: 1.5rem;
 }
-.bg-aston-martin {
-  background: linear-gradient(90deg, #229971 0%, #0f4331 100%) !important;
-}
-.bg-williams {
-  background: linear-gradient(90deg, #1868db 0%, #082145 100%) !important;
-}
-.bg-haas {
-  background: linear-gradient(90deg, #dee1e2 0%, #667175 100%) !important;
-}
-.bg-alpine {
-  background: linear-gradient(90deg, #0090ff 0%, #ff5fc6 100%) !important;
-}
-.bg-red-bull-racing, .bg-red-bull, .bg-redbull {
-  background: linear-gradient(90deg, #142948 0%, #ffd600 100%) !important;
-}
-.bg-racing-bulls, .bg-racing-bulls-f1, .bg-visa-cash-app-rb {
-  background: linear-gradient(90deg, #fff 0%, #0038c2 100%) !important;
-}
-// Compact/override classes for team cards (used after removing inline styles from Twig)
-.team-header-compact {
-  padding: 1.2rem 1.5rem;
-}
-.team-name-compact {
-  font-size: 1.5rem;
+.team-banner-title {
+  font-size: 2.5rem;
+  font-weight: bold;
   margin-bottom: 0.5rem;
 }
-.team-pilotes-compact {
-  gap: 0.7rem;
-  font-size: 1rem;
+.team-banner-pilotes {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
 }
-.pilote-avatar-compact {
-  width: 32px;
-  height: 32px;
+.team-pilote-link {
+  color: #fff;
+  text-decoration: underline dotted;
+  font-weight: 500;
+  transition: color 0.2s;
 }
-.team-logo-compact {
-  width: 48px;
-  height: 48px;
+.team-pilote-link:hover {
+  color: #ffd700;
 }
-.team-car-compact {
-  margin-top: 0.5rem;
+.section-title {
+  font-size: 1.6rem;
+  margin: 2rem 0 1rem 0;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #fff2;
+  padding-bottom: 0.5rem;
+}
+.drivers-directors-list {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.driver-card, .director-card {
+  background: #222c;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  min-width: 260px;
+  box-shadow: 0 2px 12px #0006;
+}
+.driver-photo {
+  width: 90px !important;
+  height: 90px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  border: 2px solid #fff3 !important;
+  display: block !important;
+}
+.driver-info, .director-info {
+  text-align: left;
+}
+.driver-name, .director-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.stats-section {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.stats-block {
+  background: #222c;
+  border-radius: 1rem;
+  padding: 2rem;
+  min-width: 300px;
+  box-shadow: 0 2px 12px #0006;
 }
 
 // --- F1 Teams Cards ---
@@ -166,7 +198,7 @@
 
 // --- F1 Team Gradients ---
 .bg-alpine {
-  background: linear-gradient(90deg, #004e70 0%, #00a1e8 100%);
+  background: linear-gradient(90deg, #0090ff 0%, #ff5fc6 100%) !important;
 }
 .bg-aston-martin {
   background: linear-gradient(90deg, #0f4331 0%, #229971 100%);
@@ -178,10 +210,10 @@
   background: linear-gradient(90deg, #001b36 0%, #bfc9d1 100%);
 }
 .bg-ferrari {
-  background: linear-gradient(90deg, #e8002d 0%, #fff 100%);
+  background: linear-gradient(90deg, #e8002d 0%, #ffd600 100%) !important;
 }
 .bg-haas {
-  background: linear-gradient(90deg, #fff 0%, #e8002d 100%) !important;
+  background: linear-gradient(90deg, #111 0%, #e8002d 100%) !important;
 }
 .bg-mclaren {
   background: linear-gradient(90deg, #ff8000 0%, #fff 100%);
@@ -193,10 +225,24 @@
   background: linear-gradient(90deg, #fff 0%, #0038c2 100%);
 }
 .bg-redbull {
-  background: linear-gradient(90deg, #142948 0%, #ffd600 100%);
+  background: linear-gradient(90deg, #142948 0%, #ffd600 100%) !important;
 }
 .bg-williams {
   background: linear-gradient(90deg, #1e3a5c 0%, #a97c50 100%) !important;
+}
+.bg-red-bull-racing,
+.bg-red-bull,
+.bg-redbull,
+.bg-rb {
+  background: linear-gradient(90deg, #0038c2 0%, #fff 100%) !important;
+}
+.bg-red-bull-racing,
+.bg-red-bull {
+  background: linear-gradient(90deg, #0038c2 0%, #ffd600 100%) !important;
+}
+.bg-redbull,
+.bg-rb {
+  background: linear-gradient(90deg, #0038c2 0%, #fff 100%) !important;
 }
 
 // Responsive

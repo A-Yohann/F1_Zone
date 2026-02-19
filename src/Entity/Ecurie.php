@@ -38,6 +38,12 @@ namespace App\Entity;
         #[ORM\Column(type: 'string', length: 255, nullable: true)]
         private ?string $voitureImg = null;
 
+        #[ORM\Column(type: 'string', length: 100, nullable: true)]
+        private ?string $directeurNom = null;
+
+        #[ORM\Column(type: 'string', length: 255, nullable: true)]
+        private ?string $directeurImg = null;
+
         #[ORM\ManyToMany(targetEntity: Pilote::class)]
         private Collection $pilotes;
 
@@ -125,6 +131,28 @@ namespace App\Entity;
         public function setVoitureImg(?string $voitureImg): static
         {
             $this->voitureImg = $voitureImg;
+            return $this;
+        }
+
+        public function getDirecteurNom(): ?string
+        {
+            return $this->directeurNom;
+        }
+
+        public function setDirecteurNom(?string $directeurNom): static
+        {
+            $this->directeurNom = $directeurNom;
+            return $this;
+        }
+
+        public function getDirecteurImg(): ?string
+        {
+            return $this->directeurImg;
+        }
+
+        public function setDirecteurImg(?string $directeurImg): static
+        {
+            $this->directeurImg = $directeurImg;
             return $this;
         }
 

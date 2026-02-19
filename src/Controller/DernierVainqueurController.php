@@ -14,30 +14,32 @@ class DernierVainqueurController extends AbstractController
     public function index(Request $request, CourseRepository $courseRepository): Response
     {
         $grandPrix = $request->query->get('gp');
-        $courses = $courseRepository->findBy([], ['dateCourse' => 'DESC']);
+        $courses = $courseRepository->findBy(['position' => 1], ['dateCourse' => 'DESC']);
         $vainqueurs = [];
         foreach ($courses as $course) {
-            $vainqueur = $course->getVainqueur(); // suppose une relation Pilote
-            if ($vainqueur) {
+            $pilote = $course->getPilote();
+            if ($pilote) {
                 $vainqueurs[] = [
                     'grand_prix' => $course->getCircuit()->getNomCircuit(),
                     'date' => $course->getDateCourse(),
-                    'pilote' => $vainqueur,
-                    'ecurie' => $vainqueur->getEcurie(),
-                    'photo' => $vainqueur->getPhoto(),
-                    'description' => $course->getDescription() ?? '',
+                    'pilote' => $pilote,
+                    'ecurie' => $pilote->getEcurie(),
+                    'photo' => $pilote->getPhoto(),
+                    'description' => method_exists($course, 'getDescription') ? $course->getDescription() : '',
                 ];
             }
         }
-        // Filtrage si besoin
-        if ($grandPrix) {
-            $vainqueurs = array_filter($vainqueurs, fn($v) => $v['grand_prix'] === $grandPrix);
-        }
-        // Liste unique des GP pour le filtre
-        $gps = array_unique(array_map(fn($v) => $v['grand_prix'], $vainqueurs));
+        // Liste unique des GP pour le filtre (toujours complète)
+        $allCourses = $courseRepository->findBy(['position' => 1]);
+        $gps = array_unique(array_map(fn($c) => $c->getCircuit()->getNomCircuit(), $allCourses));
         sort($gps);
+        // Filtrage si besoin
+        $vainqueursFiltres = $vainqueurs;
+        if ($grandPrix) {
+            $vainqueursFiltres = array_filter($vainqueurs, fn($v) => $v['grand_prix'] === $grandPrix);
+        }
         return $this->render('dernier_vainqueur/index.html.twig', [
-            'vainqueurs' => $vainqueurs,
+            'vainqueurs' => $vainqueursFiltres,
             'gps' => $gps,
             'selected_gp' => $grandPrix,
         ]);

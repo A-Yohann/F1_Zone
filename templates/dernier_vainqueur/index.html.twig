@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Derniers Vainqueurs F1{% endblock %}
+
+{% block body %}
+<div class="vainqueur-container">
+    <h1 class="vainqueur-title">Derniers Vainqueurs de Grand Prix</h1>
+    <form method="get" class="vainqueur-filter">
+        <label for="gp">Filtrer par Grand Prix :</label>
+        <select name="gp" id="gp" onchange="this.form.submit()">
+            <option value="">Tous</option>
+            {% for gp in gps %}
+                <option value="{{ gp }}" {% if gp == selected_gp %}selected{% endif %}>{{ gp }}</option>
+            {% endfor %}
+        </select>
+    </form>
+    <div class="vainqueur-list">
+        {% for v in vainqueurs %}
+            <div class="vainqueur-card">
+                <div class="vainqueur-img">
+                    <img src="{{ asset('assets/img/pilote/' ~ v.photo) }}" alt="{{ v.pilote.prenom }} {{ v.pilote.nom }}">
+                </div>
+                <div class="vainqueur-info">
+                    <h2>{{ v.pilote.prenom }} <b>{{ v.pilote.nom|upper }}</b></h2>
+                    <div class="vainqueur-ecurie">{{ v.ecurie.nom }}</div>
+                    <div class="vainqueur-gp">{{ v.grand_prix }} <span class="vainqueur-date">({{ v.date|date('d/m/Y') }})</span></div>
+                    {% if v.description %}
+                        <div class="vainqueur-desc">{{ v.description }}</div>
+                    {% endif %}
+                </div>
+            </div>
+        {% else %}
+            <div class="vainqueur-empty">Aucun vainqueur trouvé pour ce Grand Prix.</div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

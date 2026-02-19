@@ -1,0 +1,97 @@
+.vainqueur-container {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 2rem;
+  background: #181c24;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.12);
+  color: #fff;
+}
+
+.vainqueur-title {
+  text-align: center;
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #e10600;
+}
+
+.vainqueur-filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.2rem;
+  gap: 1rem;
+  font-size: 1.1rem;
+}
+
+.vainqueur-filter select {
+  padding: 0.4rem 1.2rem;
+  border-radius: 0.7rem;
+  border: none;
+  background: #23283a;
+  color: #fff;
+  font-size: 1.08rem;
+}
+
+.vainqueur-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+.vainqueur-card {
+  display: flex;
+  align-items: center;
+  background: #23283a;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
+  padding: 1.5rem 1.2rem;
+  gap: 2.5rem;
+}
+
+.vainqueur-img img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #e10600;
+  background: #fff;
+}
+
+.vainqueur-info h2 {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+  color: #ffe082;
+}
+
+.vainqueur-ecurie {
+  font-size: 1.1rem;
+  color: #e10600;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.vainqueur-gp {
+  font-size: 1.08rem;
+  color: #b0b0b0;
+  margin-bottom: 0.7rem;
+}
+
+.vainqueur-date {
+  color: #ffe082;
+  font-size: 0.98rem;
+}
+
+.vainqueur-desc {
+  color: #f3f3f3;
+  font-size: 1.05rem;
+  margin-top: 0.5rem;
+}
+
+.vainqueur-empty {
+  text-align: center;
+  color: #e10600;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
