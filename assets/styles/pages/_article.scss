@@ -88,20 +88,16 @@
 }
 
 .btn-voir-plus {
+  @extend .btn;
   display: block;
   margin-top: auto;
   margin-bottom: 0.5rem;
   align-self: center;
-  background: #e10600;
-  color: #fff;
-  padding: 0.5rem 1.2rem;
   border-radius: 2rem;
   text-decoration: none;
   font-weight: 600;
   letter-spacing: 0.5px;
   transition: background 0.2s, transform 0.15s;
-  box-shadow: 0 2px 8px #0004;
-  border: none;
 }
 
 .article-detail-container {
@@ -135,16 +131,17 @@
   text-shadow: 0 2px 8px #0008;
 }
 .btn-back {
+  @extend .btn;
   display: inline-block;
   margin-top: 2rem;
-  color: #e10600;
+  color: $primary;
   text-decoration: none;
   font-weight: 600;
   font-size: 1.1rem;
   transition: color 0.2s, transform 0.15s;
 }
 .btn-back:hover {
-  color: #fff;
-  text-shadow: 0 0 8px #e10600;
+  color: $text-main;
+  text-shadow: 0 0 8px $primary;
   transform: scale(1.07);
 }

@@ -17,7 +17,7 @@
                     <div class="article-description">
                         {{ article.contenu|striptags|length > 180 ? article.contenu|striptags|slice(0,180) ~ '...' : article.contenu|striptags }}
                     </div>
-                    <a href="{{ path('article_show', {id: article.id}) }}" class="btn-voir-plus">Voir plus</a>
+                    <a href="{{ path('article_show', {id: article.id}) }}" class="btn-voir-plus btn">Voir plus</a>
                 </div>
             </article>
         {% else %}

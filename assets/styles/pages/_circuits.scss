@@ -110,20 +110,17 @@
   margin-top: 2rem;
 }
 .circuit-back-btn {
+  @extend .btn;
   display: inline-block;
   margin-bottom: 2rem;
-  padding: 0.5em 1.2em;
-  background: #181924;
-  color: #ff2d2d;
-  border: 2px solid #ff2d2d;
   border-radius: 8px;
   font-weight: bold;
   text-decoration: none;
   transition: background 0.2s, color 0.2s;
 }
 .circuit-back-btn:hover {
-  background: #ff2d2d;
-  color: #181924;
+  background: $primary-hover;
+  color: $background-img;
 }
 .circuit-detail-flex {
   display: flex;
