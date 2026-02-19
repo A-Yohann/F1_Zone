@@ -1,0 +1,67 @@
+.rookies-list {
+  margin: 1.2rem 0 0 0;
+  padding: 0 0 0 1.5rem;
+  list-style: disc inside;
+  color: #ffe082;
+  font-size: 1.13rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+.transfert-pilote-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #181c24;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.12);
+  color: #fff;
+}
+
+.transfert-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  color: #e10600;
+}
+
+.transfert-img-lineup {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0 1.5rem 0;
+}
+
+.transfert-img-lineup img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.18);
+}
+
+.transfert-mini-desc {
+  text-align: center;
+  font-size: 1.15rem;
+  margin-bottom: 2rem;
+  color: #e0e0e0;
+}
+
+.transfert-desc, .transfert-rookies {
+  background: #23283a;
+  border-radius: 1rem;
+  padding: 1.5rem 1.2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
+}
+
+.transfert-desc h2, .transfert-rookies h2 {
+  color: #e10600;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.transfert-desc p, .transfert-rookies p {
+  color: #f3f3f3;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}

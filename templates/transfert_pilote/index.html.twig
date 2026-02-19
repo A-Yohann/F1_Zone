@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Transferts Pilotes F1{% endblock %}
+
+{% block body %}
+<div class="transfert-pilote-container">
+    <h1 class="transfert-title">Transferts Pilotes F1</h1>
+    <div class="transfert-img-lineup">
+        <img src="{{ asset('assets/img/line-up/line-up-2024.jpg') }}" alt="Line-up F1 2024">
+    </div>
+    <div class="transfert-mini-desc">
+        <p>Découvrez tous les transferts de pilotes pour la saison 2024 de Formule 1, les changements majeurs et les enjeux pour chaque équipe.</p>
+    </div>
+    <div class="transfert-desc">
+        <h2>Les transferts pilotes</h2>
+        <p>La saison 2024 est marquée par de nombreux mouvements sur la grille. Plusieurs pilotes changent d’écurie, certains quittent la F1, d’autres font leur retour. Ces transferts bouleversent la hiérarchie et promettent une saison pleine de surprises.</p>
+    </div>
+    <div class="transfert-rookies">
+        <h2>Les rookies 2025</h2>
+        <p>Parmi les nouveautés, l’arrivée de jeunes talents surnommés les "rookies". Ces nouveaux venus apportent un vent de fraîcheur et sont à surveiller de près pour l’avenir du championnat.</p>
+        <ul class="rookies-list">
+            <li>Kimi Antonelli</li>
+            <li>Issac Hadjar</li>
+            <li>Liam Lawson</li>
+            <li>Oliver Bearman</li>
+            <li>Jack Doohan</li>
+        </ul>
+    </div>
+    <div class="transfert-img-lineup">
+        <img src="{{ asset('assets/img/line-up/line-up-2025.jpg') }}" alt="Line-up F1 2025">
+    </div>
+</div>
+{% endblock %}
