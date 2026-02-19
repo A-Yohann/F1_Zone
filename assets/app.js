@@ -25,13 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 });
 // Centralisation de la logique de toggleClassement depuis home/index.html.twig
+
 function toggleClassement(id, btn) {
 	const tbody = document.getElementById(id);
-	if (tbody.style.display === 'none') {
-		tbody.style.display = '';
+	if (tbody.classList.contains('classement-hidden')) {
+		tbody.classList.remove('classement-hidden');
 		btn.textContent = '▲';
 	} else {
-		tbody.style.display = 'none';
+		tbody.classList.add('classement-hidden');
 		btn.textContent = '▼';
 	}
 }
@@ -40,7 +41,20 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.querySelectorAll('[data-toggle-classement]').forEach(btn => {
 		btn.addEventListener('click', function() {
 			const id = this.getAttribute('data-toggle-classement');
-			toggleClassement(id, this);
+			const tbody = document.getElementById(id);
+			const isOpen = !tbody.classList.contains('classement-hidden');
+			// Fermer tous les classements
+			document.querySelectorAll('[data-toggle-classement]').forEach(otherBtn => {
+				const otherId = otherBtn.getAttribute('data-toggle-classement');
+				const otherTbody = document.getElementById(otherId);
+				otherTbody.classList.add('classement-hidden');
+				otherBtn.textContent = '▼';
+			});
+			// Si ce n'était pas déjà ouvert, on l'ouvre
+			if (!isOpen) {
+				tbody.classList.remove('classement-hidden');
+				this.textContent = '▲';
+			}
 		});
 	});
 });
@@ -51,5 +65,5 @@ document.addEventListener('DOMContentLoaded', () => {
  * which should already be in your base.html.twig.
  */
 import './styles/app.scss';
-import '@fortawesome/fontawesome-free/css/all.min.css';
+// import '@fortawesome/fontawesome-free/css/all.min.css';
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');

@@ -33,6 +33,9 @@ class Question
     #[ORM\Column(type: 'integer')]
     private int $ordre;
 
+    #[ORM\Column(type: 'string', length: 20, options: ['default' => 'facile'])]
+    private string $difficulte = 'facile';
+
     #[ORM\OneToMany(mappedBy: 'question', targetEntity: Reponse::class, orphanRemoval: true, cascade: ['persist', 'remove'])]
     private Collection $reponses;
 
@@ -98,6 +101,17 @@ class Question
     public function setOrdre(int $ordre): self
     {
         $this->ordre = $ordre;
+        return $this;
+    }
+
+    public function getDifficulte(): string
+    {
+        return $this->difficulte;
+    }
+
+    public function setDifficulte(string $difficulte): self
+    {
+        $this->difficulte = $difficulte;
         return $this;
     }
 

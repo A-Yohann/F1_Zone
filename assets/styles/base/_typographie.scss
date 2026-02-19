@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;700&display=swap');
+
+// Police pour tous les titres
+h1, h2, h3, h4, h5, h6, .section-title, .classement-title, .pilote-banner-title {
+	font-family: 'Orbitron', Arial, sans-serif;
+	font-weight: 700;
+}
+
+// Police pour tout le reste
+body, p, li, td, th, input, select, button, .btn, .pilote-biographie, .pilote-num-nat, .pilote-date-naissance {
+	font-family: 'Poppins', Arial, sans-serif;
+	font-weight: 400;
+}

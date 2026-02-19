@@ -3,20 +3,18 @@
 {% block title %}{{ pilote.prenom }} {{ pilote.nom }}{% endblock %}
 
 {% block body %}
-<div class="pilote-detail-container">
+<div class="container">
+  <div class="pilote-detail-container">
   <div class="pilote-banner">
     <img src="{{ asset('assets/img/pilote/' ~ pilote.photo) }}" alt="{{ pilote.nom }} {{ pilote.prenom }}" class="pilote-photo-large">
     <div class="pilote-banner-title">{{ pilote.prenom }} <b>{{ pilote.nom|upper }}</b></div>
     <div class="pilote-num-nat">#{{ pilote.numero }} | {{ pilote.nationalite }}</div>
+    <div class="pilote-date-naissance">Né le : {{ pilote.dateNaissance ? pilote.dateNaissance|date('d/m/Y') : 'N.C.' }}</div>
   </div>
-  <h2 class="section-title">Statistiques 2024</h2>
-  <div class="stats-section">
-    <div class="stats-block">
-      <ul class="pilote-stats-list">
-        <li>Kilomètres parcourus : <b>{{ stats2024.km|default(0) }}</b></li>
-        <li>Points remportés : <b>{{ stats2024.points|default(0) }}</b></li>
-      </ul>
-    </div>
+  <div class="pilote-bio-block">
+    <h2>Biographie</h2>
+    <div class="pilote-biographie">{{ pilote.biographie|nl2br }}</div>
+  </div>
   </div>
 </div>
 {% endblock %}

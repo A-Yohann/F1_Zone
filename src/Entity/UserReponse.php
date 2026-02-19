@@ -74,6 +74,10 @@ class UserReponse
         return $this;
     }
 
+
+    #[ORM\Column(type: 'string', length: 36)]
+    private string $quizSession;
+
     public function getAnsweredAt(): \DateTimeImmutable
     {
         return $this->answeredAt;
@@ -82,6 +86,17 @@ class UserReponse
     public function setAnsweredAt(\DateTimeImmutable $answeredAt): self
     {
         $this->answeredAt = $answeredAt;
+        return $this;
+    }
+
+    public function getQuizSession(): string
+    {
+        return $this->quizSession;
+    }
+
+    public function setQuizSession(string $quizSession): self
+    {
+        $this->quizSession = $quizSession;
         return $this;
     }
 }

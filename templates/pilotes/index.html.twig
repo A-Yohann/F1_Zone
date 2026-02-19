@@ -3,6 +3,7 @@
 {% block title %}Pilotes F1{% endblock %}
 
 {% block body %}
+<div class="container">
 <section>
     <h1 class="pilotes-title">Tous les pilotes</h1>
     <div class="pilotes-cards">
@@ -13,7 +14,7 @@
                     <h3>{{ pilote.prenom }} {{ pilote.nom }}</h3>
                     <div class="ecurie">{{ pilote.ecurie ? pilote.ecurie.nom : 'Sans écurie' }}</div>
                     <div class="numero">#{{ pilote.numero ?: '?' }}</div>
-                    <a href="#" class="profil-btn btn">Voir profil</a>
+                    <a href="{{ path('app_pilote_show', {id: pilote.id}) }}" class="profil-btn btn">Voir profil</a>
                 </div>
             </div>
         {% else %}
@@ -21,4 +22,5 @@
         {% endfor %}
     </div>
 </section>
+</div>
 {% endblock %}

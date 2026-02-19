@@ -3,23 +3,18 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="container">
 
-<section>
+<section class="home-section">
     <div class="hero">
-        <div>
-            <img src="{{ asset('assets/img/divers/ferrari-hero-1.webp')}}" alt="image de la page d'accueil">
-        </div>
+        <img src="{{ asset('assets/img/divers/ferrari-hero-1.webp')}}" alt="image de la page d'accueil">
         <h1>Bienvenue sur F1 Zone !</h1>
         <p>Vivez la Formule 1 à pleine vitesse.</p>
     </div>
 </section>
 
 {# cards actus #}
-<section>
+<section class="home-section">
     <h2>Actualitées</h2>
     <div class="news-cards">
         <a href="{{ path('gp_resume') }}" class="news-card">
@@ -40,40 +35,39 @@
         </a>
     </div>
 </section>
+</div>
+
+
 
 {# section pilotes #}
 <section>
-    <h2>Les pilotes</h2>
-    {% set pilotes_top = pilotes|slice(0,5) %}
-    {% set pilotes_bottom = pilotes|slice(5,5) %}
-    <div class="pilotes-cards">
-        {% for pilote in pilotes_top %}
-            <div class="pilote-card">
-                <img src="{{ asset(pilote.photo ? 'assets/img/pilote/' ~ pilote.photo : 'assets/img/divers/pilotes-grp.webp') }}" alt="Photo de {{ pilote.prenom }} {{ pilote.nom }}">
-                <div class="pilote-info">
-                    <h3>{{ pilote.prenom }} {{ pilote.nom }}</h3>
-                    <div class="ecurie">{{ pilote.ecurie ? pilote.ecurie.nom : 'Sans écurie' }}</div>
-                    <a href="#" class="profil-btn btn">Voir Profil</a>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-    <div class="pilotes-cards">
-        {% for pilote in pilotes_bottom %}
-            <div class="pilote-card">
-                <img src="{{ asset(pilote.photo ? 'assets/img/pilote/' ~ pilote.photo : 'assets/img/divers/pilotes-grp.webp') }}" alt="Photo de {{ pilote.prenom }} {{ pilote.nom }}">
-                <div class="pilote-info">
-                    <h3>{{ pilote.prenom }} {{ pilote.nom }}</h3>
-                    <div class="ecurie">{{ pilote.ecurie ? pilote.ecurie.nom : 'Sans écurie' }}</div>
-                        <a href="#" class="profil-btn btn">Voir Profil</a>
-                </div>
+    <div class="container">
+        <h2>Les pilotes</h2>
+        {% set pilotes_par_4 = pilotes|batch(4, '') %}
+        {% for ligne in pilotes_par_4 %}
+            <div class="pilotes-cards{% if loop.last and (ligne|length < 4) %} pilotes-cards-center{% endif %}">
+                {% for pilote in ligne %}
+                    {% if pilote %}
+                        <div class="pilote-card">
+                            <img src="{{ asset(pilote.photo ? 'assets/img/pilote/' ~ pilote.photo : 'assets/img/divers/pilotes-grp.webp') }}" alt="Photo de {{ pilote.prenom }} {{ pilote.nom }}">
+                            <div class="pilote-info">
+                                <h3>{{ pilote.prenom }} {{ pilote.nom }}</h3>
+                                <div class="ecurie">{{ pilote.ecurie ? pilote.ecurie.nom : 'Sans écurie' }}</div>
+                                <a href="#" class="profil-btn btn">Voir Profil</a>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
             </div>
         {% endfor %}
     </div>
 </section>
 
+
+
 {# section classement #}
 <section id="classement">
+  <div class="container">
     <h2>Classements</h2>
 
     <form method="get" action="#classement" class="gp-filter-form gp-filter-form-mb">
@@ -87,7 +81,7 @@
     </form>
 
     <div class="classement-flex">
-        <div class="classement-box">
+        <div class="classement-box classement-compact">
             <div class="classement-title">Classement pilotes</div>
             <table class="classement-table">
                 <tbody>
@@ -111,7 +105,7 @@
             </table>
             <button class="toggle-btn" data-toggle-classement="all-pilotes">▼</button>
         </div>
-        <div class="classement-box">
+        <div class="classement-box classement-compact">
             <div class="classement-title">Classement constructeur</div>
             <table class="classement-table">
                 <tbody>
@@ -136,8 +130,22 @@
             <button class="toggle-btn" data-toggle-classement="all-ecuries">▼</button>
         </div>
     </div>
+  </div>
+</section>
+
+</section>
 
 
+{# section quiz F1 juste après classement #}
+<section id="quiz-home">
+    <div class="container">
+        <h2>Quiz F1</h2>
+        <div class="quiz-card">
+            <h3>Testez vos connaissances F1 !</h3>
+            <p>3 niveaux de difficulté : Facile, Intermédiaire, Expert</p>
+            <a href="{{ path('app_quiz') }}" class="btn">Lancer le quiz</a>
+        </div>
+    </div>
 </section>
 
 {% endblock %}

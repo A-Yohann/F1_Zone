@@ -1,3 +1,5 @@
+@use "../base/variable" as *;
+
 // Styles déplacés depuis le template show.html.twig
 .team-detail-container { color: #fff; }
 .team-banner {

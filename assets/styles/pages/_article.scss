@@ -1,3 +1,5 @@
+@use "../base/variable" as *;
+@use "../components/button";
 
 .articles-container {
   max-width: 1100px;

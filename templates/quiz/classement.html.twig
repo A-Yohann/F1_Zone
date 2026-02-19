@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Classement Quiz F1{% endblock %}
+
+{% block body %}
+<section id="classement-main" style="min-height: 80vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(120deg, #181818 0%, #232323 100%);">
+    <div class="quiz-main-card">
+        <h1>Classement Quiz F1</h1>
+        <table class="table table-dark table-striped mt-4">
+            <thead>
+                <tr>
+                    <th>Position</th>
+                    <th>Utilisateur</th>
+                    <th>Bonnes réponses</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in classement %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ row.username }}</td>
+                        <td>{{ row.nb_bonnes_reponses }}</td>
+                    </tr>
+                {% else %}
+                    <tr><td colspan="3">Aucun résultat</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('app_quiz') }}" class="btn btn-secondary mt-3">Retour au quiz</a>
+    </div>
+</section>
+{% endblock %}

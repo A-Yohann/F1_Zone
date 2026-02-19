@@ -1,11 +1,60 @@
+
+@use "../base/variable" as *;
+@use "../components/button";
+
+// Espacement harmonieux des sections de la home
+.home-section {
+	margin-bottom: 3.5rem;
+	padding-top: 1.5rem;
+}
+
+.hero {
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	gap: 1.2rem;
+	margin-bottom: 2.5rem;
+	padding: 0;
+}
+
+.hero img {
+	width: 100vw;
+	max-width: 100vw;
+	min-width: 100vw;
+	height: auto;
+	display: block;
+	border-radius: 0;
+	margin: 0;
+	box-shadow: 0 4px 24px #0006;
+}
+
+.hero h1 {
+	font-size: 2.3rem;
+	margin: 0.7rem 0 0.2rem 0;
+}
+
+.hero p {
+	font-size: 1.2rem;
+	color: #e0e0e0;
+}
+
 // Section pilotes
 .pilotes-cards {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-	gap: 2.5rem;
-	margin: 2rem 0;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1.2rem;
+	margin: 1.2rem 0;
 	justify-items: center;
 }
+
 
 .pilote-card {
 	background: #232323;
@@ -169,6 +218,15 @@ h2 {
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
+	width: 100%;
+	max-width: 420px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.classement-compact {
+	max-width: 340px;
+	padding: 1.2rem 0.7rem;
 }
 
 .classement-title {
