@@ -39,6 +39,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean', options: ['default' => false])]
     private bool $isVerified = false;
 
+    #[ORM\Column(type: 'string', length: 64, nullable: true)]
+    private $resetToken;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $resetTokenRequestedAt;
+
     // Relations
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Article::class, orphanRemoval: true, cascade: ['persist', 'remove'])]
     private Collection $articles;
@@ -134,6 +140,28 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+        return $this;
+    }
+
+    public function getResetToken(): ?string
+    {
+        return $this->resetToken;
+    }
+
+    public function setResetToken(?string $resetToken): self
+    {
+        $this->resetToken = $resetToken;
+        return $this;
+    }
+
+    public function getResetTokenRequestedAt(): ?\DateTimeInterface
+    {
+        return $this->resetTokenRequestedAt;
+    }
+
+    public function setResetTokenRequestedAt(?\DateTimeInterface $date): self
+    {
+        $this->resetTokenRequestedAt = $date;
         return $this;
     }
 
