@@ -2,10 +2,12 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\User;
 use App\Repository\EcurieRepository;
 use App\Repository\CommentaireRepository;
 use App\Repository\CourseRepository;
 use App\Repository\PiloteRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -17,6 +19,7 @@ use Symfony\Component\HttpFoundation\Response;
 class DashboardController extends AbstractDashboardController
 {
     public function __construct(
+        private EntityManagerInterface $em,
         private EcurieRepository $ecurieRepository,
         private CommentaireRepository $commentaireRepository,
         private CourseRepository $courseRepository,
@@ -26,10 +29,11 @@ class DashboardController extends AbstractDashboardController
     public function index(): Response
     {
         return $this->render('admin/dashboard.html.twig', [
+            'total_users'        => $this->em->getRepository(User::class)->count([]),
+            'total_pilotes'      => $this->piloteRepository->count([]),
             'total_ecuries'      => $this->ecurieRepository->count([]),
             'total_commentaires' => $this->commentaireRepository->count([]),
             'total_courses'      => $this->courseRepository->count([]),
-            'total_pilotes'      => $this->piloteRepository->count([]),
         ]);
     }
 

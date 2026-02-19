@@ -12,7 +12,17 @@
     {# ===== CARTES STATS ===== #}
     <div class="stats-grid">
 
-        <div class="stat-card">
+        <a href="{{ ea_url().setController('App\\Controller\\Admin\\UserCrudController').generateUrl() }}" class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-info">
+                <span class="stat-number">{{ total_users }}</span>
+                <span class="stat-label">Utilisateurs</span>
+            </div>
+        </a>
+
+        <a href="{{ ea_url().setController('App\\Controller\\Admin\\PiloteCrudController').generateUrl() }}" class="stat-card">
             <div class="stat-icon">
                 <i class="fas fa-helmet-safety"></i>
             </div>
@@ -20,9 +30,9 @@
                 <span class="stat-number">{{ total_pilotes }}</span>
                 <span class="stat-label">Pilotes</span>
             </div>
-        </div>
+        </a>
 
-        <div class="stat-card">
+        <a href="{{ ea_url().setController('App\\Controller\\Admin\\EcurieCrudController').generateUrl() }}" class="stat-card">
             <div class="stat-icon">
                 <i class="fas fa-flag-checkered"></i>
             </div>
@@ -30,9 +40,9 @@
                 <span class="stat-number">{{ total_ecuries }}</span>
                 <span class="stat-label">Écuries</span>
             </div>
-        </div>
+        </a>
 
-        <div class="stat-card">
+        <a href="{{ ea_url().setController('App\\Controller\\Admin\\CommentaireCrudController').generateUrl() }}" class="stat-card">
             <div class="stat-icon">
                 <i class="fas fa-comments"></i>
             </div>
@@ -40,9 +50,9 @@
                 <span class="stat-number">{{ total_commentaires }}</span>
                 <span class="stat-label">Commentaires</span>
             </div>
-        </div>
+        </a>
 
-        <div class="stat-card">
+        <a href="{{ ea_url().setController('App\\Controller\\Admin\\CourseCrudController').generateUrl() }}" class="stat-card">
             <div class="stat-icon">
                 <i class="fas fa-trophy"></i>
             </div>
@@ -50,7 +60,7 @@
                 <span class="stat-number">{{ total_courses }}</span>
                 <span class="stat-label">Courses</span>
             </div>
-        </div>
+        </a>
 
     </div>
 
@@ -58,6 +68,9 @@
     <div class="quick-actions">
         <h2>Accès rapide</h2>
         <div class="actions-grid">
+            <a href="{{ ea_url().setController('App\\Controller\\Admin\\UserCrudController').generateUrl() }}" class="action-btn">
+                <i class="fas fa-users"></i> Gérer les utilisateurs
+            </a>
             <a href="{{ ea_url().setController('App\\Controller\\Admin\\PiloteCrudController').generateUrl() }}" class="action-btn">
                 <i class="fas fa-helmet-safety"></i> Gérer les pilotes
             </a>
@@ -119,12 +132,16 @@
     display: flex;
     align-items: center;
     gap: 1.2rem;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .stat-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(225, 6, 0, 0.2);
+    box-shadow: 0 6px 20px rgba(225, 6, 0, 0.3);
+    border-color: #e10600;
+    text-decoration: none;
 }
 
 .stat-icon {
