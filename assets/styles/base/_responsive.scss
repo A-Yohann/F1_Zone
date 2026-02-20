@@ -1,0 +1,262 @@
+body {
+	overflow-x: hidden;
+}
+
+// Affichage conditionnel des navbars mobile/desktop et fonctionnement du menu burger
+@media (max-width: 900px) {
+	.navbar-mobile .logo-header {
+		margin-left: 10rem;
+	}
+	.navbar-desktop {
+		display: none !important;
+	}
+	.navbar-mobile {
+		display: block !important;
+	}
+	.navbar-mobile .navbar-menu {
+		display: none;
+		flex-direction: column;
+		background: #181818;
+		position: absolute;
+		top: 60px;
+		left: 0;
+		width: 100%;
+		padding: 1rem 0;
+		box-shadow: 0 4px 24px #0006;
+		z-index: 100;
+	}
+	.navbar-mobile .navbar-menu.is-active {
+		display: flex;
+	}
+	.navbar-burger {
+		display: block !important;
+		background: none;
+		border: none;
+		cursor: pointer;
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		z-index: 110;
+	}
+	.navbar-burger span {
+		display: block;
+		width: 28px;
+		height: 4px;
+		margin: 5px 0;
+		background: #fff;
+		border-radius: 2px;
+		transition: all 0.3s;
+	}
+}
+@media (min-width: 901px) {
+	.navbar-desktop {
+		display: flex !important;
+		align-items: center;
+		gap: 2rem;
+	}
+	.navbar-mobile {
+		display: none !important;
+	}
+}
+@media (max-width: 900px) {
+	.navbar-megamenu-wrapper {
+		display: none !important;
+	}
+}
+// Affichage du menu burger en mobile
+@media (max-width: 900px) {
+	.navbar-burger {
+		display: block !important;
+		background: none;
+		border: none;
+		cursor: pointer;
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		z-index: 10;
+	}
+	.navbar-burger span {
+		display: block;
+		width: 28px;
+		height: 4px;
+		margin: 5px 0;
+		background: #fff;
+		border-radius: 2px;
+		transition: all 0.3s;
+	}
+	.navbar-menu {
+		display: none;
+		flex-direction: column;
+		background: #181818;
+		position: absolute;
+		top: 60px;
+		left: 0;
+		width: 100%;
+		padding: 1rem 0;
+		box-shadow: 0 4px 24px #0006;
+	}
+	.navbar-menu.is-active {
+		display: flex;
+	}
+}
+@media (min-width: 901px) {
+	.navbar-burger {
+		display: none !important;
+	}
+	.navbar-menu {
+		display: flex !important;
+		position: static;
+		flex-direction: row;
+		background: none;
+		box-shadow: none;
+		width: auto;
+		padding: 0;
+	}
+}
+// Mega-menu teams et pilote cachés en mobile, liens principaux toujours visibles
+@media (max-width: 900px) {
+	.mega-menu-teams .navbar-megamenu,
+	.mega-menu-pilote .navbar-megamenu {
+		display: none !important;
+	}
+	.mega-menu-teams:hover .navbar-megamenu,
+	.mega-menu-pilote:hover .navbar-megamenu {
+		display: none !important;
+	}
+}
+@media (min-width: 901px) {
+	.mega-menu-teams .navbar-megamenu,
+	.mega-menu-pilote .navbar-megamenu {
+		display: block !important;
+	}
+}
+// Centralisation des media queries du projet
+
+// --- _article.scss ---
+@media (min-width: 900px) {
+	.articles-list {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+// --- _gp_resume.scss ---
+@media (max-width: 1200px) {
+	.gp-resume-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5rem;
+	}
+}
+@media (max-width: 700px) {
+	.navbar-mobile {
+		display: flex !important;
+		align-items: center;
+		gap: 10rem;
+	}
+	}
+
+
+// --- _home.scss ---
+@media (max-width: 800px) {
+	.classement-flex {
+		grid-template-columns: 1fr;
+	}
+}
+@media (max-width: 900px) {
+	.news-cards {
+		grid-template-columns: 1fr;
+	}
+
+	#classement .container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+	}
+	.classement-flex {
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		width: 100%;
+		max-width: 400px;
+	}
+}
+@media (max-width: 600px) {
+	.navbar-mobile {
+		display: flex !important;
+		align-items: center;
+		justify-content: space-between;
+		position: relative;
+		padding-left: 1rem;
+		padding-right: 1.2rem;
+		height: 60px;
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.navbar-mobile .logo-header {
+		margin-right: auto;
+	}
+	.navbar-mobile .navbar-burger {
+		margin-left: auto;
+	}
+	.navbar-mobile .logo-header {
+		width: 48px;
+		height: auto;
+		max-height: 48px;
+		margin: 0;
+		padding: 0;
+		display: block;
+	}
+	.navbar-mobile .navbar-burger {
+		position: static;
+		margin-left: auto;
+	}
+	}
+
+
+@media (max-width: 375px) {
+  .hero {
+    background-image: url(../../../public/assets/img/divers/bg-hero-mobile.jpg);
+    height: 2000px;
+    width: 340px;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    background-size: cover; /* souvent nécessaire */
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+    .hero-img {
+      display: none;
+    }
+  }
+
+	}
+
+
+
+// --- _teams.scss ---
+@media (max-width: 1200px) {
+	.teams-cards-full {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+@media (max-width: 800px) {
+	.teams-cards-full {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+	.team-card-full {
+		min-height: 220px;
+	}
+	.team-header {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 1.2rem 1rem 0.5rem 1rem;
+	}
+	.team-logo {
+		position: static;
+		margin-top: 1rem;
+		align-self: flex-end;
+	}
+}

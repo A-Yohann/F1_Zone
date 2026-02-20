@@ -1,3 +1,20 @@
+// Menu burger mobile
+document.addEventListener('DOMContentLoaded', () => {
+	const mobileNavbar = document.querySelector('.navbar-mobile');
+	const burger = mobileNavbar.querySelector('.navbar-burger');
+	const menu = mobileNavbar.querySelector('.navbar-menu');
+	if (burger && menu) {
+		burger.addEventListener('click', () => {
+			if (menu.style.display === 'flex' || menu.classList.contains('is-active')) {
+				menu.style.display = '';
+				menu.classList.remove('is-active');
+			} else {
+				menu.style.display = 'flex';
+				menu.classList.add('is-active');
+			}
+		});
+	}
+});
 // Centralisation de la logique de filtre des résumés GP depuis gp_resume/index.html.twig
 function filterResumes() {
 	const select = document.getElementById('resume-type');

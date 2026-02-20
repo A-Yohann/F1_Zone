@@ -62,7 +62,7 @@
 
 <div class="circuits-list">
     {% for circuit in circuits %}
-        <a class="circuit-card" href="{{ path('app_circuit_show', {id: circuit.id}) }}" target="_blank" style="text-decoration:none;color:inherit;">
+        <a class="circuit-card" href="{{ path('app_circuit_show', {id: circuit.id}) }}" style="text-decoration:none;color:inherit;">
             <div style="font-size:0.9em; color:#bdbdbd; margin-bottom:0.5em;">ROUND {{ circuit.round }}</div>
             <div class="circuit-title">
                 {% if circuit.codePays %}

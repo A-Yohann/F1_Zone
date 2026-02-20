@@ -1,0 +1,94 @@
+// Styles page contact F1-Passion
+@use "../base/variable" as *;
+
+.contact-form-container {
+  max-width: 420px;
+  margin: 3rem auto;
+  background: #181924;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px #0004;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  color: #fff;
+}
+.contact-form-title {
+  text-align: center;
+  color: #ff2d2d;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+.contact-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #ff2d2d;
+  font-weight: 500;
+}
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  background: #23243a;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #fff;
+  padding: 0.7rem 1rem;
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+}
+.contact-form button {
+  background: #ff2d2d;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 0.5rem;
+}
+.contact-form button:hover {
+  background: #c91e1e;
+}
+.contact-form .form-success-message {
+  color: #4caf50;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  text-align: center;
+}
+.contact-form .form-error-message {
+  color: #ff6b6b;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .contact-form-container {
+    max-width: 98vw;
+    margin: 1.2rem auto;
+    padding: 1.2rem 0.7rem 1rem 0.7rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #0003;
+  }
+  .contact-form-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+  .contact-form label {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    font-size: 0.98rem;
+    padding: 0.6rem 0.7rem;
+    margin-bottom: 0.8rem;
+  }
+  .contact-form button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.7rem 0;
+    margin-top: 0.7rem;
+  }
+}

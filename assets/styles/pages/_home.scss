@@ -1,6 +1,23 @@
-
 @use "../base/variable" as *;
 @use "../components/button";
+
+
+
+
+
+
+@media (max-width: 900px) {
+	select#grand_prix {
+		max-width: 140px;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		font-size: 0.98rem;
+		padding: 0.4rem 0.5rem;
+	}
+}
+
+
 
 // Espacement harmonieux des sections de la home
 .home-section {
@@ -37,7 +54,7 @@
 }
 
 .hero h1 {
-	font-size: 2.3rem;
+	font-size: 1.7rem;
 	margin: 0.7rem 0 0.2rem 0;
 }
 

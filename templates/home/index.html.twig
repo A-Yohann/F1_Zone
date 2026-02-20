@@ -7,7 +7,7 @@
 
 <section class="home-section">
     <div class="hero">
-        <img src="{{ asset('assets/img/divers/ferrari-hero-1.webp')}}" alt="image de la page d'accueil">
+        {# <img src="{{ asset('assets/img/divers/ferrari-hero-1.webp')}}" alt="image de la page d'accueil"> #}
         <h1>Bienvenue sur F1 Zone !</h1>
         <p>Vivez la Formule 1 à pleine vitesse.</p>
     </div>
@@ -53,7 +53,7 @@
                             <div class="pilote-info">
                                 <h3>{{ pilote.prenom }} {{ pilote.nom }}</h3>
                                 <div class="ecurie">{{ pilote.ecurie ? pilote.ecurie.nom : 'Sans écurie' }}</div>
-                                <a href="#" class="profil-btn btn">Voir Profil</a>
+                                <a href="{{ path('app_pilote_show', {id: pilote.id}) }}" class="profil-btn btn">Voir Profil</a>
                             </div>
                         </div>
                     {% endif %}
