@@ -1,33 +1,5 @@
 @use "../base/variable" as *;
-@media (max-width: 800px) {
-  .stats-pilotes-table {
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto 1.2rem auto;
-    font-size: 0.78rem;
-    overflow-x: auto;
-    background: #181818;
-    border-radius: 0.7rem;
-    box-shadow: 0 2px 12px #0006;
-  }
-  .stats-pilotes-table table {
-    width: 100%;
-    min-width: 320px;
-    border-collapse: collapse;
-  }
-  .stats-pilotes-table th, .stats-pilotes-table td {
-    padding: 0.32rem 0.18rem;
-    text-align: center;
-    font-size: 0.85em;
-    word-break: break-word;
-  }
-  .stats-pilotes-table th {
-    position: sticky;
-    top: 0;
-    background: #181818;
-    z-index: 2;
-  }
-}
+
 
 // Styles déplacés depuis le template show.html.twig
 .team-detail-container { color: #fff; }

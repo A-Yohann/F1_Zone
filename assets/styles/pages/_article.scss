@@ -31,11 +31,6 @@
   align-items: stretch;
 }
 
-@media (min-width: 900px) {
-  .articles-list {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
 
 .article-card {
   border-radius: 1rem;

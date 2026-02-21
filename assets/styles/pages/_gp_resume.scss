@@ -30,18 +30,7 @@
   padding: 2rem;
   align-items: stretch;
 }
-@media (max-width: 1200px) {
-  .gp-resume-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-}
-@media (max-width: 700px) {
-  .gp-resume-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-}
+
 .gp-resume-card {
   background: #23243a;
   border-radius: 16px;

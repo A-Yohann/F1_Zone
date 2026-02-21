@@ -62,33 +62,3 @@
   font-size: 1rem;
   text-align: center;
 }
-@media (max-width: 900px) {
-  .contact-form-container {
-    max-width: 98vw;
-    margin: 1.2rem auto;
-    padding: 1.2rem 0.7rem 1rem 0.7rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px #0003;
-  }
-  .contact-form-title {
-    font-size: 1.5rem;
-    margin-bottom: 1.2rem;
-  }
-  .contact-form label {
-    font-size: 1rem;
-    margin-bottom: 0.3rem;
-  }
-  .contact-form input[type="text"],
-  .contact-form input[type="email"],
-  .contact-form textarea {
-    font-size: 0.98rem;
-    padding: 0.6rem 0.7rem;
-    margin-bottom: 0.8rem;
-  }
-  .contact-form button {
-    width: 100%;
-    font-size: 1rem;
-    padding: 0.7rem 0;
-    margin-top: 0.7rem;
-  }
-}

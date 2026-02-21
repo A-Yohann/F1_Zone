@@ -5,9 +5,10 @@ header {
 
 
 	.logo-header {
-		height: 140px !important;
+		height: 50%;
 		margin-right: 2rem;
 		object-fit: contain;
+		max-width: 100%;
 	}
 	a {
 		color: #F2F2F2;

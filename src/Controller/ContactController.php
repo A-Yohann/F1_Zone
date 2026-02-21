@@ -21,10 +21,7 @@ class ContactController extends AbstractController
             if (!$email || !$subject || !$message) {
                 $this->addFlash('danger', 'Tous les champs sont obligatoires.');
             } else {
-                $to = $_ENV['MAILER_TO'] ?? $_ENV['MAILER_DSN'] ?? null;
-                if (!$to || str_contains($to, 'null')) {
-                    $to = 'contact@yohanndufresne.fr'; // fallback
-                }
+                $to = $_ENV['MAILER_TO'] ?? 'contact@yohanndufresne.fr';
                 $mail = (new Email())
                     ->from($email)
                     ->to($to)

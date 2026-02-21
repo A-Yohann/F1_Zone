@@ -1,4 +1,17 @@
 @use "../base/variable" as *;
+
+
+
+/* Quiz F1 Section Styles déplacés depuis _responsive.scss */
+.quiz-f1-section {
+  color: #fff;
+}
+.quiz-f1-section .quiz-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 // Styles spécifiques à la page quiz
 
 #quiz-main {
@@ -31,6 +44,10 @@
     margin-bottom: 1.2rem;
     letter-spacing: 1px;
   }
+
+ .quiz-card{
+  color: $text-main;
+ }
 
   p {
     color: $text-secondary;

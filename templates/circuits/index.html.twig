@@ -32,6 +32,7 @@
     width: 90px;
     height: auto;
     opacity: 0.95;
+    
 }
 .circuit-card .circuit-flag {
     width: 28px;
@@ -46,6 +47,7 @@
     margin-bottom: 0.2em;
     display: flex;
     align-items: center;
+    
 }
 .circuit-card .circuit-gp {
     font-size: 1.1rem;
@@ -75,7 +77,7 @@
                 {{ circuit.dateDebut|date('d') }} – {{ circuit.dateFin|date('d M') }}
             </div>
             {% if circuit.imageSvg %}
-                <img class="circuit-img" src="{{ asset('assets/svg/' ~ circuit.imageSvg) }}" alt="{{ circuit.nomCircuit }}">
+                <img class="circuit-img" src="{{ asset('assets/svg/' ~ circuit.imageSvg) }}" alt="{{ circuit.nomCircuit }}" >
             {% endif %}
         </a>
     {% endfor %}

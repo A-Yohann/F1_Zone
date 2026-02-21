@@ -19,6 +19,22 @@
   gap: 5vw;
   flex-wrap: wrap;
 }
+// Liens du footer en blanc
+.footer-link {
+  color: #fff;
+  transition: color 0.2s;
+}
 .footer-link:hover {
   color: $primary;
+}
+
+// Logos sociaux en blanc
+svg {
+  color: #fff;
+  fill: #fff;
+  transition: color 0.2s, fill 0.2s;
+}
+.footer-social-logo:hover {
+  color: $primary;
+  fill: $primary;
 }
