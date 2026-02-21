@@ -22,7 +22,9 @@
                 <header>
                     {# Navbar mobile (menu burger, sans mega-menu) #}
                     <nav class="navbar navbar-mobile">
-                        <img src="{{ asset('assets/img/divers/casque-logo.png')}}" alt="Logo du site" class="logo-header">
+                        <a href="{{ path('app_home') }}">
+                            <img src="{{ asset('assets/img/divers/casque-logo.png')}}" alt="Logo du site" class="logo-header">
+                        </a>
                         <button class="navbar-burger" aria-label="Menu" aria-expanded="false">
                             <span></span>
                             <span></span>
@@ -45,7 +47,9 @@
 
                     {# Navbar desktop/tablette (avec mega-menu) #}
                     <nav class="navbar navbar-desktop">
-                        <img src="{{ asset('assets/img/divers/casque-logo.png')}}" alt="Logo du site" class="logo-header">
+                        <a href="{{ path('app_home') }}">
+                            <img src="{{ asset('assets/img/divers/casque-logo.png')}}" alt="Logo du site" class="logo-header">
+                        </a>
                         <a href="{{ path('app_home') }}">Home</a>
                         <a href="{{ path('app_transfert_pilote') }}">Transfert Pilote</a>
                         <div class="navbar-megamenu-wrapper mega-menu-teams">

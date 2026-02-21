@@ -100,6 +100,7 @@
   padding: 0.5rem 1.5rem;
   background: #0D0D0D;
   box-sizing: border-box;
+}
 
   .logo-header {
     height: 44px;
@@ -122,7 +123,7 @@
 
     &:hover { color: #e10600; }
   }
-}
+
 
 // Laptop ≤ 992px — liens plus petits
 @media (max-width: $breakpoint-laptop) {
