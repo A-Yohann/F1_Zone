@@ -21,9 +21,37 @@
         {{ form_errors(registrationForm.email) }}
         {{ form_row(registrationForm.username, { label: 'Nom d\'utilisateur' }) }}
         {{ form_errors(registrationForm.username) }}
-        {{ form_row(registrationForm.plainPassword, { label: 'Mot de passe' }) }}
-        {{ form_errors(registrationForm.plainPassword) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+        <div style="position:relative;display:flex;align-items:center;gap:8px;">
+            <label for="registration_form_plainPassword" style="font-weight:bold;">Mot de passe</label>
+            <span class="password-info-tooltip" style="cursor:pointer;position:relative;display:inline-flex;align-items:center;">
+                <span class="password-info-icon" style="background:#222;color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:1em;box-shadow:0 2px 8px #0003;margin-bottom:20px;">i</span>
+                <span class="password-info-text" style="display:none;position:absolute;left:26px;top:0;background:#222;color:#fff;padding:0.7em 1em;border-radius:8px;font-size:0.95em;box-shadow:0 2px 8px #0007;white-space:nowrap;z-index:10;">Le mot de passe doit contenir au moins 6 caractères, un chiffre et un caractère spécial.</span>
+            </span>
+        </div>
+        <div style="margin-top:6px;">{{ form_widget(registrationForm.plainPassword) }}</div>
+        {% block javascripts %}
+            {{ parent() }}
+            <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const tooltip = document.querySelector('.password-info-tooltip');
+                if (tooltip) {
+                    const infoText = tooltip.querySelector('.password-info-text');
+                    tooltip.addEventListener('mouseenter', function() {
+                        infoText.style.display = 'block';
+                    });
+                    tooltip.addEventListener('mouseleave', function() {
+                        infoText.style.display = 'none';
+                    });
+                }
+            });
+            </script>
+        {% endblock %}
+        {{ form_row(registrationForm.confirmPassword, { label: 'Confirmer le mot de passe' }) }}
+        {{ form_errors(registrationForm.confirmPassword) }}
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.2em;">
+            {{ form_widget(registrationForm.agreeTerms) }}
+            <label for="registration_form_agreeTerms" style="font-weight:500;cursor:pointer;">Agree terms</label>
+        </div>
         {{ form_errors(registrationForm.agreeTerms) }}
         {{ form_row(registrationForm._token) }}
         <button type="submit" class="btn">S'inscrire</button>

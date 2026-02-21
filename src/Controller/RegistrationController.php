@@ -30,9 +30,9 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
-            if ($form->isValid()) {
-                /** @var string $plainPassword */
-                $plainPassword = $form->get('plainPassword')->getData();
+            $plainPassword = $form->get('plainPassword')->getData();
+            $confirmPassword = $form->get('confirmPassword')->getData();
+            if ($form->isValid() && $plainPassword === $confirmPassword) {
                 $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
                 $entityManager->persist($user);
                 $entityManager->flush();
@@ -46,7 +46,11 @@ class RegistrationController extends AbstractController
                 $this->addFlash('success', 'Inscription réussie ! Un email a été envoyé à : ' . $user->getEmail() . ' (si la configuration SMTP fonctionne).');
                 return $this->redirectToRoute('app_register');
             } else {
-                $this->addFlash('danger', 'Erreur lors de l\'inscription. Veuillez vérifier le formulaire.');
+                if ($plainPassword !== $confirmPassword) {
+                    $this->addFlash('danger', 'Les mots de passe ne correspondent pas.');
+                } else {
+                    $this->addFlash('danger', 'Erreur lors de l\'inscription. Veuillez vérifier le formulaire.');
+                }
             }
         }
 

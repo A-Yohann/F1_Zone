@@ -28,19 +28,30 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('plainPassword', PasswordType::class, [
-                // instead of being set onto the object directly,
-                // this is read and encoded in the controller
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank(
                         message: 'Please enter a password',
                     ),
-                    new Length(
-                        min: 6,
-                        minMessage: 'Your password should be at least {{ limit }} characters',
-                        // max length allowed by Symfony for security reasons
-                        max: 4096,
+                    new Length([
+                        'min' => 6,
+                        'minMessage' => 'Le mot de passe doit contenir au moins {{ limit }} caractères.',
+                        'max' => 4096,
+                    ]),
+                    new \Symfony\Component\Validator\Constraints\Regex([
+                        'pattern' => '/^(?=.*[0-9])(?=.*[!@#$%^&*()_+=\-{}\[\]:;"\'<>,.?\/]).+$/',
+                        'message' => 'Le mot de passe doit contenir au moins un chiffre et un caractère spécial.',
+                    ]),
+                ],
+            ])
+            ->add('confirmPassword', PasswordType::class, [
+                'mapped' => false,
+                'attr' => ['autocomplete' => 'new-password'],
+                'label' => 'Confirmer le mot de passe',
+                'constraints' => [
+                    new NotBlank(
+                        message: 'Veuillez confirmer votre mot de passe',
                     ),
                 ],
             ])

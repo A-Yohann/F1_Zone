@@ -5,10 +5,10 @@
 {% block body %}
 <div class="auth-form-container">
     <h1 class="auth-form-title">Connexion</h1>
+    {% for message in app.flashes('danger') %}
+        <div class="form-error-message">❌ {{ message }}</div>
+    {% endfor %}
     <form method="post" class="auth-form">
-        {% if error %}
-            <div class="form-error-message">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
         <label for="inputEmail">Email</label>
         <input type="email" value="{{ last_username }}" name="email" id="inputEmail" required autofocus>
         <label for="inputPassword">Mot de passe</label>
@@ -22,6 +22,13 @@
         <div class="form-links" style="margin-top: 1.5rem;">
             <a href="{{ path('app_register') }}" class="auth-link-simple">Créer un compte</a>
             <a href="{{ path('app_forgot_password') }}" class="auth-link-simple" style="margin-left:1.5rem;">Mot de passe oublié&nbsp;?</a>
+        </div>
+        <div style="margin-top:1.2em;text-align:center;color:#b30000;font-weight:bold;">
+            {% if remaining_attempts > 0 %}
+                Tentatives restantes : {{ remaining_attempts }} / {{ max_attempts }}
+            {% else %}
+                Plus de tentatives disponibles. Veuillez patienter 15 minutes.
+            {% endif %}
         </div>
     </form>
 </div>

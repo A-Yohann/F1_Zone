@@ -7,9 +7,15 @@
 
 <section class="home-section">
     <div class="hero">
-        {# <img src="{{ asset('assets/img/divers/ferrari-hero-1.webp')}}" alt="image de la page d'accueil"> #}
-        <h1>Bienvenue sur F1 Zone !</h1>
-        <p>Vivez la Formule 1 à pleine vitesse.</p>
+            {# <img src="{{ asset('assets/img/divers/ferrari-hero-1.webp')}}" alt="image de la page d'accueil"> #}
+            <div class="hero-content-bg">
+                <h1 class="hero-title">Bienvenue sur F1 Zone !</h1>
+                <p class="hero-subtitle">Vivez la Formule 1 à pleine vitesse.</p>
+                <div class="hero-buttons">
+                    <a href="{{ path('app_register') }}" class="hero-btn hero-btn-register">S'inscrire</a>
+                    <a href="{{ path('app_login') }}" class="hero-btn hero-btn-login">Se connecter</a>
+                </div>
+            </div>
     </div>
 </section>
 
@@ -21,7 +27,7 @@
             <h3>Resumé des GP</h3>
             <img src="{{ asset('assets/img/articles/news1.jpg') }}" alt="Image actu 1">
         </a>
-        <a href="#" class="news-card">
+        <a href="{{ path('app_transfert_pilote') }}" class="news-card">
             <h3>Transfert pilotes</h3>
             <img src="{{ asset('assets/img/divers/pilotes-grp.webp') }}" alt="Image actu 2">
         </a>

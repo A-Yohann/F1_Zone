@@ -1,5 +1,13 @@
+
 @use "../base/variable" as *;
 
+
+// Lien rouge pour accessibilité
+.auth-link-simple {
+  color: #e60023 !important;
+  text-decoration: underline;
+  font-weight: bold;
+}
 
 
 
