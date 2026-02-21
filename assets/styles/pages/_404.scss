@@ -1,0 +1,39 @@
+.error-404-container {
+  max-width: 500px;
+  margin: 5rem auto 0 auto;
+  background: #181924;
+  color: #f2f2f2;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px #000a;
+  padding: 2.5rem 2.2rem 2.2rem 2.2rem;
+  text-align: center;
+}
+.error-404-container h1 {
+  font-size: 5rem;
+  color: #e10600;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+.error-404-container h2 {
+  font-size: 1.5rem;
+  color: #e10600;
+  margin-bottom: 1.2rem;
+}
+.error-404-container p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+.error-404-container .btn {
+  background: #e10600;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 2.2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.error-404-container .btn:hover {
+  background: #b80000;
+}

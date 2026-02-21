@@ -14,10 +14,14 @@
     <form method="post" class="contact-form">
         <label for="contact_email">Votre email</label>
         <input type="email" id="contact_email" name="email" required maxlength="100">
+        <div id="email-error" style="display:none;color:#e10600;font-size:0.95em;margin-bottom:0.5em;">
+            Veuillez entrer un email valide.
+        </div>
         <label for="contact_subject">Sujet</label>
         <input type="text" id="contact_subject" name="subject" required maxlength="100">
         <label for="contact_message">Message</label>
-        <textarea id="contact_message" name="message" rows="5" required maxlength="1000"></textarea>
+        <textarea id="contact_message" name="message" rows="5" required maxlength="250"></textarea>
+        <div id="message-count" style="font-size:0.95em;color:#555;margin-bottom:0.5em;">0 / 250 caractères</div>
         <button type="submit" class="btn">Envoyer</button>
     </form>
 </div>

@@ -23,7 +23,9 @@
             <div class="gp-comment-content">{{ commentaire.contenu }}</div>
             <div class="gp-comment-actions" style="margin-top:0.5rem;">
               <a href="{{ path('commentaire_edit', {'id': commentaire.id}) }}" class="gp-comment-btn btn" style="background:#444; font-size:0.95rem; padding:0.4rem 1.2rem; margin-right:0.5rem;">Éditer</a>
-              <a href="{{ path('commentaire_delete', {'id': commentaire.id}) }}" class="gp-comment-btn btn" style="background:#c91e1e; font-size:0.95rem; padding:0.4rem 1.2rem;">Supprimer</a>
+              {% if app.user and (app.user.id == commentaire.user.id or 'ROLE_ADMIN' in app.user.roles) %}
+                <a href="{{ path('commentaire_delete', {'id': commentaire.id}) }}" class="gp-comment-btn btn" style="background:#c91e1e; font-size:0.95rem; padding:0.4rem 1.2rem;">Supprimer</a>
+              {% endif %}
             </div>
           </div>
         {% endfor %}

@@ -1,4 +1,6 @@
 @use "pages/contact";
+@use "pages/mentions_legales";
+@use "pages/a_propos";
 // base
 @use "base/body";
 @use "base/typographie";
@@ -34,6 +36,7 @@
 @use 'pages/transfert';
 @use 'pages/vainqueur';
 @use 'pages/quizz';
+@use "pages/404" as page404;
 
 
 @use "base/responsive";

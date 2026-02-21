@@ -20,6 +20,8 @@ class ContactController extends AbstractController
 
             if (!$email || !$subject || !$message) {
                 $this->addFlash('danger', 'Tous les champs sont obligatoires.');
+            } elseif (!preg_match('/^[^@\s]+@[^@\s]+\.[^@\s]+$/', $email)) {
+                $this->addFlash('danger', 'Veuillez entrer une adresse email valide.');
             } else {
                 // Limitation par email : max 3 messages par heure
                 $session = $request->getSession();
