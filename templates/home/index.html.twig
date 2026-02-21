@@ -11,10 +11,12 @@
             <div class="hero-content-bg">
                 <h1 class="hero-title">Bienvenue sur F1 Zone !</h1>
                 <p class="hero-subtitle">Vivez la Formule 1 à pleine vitesse.</p>
+                {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
                 <div class="hero-buttons">
                     <a href="{{ path('app_register') }}" class="hero-btn hero-btn-register">S'inscrire</a>
                     <a href="{{ path('app_login') }}" class="hero-btn hero-btn-login">Se connecter</a>
                 </div>
+                {% endif %}
             </div>
     </div>
 </section>
