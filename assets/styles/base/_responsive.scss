@@ -1,262 +1,442 @@
+@use "../base/variable" as *;
+
+// ============================================================
+// $breakpoint-mobile:  576px
+// $breakpoint-tablet:  768px
+// $breakpoint-laptop:  992px
+// $breakpoint-desktop: 1200px
+// ============================================================
+
+// --------------------------------------------
+// Global
+// --------------------------------------------
 body {
-	overflow-x: hidden;
+  overflow-x: hidden;
 }
 
-// Affichage conditionnel des navbars mobile/desktop et fonctionnement du menu burger
-@media (max-width: 900px) {
-	.navbar-mobile .logo-header {
-		margin-left: 10rem;
-	}
-	.navbar-desktop {
-		display: none !important;
-	}
-	.navbar-mobile {
-		display: block !important;
-	}
-	.navbar-mobile .navbar-menu {
-		display: none;
-		flex-direction: column;
-		background: #181818;
-		position: absolute;
-		top: 60px;
-		left: 0;
-		width: 100%;
-		padding: 1rem 0;
-		box-shadow: 0 4px 24px #0006;
-		z-index: 100;
-	}
-	.navbar-mobile .navbar-menu.is-active {
-		display: flex;
-	}
-	.navbar-burger {
-		display: block !important;
-		background: none;
-		border: none;
-		cursor: pointer;
-		position: absolute;
-		top: 1rem;
-		right: 1rem;
-		z-index: 110;
-	}
-	.navbar-burger span {
-		display: block;
-		width: 28px;
-		height: 4px;
-		margin: 5px 0;
-		background: #fff;
-		border-radius: 2px;
-		transition: all 0.3s;
-	}
-}
-@media (min-width: 901px) {
-	.navbar-desktop {
-		display: flex !important;
-		align-items: center;
-		gap: 2rem;
-	}
-	.navbar-mobile {
-		display: none !important;
-	}
-}
-@media (max-width: 900px) {
-	.navbar-megamenu-wrapper {
-		display: none !important;
-	}
-}
-// Affichage du menu burger en mobile
-@media (max-width: 900px) {
-	.navbar-burger {
-		display: block !important;
-		background: none;
-		border: none;
-		cursor: pointer;
-		position: absolute;
-		top: 1rem;
-		right: 1rem;
-		z-index: 10;
-	}
-	.navbar-burger span {
-		display: block;
-		width: 28px;
-		height: 4px;
-		margin: 5px 0;
-		background: #fff;
-		border-radius: 2px;
-		transition: all 0.3s;
-	}
-	.navbar-menu {
-		display: none;
-		flex-direction: column;
-		background: #181818;
-		position: absolute;
-		top: 60px;
-		left: 0;
-		width: 100%;
-		padding: 1rem 0;
-		box-shadow: 0 4px 24px #0006;
-	}
-	.navbar-menu.is-active {
-		display: flex;
-	}
-}
-@media (min-width: 901px) {
-	.navbar-burger {
-		display: none !important;
-	}
-	.navbar-menu {
-		display: flex !important;
-		position: static;
-		flex-direction: row;
-		background: none;
-		box-shadow: none;
-		width: auto;
-		padding: 0;
-	}
-}
-// Mega-menu teams et pilote cachés en mobile, liens principaux toujours visibles
-@media (max-width: 900px) {
-	.mega-menu-teams .navbar-megamenu,
-	.mega-menu-pilote .navbar-megamenu {
-		display: none !important;
-	}
-	.mega-menu-teams:hover .navbar-megamenu,
-	.mega-menu-pilote:hover .navbar-megamenu {
-		display: none !important;
-	}
-}
-@media (min-width: 901px) {
-	.mega-menu-teams .navbar-megamenu,
-	.mega-menu-pilote .navbar-megamenu {
-		display: block !important;
-	}
-}
-// Centralisation des media queries du projet
-
-// --- _article.scss ---
-@media (min-width: 900px) {
-	.articles-list {
-		grid-template-columns: repeat(3, 1fr);
-	}
+// --------------------------------------------
+// Navbar — mobile caché par défaut
+// --------------------------------------------
+.navbar-mobile,
+.navbar-burger,
+.navbar-menu {
+  display: none !important;
 }
 
-// --- _gp_resume.scss ---
-@media (max-width: 1200px) {
-	.gp-resume-grid {
-		grid-template-columns: repeat(2, 1fr);
-		gap: 1.5rem;
-	}
+// --------------------------------------------
+// Hero Section — NE PAS TOUCHER
+// --------------------------------------------
+@media (max-width: $breakpoint-desktop) {
+  .hero { gap: 1rem; }
+  .hero h1 { font-size: 2.5rem; }
+  .hero p  { font-size: 1.15rem; }
 }
-@media (max-width: 700px) {
-	.navbar-mobile {
-		display: flex !important;
-		align-items: center;
-		gap: 10rem;
-	}
-	}
-
-
-// --- _home.scss ---
-@media (max-width: 800px) {
-	.classement-flex {
-		grid-template-columns: 1fr;
-	}
+@media (max-width: $breakpoint-laptop) {
+  .hero h1 { font-size: 2.2rem; }
+  .hero p  { font-size: 1.05rem; }
 }
-@media (max-width: 900px) {
-	.news-cards {
-		grid-template-columns: 1fr;
-	}
-
-	#classement .container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-	}
-	.classement-flex {
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
-		width: 100%;
-		max-width: 400px;
-	}
+@media (max-width: $breakpoint-tablet) {
+  .hero { padding: 0 1rem; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero p  { font-size: 0.95rem; }
 }
-@media (max-width: 600px) {
-	.navbar-mobile {
-		display: flex !important;
-		align-items: center;
-		justify-content: space-between;
-		position: relative;
-		padding-left: 1rem;
-		padding-right: 1.2rem;
-		height: 60px;
-		width: 100%;
-		box-sizing: border-box;
-	}
-	.navbar-mobile .logo-header {
-		margin-right: auto;
-	}
-	.navbar-mobile .navbar-burger {
-		margin-left: auto;
-	}
-	.navbar-mobile .logo-header {
-		width: 48px;
-		height: auto;
-		max-height: 48px;
-		margin: 0;
-		padding: 0;
-		display: block;
-	}
-	.navbar-mobile .navbar-burger {
-		position: static;
-		margin-left: auto;
-	}
-	}
+@media (max-width: $breakpoint-mobile) {
+  .hero h1 { font-size: 1.5rem; }
+  .hero p  { font-size: 0.9rem; }
+}
 
+// --------------------------------------------
+// Pilotes Cards
+// ≤ 1200px → 4 col, max-width: 100%
+// ≤  992px → 2 col
+// ≤  576px → 1 col
+// --------------------------------------------
+@media (max-width: $breakpoint-desktop) {
+  .pilotes-cards { grid-template-columns: repeat(4, 1fr); }
+  .pilote-card   { max-width: 100%; }
+}
+@media (max-width: $breakpoint-laptop) {
+  .pilotes-cards { grid-template-columns: repeat(2, 1fr); }
+  .pilote-card   { max-width: 100%; }
+}
+@media (max-width: $breakpoint-mobile) {
+  .pilotes-cards { grid-template-columns: 1fr; }
+}
 
-@media (max-width: 375px) {
+// --------------------------------------------
+// News Cards
+// ≤ 992px → 2 col
+// ≤ 576px → 1 col
+// --------------------------------------------
+@media (max-width: $breakpoint-laptop) {
+  .news-cards { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+}
+@media (max-width: $breakpoint-mobile) {
+  .news-cards { grid-template-columns: 1fr; gap: 1rem; }
+}
+
+// --------------------------------------------
+// Teams Cards
+// ≤ 1200px → 3 col
+// ≤  992px → 2 col
+// ≤  768px → 1 col
+// --------------------------------------------
+@media (max-width: $breakpoint-desktop) {
+  .teams-cards-full { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: $breakpoint-laptop) {
+  .teams-cards-full { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .team-card-full   { min-height: 220px; }
+  .team-header      { flex-direction: column; align-items: flex-start; padding: 1.2rem 1rem 0.5rem 1rem; }
+  .team-logo        { position: static; margin-top: 1rem; align-self: flex-end; }
+}
+@media (max-width: $breakpoint-tablet) {
+  .teams-cards-full { grid-template-columns: 1fr; gap: 1rem; }
+}
+
+// --------------------------------------------
+// Articles Cards
+// ≤ 1200px → 3 col
+// ≤  992px → 2 col
+// ≤  576px → 1 col
+// --------------------------------------------
+@media (max-width: $breakpoint-desktop) {
+  .articles-list { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: $breakpoint-laptop) {
+  .articles-list { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+}
+@media (max-width: $breakpoint-mobile) {
+  .articles-list { grid-template-columns: 1fr; gap: 1rem; }
+  .article-card  { min-height: auto; width: 100%; }
+}
+
+// --------------------------------------------
+// Classements Home (.classement-flex)
+// ≤ 768px → 1 col
+// --------------------------------------------
+@media (max-width: $breakpoint-tablet) {
+  .classement-flex { grid-template-columns: 1fr; gap: 1.5rem; }
+  .classement-box  { max-width: 100%; }
+}
+
+// --------------------------------------------
+// Tables Stats / Classements
+// --------------------------------------------
+@media (max-width: $breakpoint-laptop) {
+  .stats-pilotes-table,
+  .circuit-classement-table,
+  .circuit-constructeurs-table { font-size: 0.9rem; }
+}
+@media (max-width: $breakpoint-mobile) {
+  .stats-pilotes-table,
+  .circuit-classement-table,
+  .circuit-constructeurs-table { display: block; overflow-x: auto; }
+
+  .stats-pilotes-table th,
+  .circuit-classement-table th,
+  .circuit-constructeurs-table th,
+  .stats-pilotes-table td,
+  .circuit-classement-table td,
+  .circuit-constructeurs-table td { padding: 0.6rem 0.8rem; white-space: nowrap; }
+}
+
+// --------------------------------------------
+// Circuits liste — override min/max-width
+// ≤ 992px → 2 col
+// ≤ 768px → 2 col, padding réduit
+// ≤ 576px → 1 col
+// --------------------------------------------
+.circuit-card {
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+@media (max-width: $breakpoint-laptop) {
+  .gp-resume-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; padding: 1.5rem; }
+  .circuit-card   { padding: 1.5rem; }
+}
+@media (max-width: $breakpoint-tablet) {
+  .gp-resume-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; padding: 1rem; }
+  .circuit-card   { padding: 1.2rem 1rem; }
+}
+@media (max-width: $breakpoint-mobile) {
+  .gp-resume-grid { grid-template-columns: 1fr; gap: 1rem; padding: 0.5rem; }
+  .circuit-card   { padding: 1rem; }
+}
+
+// --------------------------------------------
+// Auth / Contact / Register Forms
+// Desktop  → max-width: 520px
+// Laptop   → max-width: 480px
+// Tablet   → 100%
+// Mobile   → 100%, inputs + boutons pleine largeur
+// --------------------------------------------
+@media (min-width: $breakpoint-laptop) {
+  .auth-form-container,
+  .contact-form-container { max-width: 520px; padding: 3rem; }
+}
+@media (max-width: $breakpoint-laptop) {
+  .auth-form-container,
+  .contact-form-container { max-width: 480px; padding: 2.5rem 2rem; margin: 2rem auto; }
+}
+@media (max-width: $breakpoint-tablet) {
+  .auth-form-container,
+  .contact-form-container { max-width: 100%; width: 100%; margin: 1.5rem auto; padding: 2rem 1.5rem; box-sizing: border-box; border-radius: 12px; }
+}
+@media (max-width: $breakpoint-mobile) {
+  .auth-form-container,
+  .contact-form-container { max-width: 100%; width: 100%; margin: 1rem auto; padding: 1.5rem 1rem; box-sizing: border-box; border-radius: 10px; }
+
+  .auth-form input,
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea { width: 100%; box-sizing: border-box; font-size: 1rem; }
+
+  .auth-form button,
+  .contact-form button { width: 100%; box-sizing: border-box; padding: 0.8rem 0; font-size: 1rem; }
+}
+
+// Fix checkbox
+.auth-form input[type="checkbox"] {
+  width: auto;
+  min-width: 0;
+  margin: 0;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.auth-form .form-check,
+.auth-form label[for] {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+// --------------------------------------------
+// Navbar Mega-menu
+// --------------------------------------------
+@media (max-width: $breakpoint-laptop) {
+  .navbar-megamenu { width: 90vw; padding: 1.5rem 2rem; }
+}
+@media (max-width: $breakpoint-mobile) {
+  .navbar-megamenu { width: 95vw; padding: 1rem 1.5rem; }
+}
+
+// --------------------------------------------
+// Mobile hero background — NE PAS TOUCHER
+// --------------------------------------------
+@media (max-width: $breakpoint-mobile) {
   .hero {
     background-image: url(../../../public/assets/img/divers/bg-hero-mobile.jpg);
-    height: 2000px;
-    width: 340px;
-    background-repeat: no-repeat;
+    background-size: cover;
     background-position: center;
-    display: block;
-    background-size: cover; /* souvent nécessaire */
-    flex-direction: column;
-    text-align: center;
-    gap: 1.5rem;
-    .hero-img {
-      display: none;
-    }
+    background-repeat: no-repeat;
+    width: 100vw;
+    min-width: 100vw;
+    height: 60vh;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+  .hero img {
+    width: 38px;
+    height: auto;
+    max-height: 38px;
+    display: flex !important;
+    margin: 0;
   }
 
-	}
+  .navbar-desktop,
+  .navbar-megamenu-wrapper,
+  .navbar-megamenu { display: none !important; }
 
-
-
-// --- _teams.scss ---
-@media (max-width: 1200px) {
-	.teams-cards-full {
-		grid-template-columns: repeat(2, 1fr);
-	}
+  .navbar-mobile {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 1.2rem;
+  }
+  .navbar-burger {
+    display: block !important;
+    background: none !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    cursor: pointer;
+    position: relative;
+    width: 36px;
+    height: 36px;
+    z-index: 110;
+    padding: 0;
+    border-radius: 0;
+  }
+  .navbar-burger span {
+    display: block;
+    width: 28px;
+    height: 4px;
+    margin: 5px 0;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s;
+    opacity: 1;
+  }
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    background: #181818;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    box-shadow: 0 4px 24px #0006;
+    z-index: 100;
+  }
+  .navbar-menu.is-active { display: flex !important; }
 }
-@media (max-width: 800px) {
-	.teams-cards-full {
-		grid-template-columns: 1fr;
-		gap: 1.5rem;
-	}
-	.team-card-full {
-		min-height: 220px;
-	}
-	.team-header {
-		flex-direction: column;
-		align-items: flex-start;
-		padding: 1.2rem 1rem 0.5rem 1rem;
-	}
-	.team-logo {
-		position: static;
-		margin-top: 1rem;
-		align-self: flex-end;
-	}
+
+// --------------------------------------------
+// Desktop hero background — NE PAS TOUCHER
+// --------------------------------------------
+@media (min-width: $breakpoint-mobile) {
+  .hero {
+    background-image: url(../../../public/assets/img/divers/ferrari-hero-1.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 800px;
+  }
+}
+
+// --------------------------------------------
+// Footer
+// --------------------------------------------
+@media (max-width: $breakpoint-tablet) {
+  .footer-links { flex-direction: column; gap: 1.2rem; }
+}
+
+// --------------------------------------------
+// GP Résumé — index + show
+// ≤ 1200px → 3 col
+// ≤  992px → 2 col
+// ≤  576px → 1 col
+// iframes toujours fluides
+// --------------------------------------------
+
+// Override iframe width fixe (560px dans le HTML)
+.gp-resume-video iframe,
+.gp-resume-video-detail iframe {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border-radius: 8px;
+}
+
+.gp-resume-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
+
+.gp-resume-card {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+// Desktop ≤ 1200px → 3 col
+@media (max-width: $breakpoint-desktop) {
+  .gp-resume-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+}
+
+// Laptop ≤ 992px → 2 col
+@media (max-width: $breakpoint-laptop) {
+  .gp-resume-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.2rem;
+  }
+  .gp-resume-container {
+    padding: 1.5rem 1rem;
+  }
+  .gp-resume-detail-container {
+    padding: 1.5rem 1rem;
+  }
+}
+
+// Tablet ≤ 768px → 2 col
+@media (max-width: $breakpoint-tablet) {
+  .gp-resume-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    padding: 1rem;
+  }
+  .gp-resume-filter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+// Mobile ≤ 576px → 1 col
+@media (max-width: $breakpoint-mobile) {
+  .gp-resume-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+  .gp-resume-container {
+    padding: 1rem 0.75rem;
+  }
+  .gp-resume-title {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+  .gp-resume-detail-container {
+    padding: 1rem 0.75rem;
+  }
+
+  // Commentaires
+  .gp-resume-comments {
+    padding: 0;
+  }
+  .gp-comment {
+    padding: 0.8rem;
+  }
+  .gp-comment-meta {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .gp-comment-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1rem;
+  }
+  .gp-comment-btn {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+  .gp-comment-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .gp-comment-actions a {
+    width: 100%;
+    text-align: center;
+    margin-right: 0 !important;
+  }
 }

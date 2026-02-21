@@ -1,4 +1,7 @@
-// Couleurs principales du site
+// --------------------------------------------
+// Variables principales et breakpoints
+// --------------------------------------------
+
 $primary: #e10600;
 $primary-hover: #b80000;
 $background-dark: #0D0D0D;
@@ -19,3 +22,9 @@ $shadow-card-hover: 0 8px 32px #e1060044;
 $shadow-box: 0 4px 24px #e1060022, 0 2px 8px #0008;
 $gold: #ffd700;
 $silver: #c0c0c0;
+
+// Breakpoints
+$breakpoint-mobile: 576px;
+$breakpoint-tablet: 768px;
+$breakpoint-laptop: 992px;
+$breakpoint-desktop: 1200px;

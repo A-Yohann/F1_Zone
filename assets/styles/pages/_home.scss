@@ -2,23 +2,6 @@
 @use "../components/button";
 
 
-
-
-
-
-@media (max-width: 900px) {
-	select#grand_prix {
-		max-width: 140px;
-		width: 100%;
-		margin-left: auto;
-		margin-right: auto;
-		font-size: 0.98rem;
-		padding: 0.4rem 0.5rem;
-	}
-}
-
-
-
 // Espacement harmonieux des sections de la home
 .home-section {
 	margin-bottom: 3.5rem;
@@ -143,6 +126,21 @@
 	gap: 2rem;
 	margin: 2rem 0;
 }
+// @media (max-width: 992px) {
+// 	.news-cards {
+// 		display: grid;
+// 		grid-template-columns: repeat(2, 1fr);
+// 		gap: 1.2rem;
+// 	}
+// }
+
+// @media (max-width: 576px) {
+// 	.news-cards {
+// 		display: grid;
+// 		grid-template-columns: 1fr;
+// 		gap: 1rem;
+// 	}
+// }
 .news-card {
 	background: #3A3A3A;
 	border-radius: 1rem;
@@ -221,9 +219,7 @@ h2 {
 	gap: 2.5rem;
 	margin-top: 2rem;
 
-	@media (max-width: 800px) {
-		grid-template-columns: 1fr;
-	}
+
 }
 
 .classement-box {
@@ -307,17 +303,5 @@ h2 {
 	&:hover {
 		background: $primary-hover;
 		transform: scale(1.03);
-	}
-}
-
-// Responsive
-@media (max-width: 900px) {
-	.news-cards {
-		grid-template-columns: 1fr 1fr;
-	}
-}
-@media (max-width: 600px) {
-	.news-cards {
-		grid-template-columns: 1fr;
 	}
 }

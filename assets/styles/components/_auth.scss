@@ -1,177 +1,47 @@
 @use "../base/variable" as *;
 
-@media (max-width: 900px) {
-  .auth-form-container {
-    max-width: 98vw;
-    margin: 1.2rem auto;
-    padding: 1.2rem 0.7rem 1rem 0.7rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px #0003;
-  }
-  .auth-form-title {
-    font-size: 1.5rem;
-    margin-bottom: 1.2rem;
-  }
-  .auth-form label {
-    font-size: 1rem;
-    margin-bottom: 0.3rem;
-  }
-  .auth-form input[type="text"],
-  .auth-form input[type="email"],
-  .auth-form input[type="password"] {
-    font-size: 0.98rem;
-    padding: 0.6rem 0.7rem;
-    margin-bottom: 0.8rem;
-  }
-  .auth-form button {
-    width: 100%;
-    font-size: 1rem;
-    padding: 0.7rem 0;
-    margin-top: 0.7rem;
-  }
-  .auth-form .form-links {
-    margin-top: 1rem;
-    font-size: 0.98rem;
-    flex-direction: column;
-    gap: 0.5rem;
-    display: flex;
-    align-items: center;
-  }
-  .auth-form .form-links a {
-    margin: 0.3rem 0;
-    font-size: 0.98rem;
-  }
-}
 
 
-.auth-form-container {
+
+// --------------------------------------------
+// Formulaires Authentification et Contact
+// --------------------------------------------
+
+.auth-form-container,
+.contact-form-container {
   max-width: 420px;
   margin: 3rem auto;
-  background: #181924;
+  background: $background-img;
   border-radius: 16px;
-  box-shadow: 0 2px 16px #0004;
-  padding: 2.5rem 2.5rem 2rem 2.5rem;
-  color: #fff;
+  box-shadow: $shadow-card;
+  padding: 2.5rem;
+  color: $text-main;
 }
-.auth-form-title {
+
+.auth-form-title,
+.contact-form-title {
   text-align: center;
-  color: #ff2d2d;
+  color: $primary;
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 2rem;
 }
-.auth-form label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: #ff2d2d;
-  font-weight: 500;
-}
-.auth-form input[type="text"],
-.auth-form input[type="email"],
-.auth-form input[type="password"] {
+
+.auth-form input,
+.contact-form input,
+.contact-form textarea {
   width: 100%;
-  background: #23243a;
+  background: $background-card;
   border: 1px solid #333;
   border-radius: 6px;
-  color: #fff;
+  color: $text-main;
   padding: 0.7rem 1rem;
   margin-bottom: 1.2rem;
   font-size: 1rem;
 }
-.auth-form input[type="checkbox"] {
-  margin-right: 0.5rem;
-}
-.auth-form .form-check-label {
-  color: #fff;
-  font-size: 1rem;
-}
-.auth-form button {
-  background: #ff2d2d;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 0.7rem 2.2rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s;
-  margin-top: 0.5rem;
-}
-.auth-form button:hover {
-  background: #c91e1e;
-}
-.auth-form .form-error-message {
-  color: #ff6b6b;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  text-align: center;
-}
-.auth-form .form-links {
-  text-align: center;
-  margin-top: 1.5rem;
-}
-.auth-form .form-links a {
-  color: #ff2d2d;
-  text-decoration: underline;
-  margin: 0 0.5rem;
-  font-size: 1rem;
-}
-.auth-link {
-  color: #fff;
-  background: #23243a;
-  border-radius: 6px;
-  padding: 0.6rem 1.2rem;
-  font-size: 1.08rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: background 0.2s, color 0.2s;
-  display: inline-block;
-}
-.auth-link span {
-  color: #ff2d2d;
-  font-weight: bold;
-  margin-left: 0.3rem;
-}
-.auth-link:hover {
-  background: #ff2d2d;
-  color: #fff;
-}
-.auth-link-alt {
-  color: #ff2d2d;
-  background: none;
-  border: none;
-  font-size: 1.05rem;
-  font-weight: 500;
-  text-decoration: underline;
-  padding: 0;
-  transition: color 0.2s;
-}
-.auth-link-alt span {
-  color: #fff;
-  background: #ff2d2d;
-  border-radius: 4px;
-  padding: 0.1rem 0.5rem;
-  margin-left: 0.3rem;
-  font-weight: bold;
-  transition: background 0.2s, color 0.2s;
-}
-.auth-link-alt:hover {
-  color: #fff;
-}
-.auth-link-alt:hover span {
-  background: #c91e1e;
-}
-.auth-link-simple {
-  color: #ff2d2d;
-  background: none;
-  border: none;
-  font-size: 1.08rem;
-  font-weight: 500;
-  text-decoration: none;
-  padding: 0;
-  transition: color 0.2s, text-decoration 0.2s;
-}
-.auth-link-simple:hover {
-  color: #ff2d2d;
-  text-decoration: underline;
+
+.auth-form button,
+.contact-form button {
+  // @extend .btn;
+  // margin-top: 0.5rem;
 }

@@ -1,69 +1,30 @@
-
-
-
+// --------------------------------------------
+// Hero section
+// --------------------------------------------
 .hero {
-	background-image: url(../../../public/assets/img/divers/ferrari-hero-1.webp);
-	width: 70%;
-	height: 600px;
-	position: relative;
 	width: 100vw;
+	position: relative;
 	left: 50%;
 	right: 50%;
 	margin-left: -50vw;
 	margin-right: -50vw;
-	min-height: 350px;
-	max-height: 60vh;
-	overflow: hidden;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-repeat: no-repeat;
-}
-// @media (max-width: 375px) {
-// 	.hero {
-// 		background-image: url(../../../public/assets/img/divers/bg-hero-mobile.jpg);
-// 	}
-// }
-
-
-.hero > div {
-	width: 100%;
-	height: 100%;
+	text-align: center;
+	gap: 1.2rem;
+	margin-bottom: 2.5rem;
+	padding: 0;
 }
 
 .hero img {
 	width: 100vw;
-	height: 60vh;
-	object-fit: cover;
+	max-width: 100vw;
+	min-width: 100vw;
+	height: auto;
 	display: block;
-	position: relative;
-	z-index: 1;
-}
-
-.hero h1, .hero p {
-	position: absolute;
-	left: 50%;
-	top: 40%;
-	transform: translate(-50%, -50%);
-	color: #fff;
-	z-index: 2;
-	text-align: center;
-	width: 100vw;
-	text-shadow: 0 2px 8px #000;
-}
-
-.hero h1 {
-	font-size: 3.5rem;
-	font-weight: bold;
-	letter-spacing: 2px;
-}
-
-.hero p {
-	top: 55%;
-	font-size: 2rem;
-	font-weight: 400;
-}
-.hero p {
-	top: 55%;
-	font-size: 1.5rem;
+	border-radius: 0;
+	margin: 0;
+	box-shadow: 0 4px 24px #0006;
 }

@@ -1,37 +1,35 @@
 @use "../base/variable" as *;
 
-.stats-pilotes-table {
+// --------------------------------------------
+// Tables Classements & Stats
+// --------------------------------------------
+.stats-pilotes-table,
+.circuit-classement-table,
+.circuit-constructeurs-table {
   width: 100%;
   border-collapse: collapse;
-  margin: 2rem 0;
+  background: $background-card;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px #0002;
 }
-.stats-pilotes-table th {
-  background: none;
-  color: #e00;
-  font-size: 1.2rem;
-  font-weight: bold;
-  padding: 0.7rem 1.2rem;
-  border-bottom: 2px solid #e00;
-  text-align: left;
-}
-.stats-pilotes-table td {
-  color: #fff;
+
+.stats-pilotes-table th,
+.circuit-classement-table th,
+.circuit-constructeurs-table th {
+  background: $background-box;
+  color: $primary;
   font-size: 1.1rem;
-  padding: 0.7rem 1.2rem;
-  border-bottom: 1px solid #222;
-}
-.stats-pilotes-table tr:last-child td {
-  border-bottom: none;
-}
-.stats-pilotes-table tr:hover td {
-  background: #222a;
-}
-.stats-pilotes-table .pilote-nom {
   font-weight: bold;
+  padding: 0.8em 1.2em;
+  text-align: center;
 }
-.stats-pilotes-table .pilote-num {
-  color: #fff8;
-}
-.stats-pilotes-table .pilote-team {
-  color: #fff6;
+
+.stats-pilotes-table td,
+.circuit-classement-table td,
+.circuit-constructeurs-table td {
+  color: $text-main;
+  font-size: 1.1rem;
+  padding: 0.8em 1.2em;
+  border-bottom: 1px solid $background-card;
 }

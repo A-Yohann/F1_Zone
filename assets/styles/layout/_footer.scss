@@ -1,65 +1,24 @@
-// Footer principal F1-Passion
+@use "../base/variable" as *;
+
+
+// --------------------------------------------
+// Footer
+// --------------------------------------------
 .site-footer {
-	background: #111;
-	color: #fff;
-	padding: 2.2rem 0 1.2rem 0;
-	width: 100%;
-	text-align: center;
-	font-family: inherit;
-}
-.footer-links {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 5vw;
-	margin-bottom: 1.5rem;
-	flex-wrap: wrap;
-}
-.footer-link {
-	color: #fff;
-	text-decoration: none;
-	font-size: 1.1rem;
-	transition: color 0.2s;
-}
-.footer-link:hover {
-	color: #ff2d2d;
-}
-.footer-socials {
-	display: flex;
-	gap: 1.2rem;
-	margin-left: 2vw;
-}
-.footer-social {
-	color: #fff !important;
-	font-size: 1.25rem;
-	transition: color 0.2s;
-}
-.footer-social:hover {
-	color: #fff !important;
-}
-.footer-copyright {
-	margin-top: 0.7rem;
-	font-size: 1.05rem;
-	color: #fff;
+  background: #111;
+  color: #fff;
+  padding: 2.2rem 0 1.2rem 0;
+  width: 100%;
+  text-align: center;
+  font-family: inherit;
 }
 
-@media (max-width: 900px) {
-	.footer-links {
-		flex-direction: column;
-		gap: 1.1rem;
-		margin-bottom: 1.2rem;
-	}
-	.footer-socials {
-		margin-left: 0;
-		gap: 1.5rem;
-	}
-	.footer-link {
-		font-size: 1rem;
-	}
-	.footer-copyright {
-		font-size: 0.98rem;
-	}
-	.site-footer {
-		padding: 1.2rem 0 0.7rem 0;
-	}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 5vw;
+  flex-wrap: wrap;
+}
+.footer-link:hover {
+  color: $primary;
 }

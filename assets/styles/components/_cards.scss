@@ -1,102 +1,71 @@
 @use "../base/variable" as *;
 
-.quiz-card {
+// --------------------------------------------
+// Cartes Pilotes
+// --------------------------------------------
+.pilote-card {
   background: $background-card;
   border-radius: 1.2rem;
   box-shadow: $shadow-card;
-  padding: 2.5rem 2rem 2rem 2rem;
-  margin: 2rem auto 2.5rem auto;
-  max-width: 420px;
-  color: $text-main;
+  overflow: hidden;
+  width: 100%;
+  max-width: 270px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px solid $primary;
-  transition: box-shadow 0.2s, border-color 0.2s;
-
-  h3 {
-    margin-bottom: 1rem;
-    color: $primary;
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-align: center;
-  }
-
-  p {
-    color: $text-secondary;
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-
-  .btn {
-    margin-top: 0.5rem;
-    font-size: 1.1rem;
-    padding: 0.7rem 2.2rem;
-    border-radius: 2rem;
-    font-weight: 600;
-    background: $primary;
-    color: $text-main;
-    box-shadow: $shadow-main;
-    transition: background 0.2s, color 0.2s;
-    &:hover {
-      background: $primary-hover;
-      color: $text-light;
-    }
-  }
-
-  &:hover {
-    box-shadow: $shadow-card-hover;
-    border-color: $primary-hover;
-  }
+  border: 2px solid $border-card;
+  transition: box-shadow 0.2s, transform 0.2s;
 }
 
-.quiz-main-card {
-  background: $background-card;
+.pilote-card:hover {
+  box-shadow: $shadow-card-hover;
+  border-color: $primary;
+  transform: translateY(-8px) scale(1.04);
+}
+
+// --------------------------------------------
+// Cartes Teams
+// --------------------------------------------
+.team-card-full {
+  width: 100%;
+  min-height: 320px;
   border-radius: 1.5rem;
+  overflow: hidden;
+  position: relative;
   box-shadow: $shadow-card;
-  padding: 2.8rem 2.2rem 2.2rem 2.2rem;
-  margin: 2.5rem auto 2.5rem auto;
-  max-width: 520px;
-  color: $text-main;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border: 2.5px solid $primary;
-  transition: box-shadow 0.2s, border-color 0.2s;
+  justify-content: flex-start;
+  padding: 0;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 0;
+  background-blend-mode: overlay;
+}
 
-  h1 {
-    margin-bottom: 1.2rem;
-    color: $primary;
-    font-size: 2.1rem;
-    font-weight: 800;
-    text-align: center;
-    letter-spacing: 1px;
-  }
+.team-card-full:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: $shadow-card-hover;
+}
 
-  p {
-    color: $text-secondary;
-    margin-bottom: 1.7rem;
-    text-align: center;
-    font-size: 1.15rem;
-  }
+// --------------------------------------------
+// Cartes Articles
+// --------------------------------------------
+.article-card {
+  border-radius: 1rem;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid $background-card;
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+  min-height: 480px;
+  justify-content: stretch;
+  background: $background-img;
+}
 
-  .quiz-placeholder {
-    min-height: 120px;
-    width: 100%;
-    background: $background-box;
-    border-radius: 1rem;
-    box-shadow: $shadow-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $text-light;
-    font-size: 1.1rem;
-    opacity: 0.95;
-    padding: 1.5rem 1rem;
-  }
-
-  &:hover {
-    box-shadow: $shadow-card-hover;
-    border-color: $primary-hover;
-  }
+.article-card:hover {
+  box-shadow: 0 8px 32px #e1060044;
+  border-color: $primary;
+  transform: translateY(-6px) scale(1.03);
 }

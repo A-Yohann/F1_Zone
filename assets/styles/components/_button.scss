@@ -1,10 +1,13 @@
 @use "../base/variable" as *;
 
-// Bouton principal réutilisable
+
+// --------------------------------------------
+// Boutons principaux
+// --------------------------------------------
 .btn,
-button,
-input[type="submit"],
-input[type="button"] {
+	button,
+	input[type="submit"],
+	input[type="button"] {
 	background: $primary;
 	color: $text-main;
 	border: none;
@@ -18,11 +21,11 @@ input[type="button"] {
 	cursor: pointer;
 	box-shadow: $shadow-main;
 	display: inline-block;
-}
+	}
 
 .btn:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="button"]:hover {
+	button:hover,
+	input[type="submit"]:hover,
+	input[type="button"]:hover {
 	background: $primary-hover;
-}
+	}
