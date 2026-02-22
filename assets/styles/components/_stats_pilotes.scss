@@ -3,15 +3,50 @@
 // --------------------------------------------
 // Tables Classements & Stats
 // --------------------------------------------
-.stats-pilotes-table,
-.circuit-classement-table,
-.circuit-constructeurs-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: $background-card;
-  border-radius: 10px;
+// Style inspiré du screenshot fourni
+.stats-pilotes-table {
+  width: 90%;
+  max-width: 800px;
+  margin: 2rem auto;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 8px #0002;
+  background: #222;
+  color: #fff;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+  border-collapse: separate;
+}
+
+.stats-pilotes-table th {
+  background: #181818;
+  color: #e60023;
+  font-weight: bold;
+  font-size: 1.15rem;
+  padding: 1rem 0.8rem;
+  text-align: left;
+}
+
+.stats-pilotes-table td {
+  padding: 0.8rem 0.8rem;
+  border-bottom: 1px solid #333;
+}
+
+.stats-pilotes-table tr:last-child td {
+  border-bottom: none;
+}
+
+.stats-pilotes-table .pilote-nom {
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .stats-pilotes-table {
+    font-size: 0.95rem;
+    width: 98%;
+  }
+  .stats-pilotes-table th, .stats-pilotes-table td {
+    padding: 0.5rem 0.3rem;
+  }
 }
 
 .stats-pilotes-table th,
