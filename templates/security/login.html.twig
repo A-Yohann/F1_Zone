@@ -12,7 +12,25 @@
         <label for="inputEmail">Email</label>
         <input type="email" value="{{ last_username }}" name="email" id="inputEmail" required autofocus>
         <label for="inputPassword">Mot de passe</label>
-        <input type="password" name="password" id="inputPassword" required>
+        <div style="position:relative;">
+            <input type="password" name="password" id="inputPassword" required style="padding-right:2.2em;">
+            <span id="toggleLoginPassword" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:1.2em;color:#888;">
+                👁️
+            </span>
+        </div>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const passwordInput = document.getElementById('inputPassword');
+            const togglePassword = document.getElementById('toggleLoginPassword');
+            if (passwordInput && togglePassword) {
+                togglePassword.addEventListener('click', function() {
+                    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    passwordInput.setAttribute('type', type);
+                    togglePassword.textContent = type === 'password' ? '👁️' : '🙈';
+                });
+            }
+        });
+        </script>
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
         <div style="margin-bottom:1rem;">
             <input type="checkbox" name="_remember_me" id="remember_me">

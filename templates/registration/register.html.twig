@@ -3,7 +3,8 @@
 {% block title %}F1-Zone Inscription{% endblock %}
 
 {% block body %}
-<div class="auth-form-container">
+<div class="container">
+    <div class="auth-form-container">
     <h1 class="auth-form-title">Inscription</h1>
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="auth-form form-error-message" role="alert">{{ flash_error }}</div>
@@ -16,19 +17,52 @@
     {% endfor %}
     <form method="post" class="auth-form">
         {# Affiche les erreurs globales du formulaire #}
-        {{ form_errors(registrationForm) }}
+        {# Affiche chaque erreur globale une seule fois #}
+        {# Affiche les erreurs globales sauf celles déjà affichées sur un champ #}
+        {% set global_errors = registrationForm.vars.errors|default([]) %}
+        {% set filtered_global_errors = [] %}
+        {% for error in global_errors %}
+            {% if 'email' not in error.message|lower %}
+                {% set filtered_global_errors = filtered_global_errors|merge([error]) %}
+            {% endif %}
+        {% endfor %}
+        {% if filtered_global_errors|length > 0 %}
+            <div class="auth-form form-error-message" role="alert">
+                {% for error in filtered_global_errors %}
+                    {{ error.message }}
+                {% endfor %}
+            </div>
+        {% endif %}
         {{ form_row(registrationForm.email) }}
         {{ form_errors(registrationForm.email) }}
         {{ form_row(registrationForm.username, { label: 'Nom d\'utilisateur' }) }}
         {{ form_errors(registrationForm.username) }}
         <div style="position:relative;display:flex;align-items:center;gap:8px;">
             <label for="registration_form_plainPassword" style="font-weight:bold;">Mot de passe</label>
-            <span class="password-info-tooltip" style="cursor:pointer;position:relative;display:inline-flex;align-items:center;">
+            <span class="password-info-tooltip" style="cursor:pointer;position:relative;display:inline-flex;align-items:center;" tabindex="0">
                 <span class="password-info-icon" style="background:#222;color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:1em;box-shadow:0 2px 8px #0003;margin-bottom:20px;">i</span>
                 <span class="password-info-text" style="display:none;position:absolute;left:26px;top:0;background:#222;color:#fff;padding:0.7em 1em;border-radius:8px;font-size:0.95em;box-shadow:0 2px 8px #0007;white-space:nowrap;z-index:10;">Le mot de passe doit contenir au moins 6 caractères, un chiffre et un caractère spécial.</span>
             </span>
         </div>
-        <div style="margin-top:6px;">{{ form_widget(registrationForm.plainPassword) }}</div>
+        <div style="margin-top:6px;position:relative;display:flex;align-items:center;">
+            {{ form_widget(registrationForm.plainPassword, {'attr': {'id': 'registration_form_plainPassword', 'style': 'padding-right:2.2em;'}}) }}
+            <span id="togglePassword" style="position:absolute;right:12px;top:35%;transform:translateY(-50%);cursor:pointer;font-size:1.2em;color:#888;display:flex;align-items:center;justify-content:center;height:100%;">
+                👁️
+            </span>
+        </div>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const passwordInput = document.getElementById('registration_form_plainPassword');
+            const togglePassword = document.getElementById('togglePassword');
+            if (passwordInput && togglePassword) {
+                togglePassword.addEventListener('click', function() {
+                    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    passwordInput.setAttribute('type', type);
+                    togglePassword.textContent = type === 'password' ? '👁️' : '🙈';
+                });
+            }
+        });
+        </script>
         {% block javascripts %}
             {{ parent() }}
             <script>
@@ -36,21 +70,54 @@
                 const tooltip = document.querySelector('.password-info-tooltip');
                 if (tooltip) {
                     const infoText = tooltip.querySelector('.password-info-text');
+                    // Affichage au survol (desktop)
                     tooltip.addEventListener('mouseenter', function() {
                         infoText.style.display = 'block';
                     });
                     tooltip.addEventListener('mouseleave', function() {
                         infoText.style.display = 'none';
                     });
+                    // Affichage au clic (mobile/tablette)
+                    tooltip.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        infoText.style.display = (infoText.style.display === 'block') ? 'none' : 'block';
+                    });
+                    // Cacher la bulle si on clique ailleurs
+                    document.addEventListener('click', function(e) {
+                        if (!tooltip.contains(e.target)) {
+                            infoText.style.display = 'none';
+                        }
+                    });
                 }
             });
             </script>
         {% endblock %}
-        {{ form_row(registrationForm.confirmPassword, { label: 'Confirmer le mot de passe' }) }}
+        <div style="position:relative;margin-top:1em;display:flex;align-items:center;">
+            <label for="registration_form_confirmPassword" style="font-weight:bold;">Confirmer le mot de passe</label>
+        </div>
+        <div style="position:relative;display:flex;align-items:center;">
+            {{ form_widget(registrationForm.confirmPassword, {'attr': {'id': 'registration_form_confirmPassword', 'style': 'padding-right:2.2em;'}}) }}
+            <span id="toggleConfirmPassword" style="position:absolute;right:12px;top:35%;transform:translateY(-50%);cursor:pointer;font-size:1.2em;color:#888;display:flex;align-items:center;justify-content:center;height:100%;">
+                👁️
+            </span>
+        </div>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const confirmInput = document.getElementById('registration_form_confirmPassword');
+            const toggleConfirm = document.getElementById('toggleConfirmPassword');
+            if (confirmInput && toggleConfirm) {
+                toggleConfirm.addEventListener('click', function() {
+                    const type = confirmInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    confirmInput.setAttribute('type', type);
+                    toggleConfirm.textContent = type === 'password' ? '👁️' : '🙈';
+                });
+            }
+        });
+        </script>
         {{ form_errors(registrationForm.confirmPassword) }}
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.2em;">
+        <div style="display:flex;align-items:center;gap:10px;">
             {{ form_widget(registrationForm.agreeTerms) }}
-            <label for="registration_form_agreeTerms" style="font-weight:500;cursor:pointer;">Agree terms</label>
+            <label for="registration_form_agreeTerms" style="font-weight:500;cursor:pointer;">Accepter les termes</label>
         </div>
         {{ form_errors(registrationForm.agreeTerms) }}
         {{ form_row(registrationForm._token) }}
@@ -58,6 +125,7 @@
         <div class="form-links" style="margin-top: 1.5rem;">
             <a href="{{ path('app_login') }}" class="auth-link-simple">Déjà inscrit ? Se connecter</a>
         </div>
-    </form>
+        </form>
+    </div>
 </div>
 {% endblock %}

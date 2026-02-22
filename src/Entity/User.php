@@ -13,7 +13,7 @@ use Doctrine\Common\Collections\Collection;
 #[ORM\Table(name: 'user')]
 #[ORM\Index(columns: ['email'], name: 'idx_user_email')]
 #[ORM\Index(columns: ['username'], name: 'idx_user_username')]
-#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+#[UniqueEntity(fields: ['email'], message: 'Il existe déjà un compte avec cet email.')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]

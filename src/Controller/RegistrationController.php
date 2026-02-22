@@ -43,8 +43,8 @@ class RegistrationController extends AbstractController
                         ->subject('Please Confirm your Email')
                         ->htmlTemplate('registration/confirmation_email.html.twig')
                 );
-                $this->addFlash('success', 'Inscription réussie ! Un email a été envoyé à : ' . $user->getEmail() . ' (si la configuration SMTP fonctionne).');
-                return $this->redirectToRoute('app_register');
+                $this->addFlash('success', 'Inscription réussie ! Veuillez vérifier votre email.');
+                return $this->redirectToRoute('app_login');
             } else {
                 if ($plainPassword !== $confirmPassword) {
                     $this->addFlash('danger', 'Les mots de passe ne correspondent pas.');
