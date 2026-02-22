@@ -14,11 +14,17 @@ use Doctrine\ORM\EntityManagerInterface;
 class GpResumeController extends AbstractController
 {
     #[Route('/gp-resume', name: 'gp_resume')]
-    public function index(ResumeVideoRepository $resumeVideoRepository): Response
+    public function index(Request $request, ResumeVideoRepository $resumeVideoRepository): Response
     {
-        $videos = $resumeVideoRepository->findAll();
+        $page = max(1, (int)$request->query->get('page', 1));
+        $limit = 9;
+        $videos = $resumeVideoRepository->findPaginated($page, $limit);
+        $total = $resumeVideoRepository->count([]);
+        $pages = (int)ceil($total / $limit);
         return $this->render('gp_resume/index.html.twig', [
-            'videos' => $videos
+            'videos' => $videos,
+            'page' => $page,
+            'pages' => $pages
         ]);
     }
 

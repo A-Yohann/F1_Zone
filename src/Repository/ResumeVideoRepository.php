@@ -12,4 +12,18 @@ class ResumeVideoRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, ResumeVideo::class);
     }
+    /**
+     * @param int $page
+     * @param int $limit
+     * @return ResumeVideo[]
+     */
+    public function findPaginated(int $page, int $limit): array
+    {
+        return $this->createQueryBuilder('v')
+            ->orderBy('v.id', 'ASC')
+            ->setFirstResult(($page - 1) * $limit)
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult();
+    }
 }
