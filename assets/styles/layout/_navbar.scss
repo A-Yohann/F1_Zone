@@ -100,7 +100,6 @@
   padding: 0.5rem 1.5rem;
   background: #0D0D0D;
   box-sizing: border-box;
-}
 
   .logo-header {
     height: 44px;
@@ -123,7 +122,7 @@
 
     &:hover { color: #e10600; }
   }
-
+}
 
 // Laptop ≤ 992px — liens plus petits
 @media (max-width: $breakpoint-laptop) {
@@ -249,42 +248,41 @@
 }
 
 // --------------------------------------------
-// Mega-menu Pilotes — grille 4 col, cards aérées
+// Mega-menu Pilotes — 4 col, photo + nom en ligne
 // --------------------------------------------
 .navbar-megamenu-pilotes .teams-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
   margin: 0;
 }
 
 .navbar-megamenu-pilotes .team-card {
   min-width: 0 !important;
-  padding: 1rem 0.8rem !important;
-  box-shadow: 0 2px 12px #0005 !important;
+  padding: 0.7rem 0.9rem !important;
+  box-shadow: 0 2px 8px #0004 !important;
   background: #23243a !important;
-  border-radius: 14px !important;
+  border-radius: 10px !important;
   display: flex !important;
-  flex-direction: column !important;
+  flex-direction: row !important;
   align-items: center !important;
-  justify-content: center !important;
+  justify-content: flex-start !important;
   gap: 0.7rem !important;
-  text-align: center !important;
+  text-align: left !important;
   min-height: 0 !important;
   aspect-ratio: unset !important;
   position: relative !important;
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  transition: background 0.2s, transform 0.2s !important;
 
   &:hover {
     background: #2e3050 !important;
-    transform: translateY(-4px) !important;
-    box-shadow: 0 6px 20px #0007 !important;
+    transform: translateX(4px) !important;
   }
 }
 
 .navbar-megamenu-pilotes .team-card .team-car-img {
-  height: 52px !important;
-  width: 52px !important;
+  height: 42px !important;
+  width: 42px !important;
   border-radius: 50% !important;
   object-fit: cover !important;
   border: 2px solid #ffffff22 !important;
@@ -296,11 +294,11 @@
 }
 
 .navbar-megamenu-pilotes .team-card .team-name {
-  font-size: 0.82rem !important;
+  font-size: 0.88rem !important;
   font-weight: 600 !important;
   color: #fff !important;
   margin: 0 !important;
-  line-height: 1.3 !important;
+  line-height: 1.2 !important;
   position: static !important;
   top: auto !important;
   left: auto !important;
@@ -324,7 +322,7 @@
 }
 
 // --------------------------------------------
-// Styles globaux déplacés depuis les templates
+// Styles globaux
 // --------------------------------------------
 .gp-filter-form-mb  { margin-bottom: 1.5rem; }
 .classement-hidden  { display: none; }

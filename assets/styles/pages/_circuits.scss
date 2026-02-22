@@ -27,6 +27,10 @@
 
 .circuit-card .circuit-title {
   color: $primary !important;
+  font-size: 1.1rem;
+  line-height: 1.3;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .circuit-card:hover {

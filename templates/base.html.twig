@@ -193,6 +193,9 @@
                             <a href="{{ path('app_login') }}">Connexion</a>
                             <a href="{{ path('app_register') }}">Inscription</a>
                         {% else %}
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a href="{{ path('admin') }}">Admin</a>
+                            {% endif %}
                             <a href="{{ path('app_logout') }}">Déconnexion</a>
                         {% endif %}
                     </nav>
