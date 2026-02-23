@@ -215,6 +215,13 @@
                 </header>
             </nav>
         </header>
+        {% for label, messages in app.flashes %}
+            <div class="flash-message flash-{{ label }}">
+                {% for message in messages %}
+                    <div>{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endfor %}
         {% block body %}{% endblock %}
 
         <footer class="site-footer">
