@@ -7,6 +7,11 @@
   box-shadow: 0 6px 32px #000a;
   padding: 2.5rem 2.2rem 2.2rem 2.2rem;
   text-align: center;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .error-404-container h1 {
   font-size: 5rem;
