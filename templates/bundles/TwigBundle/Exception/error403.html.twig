@@ -3,10 +3,10 @@
 {% block title %}Accès interdit (403){% endblock %}
 
 {% block body %}
-<div class="error-404-container" style="min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center;">
+<div class="error-404-container">
     <h1>403</h1>
     <h2>Accès interdit !</h2>
     <p>Vous n'avez pas les droits nécessaires pour accéder à cette page.</p>
-    <a href="{{ path('app_home') }}" class="btn" style="margin-top:2rem;">Retour à l’accueil</a>
+    <a href="{{ path('app_home') }}" class="btn btn--mt">Retour à l'accueil</a>
 </div>
 {% endblock %}

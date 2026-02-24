@@ -1,6 +1,9 @@
 @use "../base/variable" as *;
 @use "../components/button";
 
+// --------------------------------------------
+// GP Resume container
+// --------------------------------------------
 .gp-resume-container {
   max-width: 900px;
   margin: 3rem auto;
@@ -10,19 +13,22 @@
   padding: 2.5rem 2.5rem 2rem 2.5rem;
   color: #fff;
 }
+
 .gp-resume-title {
   text-align: center;
-  color: #ff2d2d;
+  color: $primary;
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 2.5rem;
 }
+
 .gp-resume-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0;
   justify-content: center;
 }
+
 .gp-resume-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -31,6 +37,9 @@
   align-items: stretch;
 }
 
+// --------------------------------------------
+// GP Resume card
+// --------------------------------------------
 .gp-resume-card {
   background: #23243a;
   border-radius: 16px;
@@ -47,32 +56,39 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+  h2 {
+    color: $primary;
+    font-size: 1.3rem;
+    margin-bottom: 1em;
+    text-align: center;
+    min-height: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
-.gp-resume-card h2 {
-  color: #ff2d2d;
-  font-size: 1.3rem;
-  margin-bottom: 1em;
-  text-align: center;
-  min-height: 2.5em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
+// --------------------------------------------
+// GP Resume video
+// --------------------------------------------
 .gp-resume-video {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  iframe {
+    border-radius: 8px;
+    width: 100%;
+    height: 210px;
+    min-width: 0;
+    max-width: 220px;
+    object-fit: cover;
+  }
 }
-.gp-resume-video iframe {
-  border-radius: 8px;
-  width: 100%;
-  height: 210px;
-  min-width: 0;
-  max-width: 220px;
-  object-fit: cover;
-}
+
 .gp-resume-video-detail {
   display: flex;
   justify-content: center;
@@ -80,6 +96,35 @@
   margin-bottom: 2rem;
 }
 
+// --------------------------------------------
+// Pagination (extracted from inline styles)
+// --------------------------------------------
+.gp-resume-pagination {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.gp-resume-page-btn {
+  display: inline-block;
+  padding: 0.6em 1.2em;
+  margin: 0 0.3em;
+  border-radius: 8px;
+  background: #23243a;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.2s;
+
+  &.active,
+  &:hover {
+    background: $primary;
+    color: #fff;
+  }
+}
+
+// --------------------------------------------
+// Responsive
+// --------------------------------------------
 @media (max-width: 992px) {
   .gp-resume-grid {
     grid-template-columns: repeat(2, 1fr);

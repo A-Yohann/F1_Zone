@@ -1,12 +1,7 @@
-// @use "pages/contact";
-@use "pages/mentions_legales";
-@use "pages/a_propos";
-// base
+// Base
 @use "base/body";
 @use "base/typographie";
 @use "base/variable";
-
-
 
 // Components
 @use "components/cards";
@@ -18,27 +13,27 @@
 @use "components/stats_pilotes";
 @use "components/actus";
 
-
-
-
 // Layout
 @use "layout/navbar";
 @use "layout/footer";
 @use "layout/header";
 @use "layout/hero";
 
-
-// pages
+// Pages
 @use "pages/home";
 @use "pages/circuits";
 @use "pages/pilotes";
 @use "pages/reglementation";
 @use "pages/gp_resume";
-@use 'pages/article';
-@use 'pages/transfert';
-@use 'pages/vainqueur';
-@use 'pages/quizz';
+@use "pages/article";
+@use "pages/transfert";
+@use "pages/vainqueur";
+@use "pages/quizz";
+@use "pages/contact";
+@use "pages/mentions_legales";
+@use "pages/a_propos";
+@use "pages/dashboard";
 @use "pages/404" as page404;
 
-
+// Responsive (toujours en dernier)
 @use "base/responsive";

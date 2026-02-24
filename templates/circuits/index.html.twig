@@ -1,82 +1,16 @@
-
 {% extends 'base.html.twig' %}
 
 {% block title %}F1-Zone Circuits F1{% endblock %}
 {% block body %}
 <div class="circuits-page-container">
-    <div class="circuits-search-bar" style="margin-bottom:1.5rem;text-align:center;">
-        <input type="text" id="circuit-search" placeholder="Rechercher un circuit..." style="padding:0.5rem 1rem; width:100%; max-width:350px; border-radius:8px; border:1px solid #ccc; font-size:1.1rem;">
+    <div class="circuits-search-bar">
+        <input type="text" id="circuit-search" placeholder="Rechercher un circuit..." class="circuits-search-input">
     </div>
-    <style>
-    .circuits-page-container {
-        min-height: 80vh;
-        display: flex;
-        flex-direction: column;
-    }
-    .circuits-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
-    .circuit-card {
-        background: #181924;
-        color: #fff;
-        border-radius: 12px;
-        box-shadow: 0 2px 8px #0003;
-        padding: 2rem 2.5rem 1.5rem 2.5rem;
-        min-width: 340px;
-        max-width: 370px;
-        position: relative;
-        margin-bottom: 2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    .circuit-card .circuit-img {
-        position: absolute;
-        right: 1.5rem;
-        bottom: 1.5rem;
-        width: 90px;
-        height: auto;
-        opacity: 0.95;
-        
-    }
-    .circuit-card .circuit-flag {
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        margin-right: 0.7em;
-        vertical-align: middle;
-    }
-    .circuit-card .circuit-title {
-        font-size: 2rem;
-        font-weight: bold;
-        margin-bottom: 0.2em;
-        display: flex;
-        align-items: center;
-        
-    }
-    .circuit-card .circuit-gp {
-        font-size: 1.1rem;
-        color: #bdbdbd;
-        margin-bottom: 0.7em;
-    }
-    .circuit-card .circuit-date {
-        font-size: 1.2rem;
-        font-weight: bold;
-        letter-spacing: 2px;
-        margin-top: 1.2em;
-        color: #f2f2f2;
-    }
-    </style>
 
     <div class="circuits-list">
         {% for circuit in circuits %}
-            <a class="circuit-card" href="{{ path('app_circuit_show', {id: circuit.id}) }}" style="text-decoration:none;color:inherit;">
-                <div style="font-size:0.9em; color:#bdbdbd; margin-bottom:0.5em;">ROUND {{ circuit.round }}</div>
+            <a class="circuit-card" href="{{ path('app_circuit_show', {id: circuit.id}) }}">
+                <div class="circuit-round">ROUND {{ circuit.round }}</div>
                 <div class="circuit-title">
                     {% if circuit.codePays %}
                         <img class="circuit-flag" src="https://flagsapi.com/{{ circuit.codePays }}/flat/32.png" alt="{{ circuit.pays }}">
@@ -88,7 +22,9 @@
                     {{ circuit.dateDebut|date('d') }} – {{ circuit.dateFin|date('d M') }}
                 </div>
                 {% if circuit.imageSvg %}
-                    <img class="circuit-img" src="{{ asset('assets/svg/' ~ circuit.imageSvg) }}" alt="{{ circuit.nomCircuit }}" >
+                    <img class="circuit-img{% if '.png' in circuit.imageSvg %} circuit-img--png{% endif %}" 
+                        src="{{ asset('assets/svg/' ~ circuit.imageSvg) }}" 
+                        alt="{{ circuit.nomCircuit }}">
                 {% endif %}
             </a>
         {% endfor %}

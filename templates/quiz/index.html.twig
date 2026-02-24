@@ -3,11 +3,11 @@
 {% block title %}F1-Zone Quiz F1{% endblock %}
 
 {% block body %}
-<section id="quiz-main" style="min-height: 80vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(120deg, #181818 0%, #232323 100%);">
+<section id="quiz-main" class="quiz-section">
     <div class="quiz-main-card">
         <h1>Quiz F1</h1>
         <p>Testez vos connaissances sur la Formule 1 !<br>Choisissez la difficulté pour commencer.</p>
-        <form method="get" action="{{ path('app_quiz') }}" style="width:100%; max-width:340px; margin:2rem auto 0 auto;">
+        <form method="get" action="{{ path('app_quiz') }}" class="quiz-form">
             <div class="mb-3">
                 <label for="difficulte" class="form-label">Difficulté :</label>
                 <select name="difficulte" id="difficulte" class="form-select" required>
@@ -26,7 +26,7 @@
             </div>
         {% elseif difficulte and question %}
             <div class="quiz-placeholder mt-4">
-                <div style="margin-bottom:1rem; font-size:1.1rem;">
+                <div class="quiz-progress">
                     Question {{ current + 1 }}/{{ total }}
                 </div>
                 {% if message %}
@@ -54,7 +54,7 @@
         {% endif %}
         {% if showResult %}
         <hr class="my-4">
-        <h2 style="text-align:center;">Classement détaillé</h2>
+        <h2 class="quiz-classement-title">Classement détaillé</h2>
         <table class="table table-dark table-striped mt-4">
             <thead>
                 <tr>

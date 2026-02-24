@@ -6,7 +6,7 @@
 <div class="container">
     <h1>Dernières actualités F1</h1>
     {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_CONTRIBUTOR') %}
-        <a href="{{ path('admin_actu_new') }}" class="btn btn-primary" style="margin-bottom:1.5rem;">Ajouter une actualité</a>
+        <a href="{{ path('admin_actu_new') }}" class="btn btn-primary btn--mb">Ajouter une actualité</a>
     {% endif %}
     <div class="actus-cards">
         {% for actu in actus %}
@@ -22,7 +22,7 @@
                 {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_CONTRIBUTOR') %}
                     <div class="actu-actions">
                         <a href="{{ path('admin_actu_edit', {id: actu.id}) }}" class="btn btn-warning btn-sm">Modifier</a>
-                        <form method="post" action="{{ path('admin_actu_delete', {id: actu.id}) }}" style="display:inline-block;" onsubmit="return confirm('Confirmer la suppression ?');">
+                        <form method="post" action="{{ path('admin_actu_delete', {id: actu.id}) }}" class="inline-form" onsubmit="return confirm('Confirmer la suppression ?');">
                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ actu.id) }}">
                             <button class="btn btn-danger btn-sm">Supprimer</button>
                         </form>

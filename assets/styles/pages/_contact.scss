@@ -1,6 +1,8 @@
-// Styles page contact F1-Passion
 @use "../base/variable" as *;
 
+// --------------------------------------------
+// Contact form container
+// --------------------------------------------
 .contact-form-container {
   max-width: 420px;
   margin: 3rem auto;
@@ -10,19 +12,22 @@
   padding: 2.5rem 2.5rem 2rem 2.5rem;
   color: #fff;
 }
+
 .contact-form-title {
   text-align: center;
-  color: #ff2d2d;
+  color: $primary;
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 2rem;
 }
+
 .contact-form label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #ff2d2d;
+  color: $primary;
   font-weight: 500;
 }
+
 .contact-form input[type="text"],
 .contact-form input[type="email"],
 .contact-form textarea {
@@ -34,9 +39,11 @@
   padding: 0.7rem 1rem;
   margin-bottom: 1.2rem;
   font-size: 1rem;
+  box-sizing: border-box;
 }
+
 .contact-form button {
-  background: #ff2d2d;
+  background: $primary;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -46,16 +53,19 @@
   cursor: pointer;
   transition: background 0.2s;
   margin-top: 0.5rem;
+
+  &:hover {
+    background: $primary-hover;
+  }
 }
-.contact-form button:hover {
-  background: #c91e1e;
-}
+
 .contact-form .form-success-message {
   color: #4caf50;
   margin-bottom: 1rem;
   font-size: 1rem;
   text-align: center;
 }
+
 .contact-form .form-error-message {
   color: #ff6b6b;
   margin-bottom: 1rem;
@@ -63,4 +73,30 @@
   text-align: center;
 }
 
+// --------------------------------------------
+// Flash messages (extracted from inline styles)
+// --------------------------------------------
+.flash-msg {
+  font-size: 1.2em;
+  text-align: center;
+  margin-bottom: 1em;
+}
 
+// --------------------------------------------
+// Form field error (email validation)
+// --------------------------------------------
+.form-field-error {
+  display: none;
+  color: $primary;
+  font-size: 0.95em;
+  margin-bottom: 0.5em;
+}
+
+// --------------------------------------------
+// Character count
+// --------------------------------------------
+.form-char-count {
+  font-size: 0.95em;
+  color: #555;
+  margin-bottom: 0.5em;
+}

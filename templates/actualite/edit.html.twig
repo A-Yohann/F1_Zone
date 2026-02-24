@@ -15,26 +15,6 @@
         </div>
         <button class="btn btn-primary">Enregistrer</button>
     {{ form_end(form) }}
-    <script>
-    // Affiche le nom du fichier sélectionné
-    document.addEventListener('DOMContentLoaded', function() {
-        var input = document.getElementById('actu_imageFile');
-        var label = document.querySelector('.custom-file-label');
-        var fileName = document.getElementById('file-name');
-        if(input && label && fileName) {
-            label.addEventListener('click', function() {
-                input.click();
-            });
-            input.addEventListener('change', function(e) {
-                if(input.files.length > 0) {
-                    fileName.textContent = input.files[0].name;
-                } else {
-                    fileName.textContent = '';
-                }
-            });
-        }
-    });
-    </script>
-    <a href="{{ path('admin_actu_index') }}" class="btn btn-secondary" style="margin-top:1rem;">Retour</a>
+    <a href="{{ path('admin_actu_index') }}" class="btn btn-secondary btn--mt">Retour</a>
 </div>
 {% endblock %}

@@ -6,9 +6,9 @@
 <div class="gp-resume-detail-container">
   <h1 class="gp-resume-title">Éditer le commentaire</h1>
   <form method="post">
-    <textarea name="commentaire" required class="gp-comment-textarea" style="min-height: 120px;">{{ commentaire.contenu }}</textarea>
+    <textarea name="commentaire" required class="gp-comment-textarea">{{ commentaire.contenu }}</textarea>
     <button type="submit" class="gp-comment-btn btn">Enregistrer</button>
-    <a href="{{ path('gp_resume_show', {'id': commentaire.resumeVideo.id}) }}" class="gp-comment-btn btn" style="background:#444; margin-left:1rem;">Annuler</a>
+    <a href="{{ path('gp_resume_show', {'id': commentaire.resumeVideo.id}) }}" class="gp-comment-btn btn btn--edit">Annuler</a>
   </form>
 </div>
 {% endblock %}

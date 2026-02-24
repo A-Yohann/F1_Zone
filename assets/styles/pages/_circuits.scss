@@ -2,40 +2,127 @@
 @use "../components/button";
 
 // --------------------------------------------
-// Circuits liste — circuit-card
+// Circuits page container
 // --------------------------------------------
-.circuit-card {
-  background: $background-img;
-  color: $text-main;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px #0003;
-  padding: 2rem 2.5rem 1.5rem 2.5rem;
-  min-width: 0;
-  max-width: 100%;
-  width: 100%;
-  box-sizing: border-box;
+.circuits-page-container {
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  transition: transform 0.15s;
-  svg, img.circuit-img {
-    color: #fff !important;
-    fill: #fff !important;
-    filter: brightness(0) invert(1);
+}
+
+// --------------------------------------------
+// Search bar (shared between circuits & pilotes)
+// --------------------------------------------
+.circuits-search-bar,
+.pilotes-search-bar {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.search-input,
+.circuits-search-input {
+  padding: 0.5rem 1rem;
+  width: 100%;
+  max-width: 350px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1.1rem;
+  background: $background-card;
+  color: $text-main;
+}
+
+// --------------------------------------------
+// Circuits liste — layout
+// --------------------------------------------
+.circuits-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  width: 100%;
+}
+
+.circuit-card {
+  position: relative;
+  overflow: visible;
+  background: $background-img;
+  border-radius: 16px;
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    aspect-ratio: 4/3;
+    text-decoration: none;
+    color: $text-main;
+    svg, img.circuit-img {
+    color: #fff!important; ;
+    fill: #fff !important ;
+    // filter: brightness(0) invert(1);
   }
 }
 
+.circuit-card .circuit-img {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  opacity: 0.95;
+  filter: brightness(0) invert(1);
+}
+
+.circuit-img--png {
+  filter: none;
+}
+
+ 
+
+
+.circuit-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 6px 24px #0005;
+}
+
+
+
+.circuit-card .circuit-flag {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: 0.7em;
+  vertical-align: middle;
+}
+
 .circuit-card .circuit-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.2em;
+  display: flex;
+  align-items: center;
   color: $primary !important;
-  font-size: 1.1rem;
   line-height: 1.3;
   white-space: normal;
   word-break: break-word;
 }
 
-.circuit-card:hover {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 6px 24px #0005;
+.circuit-card .circuit-gp {
+  font-size: 1.1rem;
+  color: #bdbdbd;
+  margin-bottom: 0.7em;
+}
+
+.circuit-card .circuit-round {
+  font-size: 0.9em;
+  color: #bdbdbd;
+  margin-bottom: 0.5em;
+}
+
+.circuit-card .circuit-date {
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-top: 1.2em;
+  color: #f2f2f2;
 }
 
 // --------------------------------------------
@@ -60,7 +147,6 @@
 // --------------------------------------------
 // Circuit Detail — flex image + infos
 // --------------------------------------------
-// Amélioration alignement et responsive
 .circuit-detail-flex {
   display: flex;
   gap: 3rem;
@@ -239,77 +325,30 @@
   }
 }
 
-
-
 // --------------------------------------------
 // Responsive circuit detail
 // --------------------------------------------
-
-// Laptop ≤ 992px
 @media (max-width: $breakpoint-laptop) {
-  .circuit-detail-flex {
-    gap: 2rem;
-  }
-  .circuit-detail-img {
-    flex: 0 0 320px;
-    max-width: 320px;
-  }
-  .circuit-detail-title {
-    font-size: 1.8rem;
-  }
-  .circuit-sessions {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .circuit-detail-flex { gap: 2rem; }
+  .circuit-detail-img { flex: 0 0 320px; max-width: 320px; }
+  .circuit-detail-title { font-size: 1.8rem; }
+  .circuit-sessions { grid-template-columns: repeat(2, 1fr); }
 }
 
-// Tablet ≤ 768px
 @media (max-width: $breakpoint-tablet) {
-  .circuit-detail-container {
-    padding: 1.5rem 1rem;
-  }
-  .circuit-detail-flex {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  .circuit-detail-img {
-    flex: none;
-    max-width: 100%;
-    width: 100%;
-  }
-  .circuit-detail-title {
-    font-size: 1.6rem;
-  }
-  .circuit-sessions {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 0 1rem;
-  }
-  .circuit-classement,
-  .circuit-constructeurs {
-    padding: 0 1rem;
-  }
+  .circuit-detail-container { padding: 1.5rem 1rem; }
+  .circuit-detail-flex { flex-direction: column; gap: 1.5rem; }
+  .circuit-detail-img { flex: none; max-width: 100%; width: 100%; }
+  .circuit-detail-title { font-size: 1.6rem; }
+  .circuit-sessions { grid-template-columns: repeat(2, 1fr); padding: 0 1rem; }
+  .circuit-classement, .circuit-constructeurs { padding: 0 1rem; }
 }
 
-// Mobile ≤ 576px
 @media (max-width: $breakpoint-mobile) {
-  .circuit-detail-container {
-    padding: 1rem 0.75rem;
-  }
-  .circuit-detail-row {
-    grid-template-columns: 1fr;
-  }
-  .circuit-detail-title {
-    font-size: 1.4rem;
-  }
-  .circuit-sessions {
-    grid-template-columns: 1fr;
-    padding: 0 0.75rem;
-    gap: 0.8rem;
-  }
-  .circuit-session-row {
-    padding: 1rem;
-  }
-  .circuit-classement,
-  .circuit-constructeurs {
-    padding: 0 0.75rem;
-  }
+  .circuit-detail-container { padding: 1rem 0.75rem; }
+  .circuit-detail-row { grid-template-columns: 1fr; }
+  .circuit-detail-title { font-size: 1.4rem; }
+  .circuit-sessions { grid-template-columns: 1fr; padding: 0 0.75rem; gap: 0.8rem; }
+  .circuit-session-row { padding: 1rem; }
+  .circuit-classement, .circuit-constructeurs { padding: 0 0.75rem; }
 }

@@ -25,17 +25,16 @@
       </a>
     {% endfor %}
   </div>
-  <div class="gp-resume-pagination" style="text-align:center;margin-top:2rem;">
+  <div class="gp-resume-pagination">
     {% if pages > 1 %}
       <nav aria-label="Pagination">
         {% for p in 1..pages %}
-          <a href="{{ path('gp_resume', {'page': p}) }}" class="gp-resume-page-btn{% if p == page %} active{% endif %}" style="display:inline-block;padding:0.6em 1.2em;margin:0 0.3em;border-radius:8px;background:#23243a;color:#fff;font-weight:bold;text-decoration:none;{% if p == page %}background:#ff2d2d;color:#fff;{% endif %}">
+          <a href="{{ path('gp_resume', {'page': p}) }}" class="gp-resume-page-btn{% if p == page %} active{% endif %}">
             {{ p }}
           </a>
         {% endfor %}
       </nav>
     {% endif %}
   </div>
-
 </div>
 {% endblock %}

@@ -152,12 +152,7 @@ body {
 // ≤ 768px → 2 col, padding réduit
 // ≤ 576px → 1 col
 // --------------------------------------------
-.circuit-card {
-  min-width: 0;
-  max-width: 100%;
-  width: 100%;
-  box-sizing: border-box;
-}
+
 @media (max-width: $breakpoint-laptop) {
   .gp-resume-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; padding: 1.5rem; }
   .circuit-card   { padding: 1.5rem; }

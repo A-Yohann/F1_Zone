@@ -1,20 +1,9 @@
 @use "../base/variable" as *;
 
-
-
-/* Quiz F1 Section Styles déplacés depuis _responsive.scss */
-.quiz-f1-section {
-  color: #fff;
-}
-.quiz-f1-section .quiz-button {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-// Styles spécifiques à la page quiz
-
-#quiz-main {
+// --------------------------------------------
+// Quiz section (shared between index + classement)
+// --------------------------------------------
+.quiz-section {
   min-height: 80vh;
   display: flex;
   align-items: center;
@@ -22,6 +11,9 @@
   background: linear-gradient(120deg, #181818 0%, #232323 100%);
 }
 
+// --------------------------------------------
+// Quiz main card
+// --------------------------------------------
 .quiz-main-card {
   margin: 2.5rem auto;
   max-width: 520px;
@@ -45,9 +37,9 @@
     letter-spacing: 1px;
   }
 
- .quiz-card{
-  color: $text-main;
- }
+  .quiz-card {
+    color: $text-main;
+  }
 
   p {
     color: $text-secondary;
@@ -76,6 +68,7 @@
   form {
     width: 100%;
     margin-bottom: 0;
+
     .form-label {
       color: $primary;
       font-weight: 600;
@@ -115,4 +108,28 @@
     box-shadow: $shadow-card-hover;
     border-color: $primary-hover;
   }
+}
+
+// --------------------------------------------
+// Quiz form (difficulty select)
+// --------------------------------------------
+.quiz-form {
+  width: 100%;
+  max-width: 340px;
+  margin: 2rem auto 0 auto;
+}
+
+// --------------------------------------------
+// Quiz progress indicator
+// --------------------------------------------
+.quiz-progress {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+// --------------------------------------------
+// Quiz classement title
+// --------------------------------------------
+.quiz-classement-title {
+  text-align: center;
 }

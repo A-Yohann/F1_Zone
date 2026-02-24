@@ -12,36 +12,21 @@
         <label for="inputEmail">Email</label>
         <input type="email" value="{{ last_username }}" name="email" id="inputEmail" required autofocus>
         <label for="inputPassword">Mot de passe</label>
-        <div style="position:relative;">
-            <input type="password" name="password" id="inputPassword" required style="padding-right:2.2em;">
-            <span id="toggleLoginPassword" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:1.2em;color:#888;">
-                👁️
-            </span>
+        <div class="password-wrapper">
+            <input type="password" name="password" id="inputPassword" required>
+            <span class="toggle-password" id="toggleLoginPassword">👁️</span>
         </div>
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const passwordInput = document.getElementById('inputPassword');
-            const togglePassword = document.getElementById('toggleLoginPassword');
-            if (passwordInput && togglePassword) {
-                togglePassword.addEventListener('click', function() {
-                    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-                    passwordInput.setAttribute('type', type);
-                    togglePassword.textContent = type === 'password' ? '👁️' : '🙈';
-                });
-            }
-        });
-        </script>
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-        <div style="margin-bottom:1rem;">
+        <div class="auth-checkbox">
             <input type="checkbox" name="_remember_me" id="remember_me">
             <label for="remember_me" class="form-check-label">Se souvenir de moi</label>
         </div>
         <button type="submit" class="btn">Se connecter</button>
-        <div class="form-links" style="margin-top: 1.5rem;">
+        <div class="form-links">
             <a href="{{ path('app_register') }}" class="auth-link-simple">Créer un compte</a>
-            <a href="{{ path('app_forgot_password') }}" class="auth-link-simple" style="margin-left:1.5rem;">Mot de passe oublié&nbsp;?</a>
+            <a href="{{ path('app_forgot_password') }}" class="auth-link-simple">Mot de passe oublié&nbsp;?</a>
         </div>
-        <div style="margin-top:1.2em;text-align:center;color:#b30000;font-weight:bold;">
+        <div class="auth-attempts">
             {% if remaining_attempts > 0 %}
                 Tentatives restantes : {{ remaining_attempts }} / {{ max_attempts }}
             {% else %}

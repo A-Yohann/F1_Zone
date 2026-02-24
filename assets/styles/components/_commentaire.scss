@@ -1,20 +1,29 @@
 @use "../base/variable" as *;
 
+// --------------------------------------------
+// GP Resume comments section
+// --------------------------------------------
 .gp-resume-comments {
   margin-top: 2.5rem;
   background: #23243a;
   border-radius: 12px;
   padding: 2rem 1.5rem 1.5rem 1.5rem;
   box-shadow: 0 2px 8px #0002;
+
+  h2 {
+    color: $primary;
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
 }
-.gp-resume-comments h2 {
-  color: #ff2d2d;
-  font-size: 1.5rem;
-  margin-bottom: 1.2rem;
-}
+
 #comments-list {
   margin-bottom: 2rem;
 }
+
+// --------------------------------------------
+// Single comment
+// --------------------------------------------
 .gp-comment {
   background: #181924;
   border-radius: 8px;
@@ -22,6 +31,7 @@
   margin-bottom: 1.2rem;
   box-shadow: 0 1px 4px #0002;
 }
+
 .gp-comment-meta {
   display: flex;
   justify-content: space-between;
@@ -29,14 +39,30 @@
   color: #aaa;
   margin-bottom: 0.5rem;
 }
+
 .gp-comment-pseudo {
   font-weight: bold;
-  color: #ff2d2d;
+  color: $primary;
 }
+
 .gp-comment-content {
   color: #fff;
   font-size: 1.08rem;
 }
+
+// --------------------------------------------
+// Comment actions (edit/delete buttons)
+// --------------------------------------------
+.gp-comment-actions {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+// --------------------------------------------
+// Comment input / textarea
+// --------------------------------------------
 .gp-comment-input,
 .gp-comment-textarea {
   width: 100%;
@@ -48,9 +74,15 @@
   margin-bottom: 1rem;
   font-size: 1rem;
   resize: none;
+  box-sizing: border-box;
+  min-height: 120px;
 }
+
+// --------------------------------------------
+// Comment button
+// --------------------------------------------
 .gp-comment-btn {
-  background: #ff2d2d;
+  background: $primary;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -59,7 +91,8 @@
   font-weight: bold;
   cursor: pointer;
   transition: background 0.2s;
-}
-.gp-comment-btn:hover {
-  background: #c91e1e;
+
+  &:hover {
+    background: $primary-hover;
+  }
 }
