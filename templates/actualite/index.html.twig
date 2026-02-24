@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actualités F1{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Dernières actualités F1</h1>
+    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_CONTRIBUTOR') %}
+        <a href="{{ path('admin_actu_new') }}" class="btn btn-primary" style="margin-bottom:1.5rem;">Ajouter une actualité</a>
+    {% endif %}
+    <div class="actus-cards">
+        {% for actu in actus %}
+            <div class="actu-card">
+                <a href="{{ path('actualite_show', {id: actu.id}) }}">
+                    <h3>{{ actu.titre }}</h3>
+                    {% if actu.image %}
+                        <img src="{{ asset('uploads/actus/' ~ actu.image) }}" alt="{{ actu.titre }}">
+                    {% endif %}
+                    <p>{{ actu.contenu|slice(0, 120) ~ '...' }}</p>
+                    <span class="date">{{ actu.datePublication|date('d/m/Y') }}</span>
+                </a>
+                {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_CONTRIBUTOR') %}
+                    <div class="actu-actions">
+                        <a href="{{ path('admin_actu_edit', {id: actu.id}) }}" class="btn btn-warning btn-sm">Modifier</a>
+                        <form method="post" action="{{ path('admin_actu_delete', {id: actu.id}) }}" style="display:inline-block;" onsubmit="return confirm('Confirmer la suppression ?');">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ actu.id) }}">
+                            <button class="btn btn-danger btn-sm">Supprimer</button>
+                        </form>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

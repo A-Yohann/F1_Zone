@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ actu.titre }} - Actualité F1{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="actu-detail">
+        <h1>{{ actu.titre }}</h1>
+        {% if actu.image %}
+            <img src="{{ asset('uploads/actus/' ~ actu.image) }}" alt="{{ actu.titre }}">
+        {% endif %}
+        <div class="date">Publié le {{ actu.datePublication|date('d/m/Y') }}</div>
+        <div class="contenu">{{ actu.contenu|nl2br }}</div>
+        {% if actu.auteur %}
+            <div class="auteur">Par {{ actu.auteur.username }}</div>
+        {% endif %}
+        <a href="{{ path('app_actualite') }}" class="btn" style="margin-top:2rem;display:inline-block;">← Retour aux articles</a>
+    </div>
+</div>
+{% endblock %}

@@ -56,14 +56,28 @@ body {
 
 // --------------------------------------------
 // News Cards
-// ≤ 992px → 2 col
+// ≤ 992px → 2 col (reset du centrage 6-col)
 // ≤ 576px → 1 col
 // --------------------------------------------
 @media (max-width: $breakpoint-laptop) {
-  .news-cards { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+  .news-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+  .news-card {
+    grid-column: auto;
+  }
+  .news-card:nth-child(4),
+  .news-card:nth-child(5) {
+    grid-column: auto;
+    grid-row: auto;
+  }
 }
 @media (max-width: $breakpoint-mobile) {
-  .news-cards { grid-template-columns: 1fr; gap: 1rem; }
+  .news-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 
 // --------------------------------------------
@@ -192,7 +206,6 @@ body {
   margin-bottom: 20px;
   vertical-align: middle;
   cursor: pointer;
-  
 }
 .auth-form .form-check,
 .auth-form label[for] {

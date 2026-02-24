@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une actualité{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Ajouter une actualité</h1>
+    {{ form_start(form, {'attr': {'class': 'actu-form'}, 'enctype': 'multipart/form-data'}) }}
+        {{ form_row(form.titre) }}
+        {{ form_row(form.contenu) }}
+        <div>
+            <label for="actu_imageFile" class="custom-file-label">Choisir une image</label>
+            {{ form_widget(form.imageFile, {'attr': {'id': 'actu_imageFile'}}) }}
+            <span class="custom-file-name" id="file-name"></span>
+        </div>
+        <button class="btn btn-primary">Valider</button>
+    {{ form_end(form) }}
+    <a href="{{ path('admin_actu_index') }}" class="btn btn-secondary" style="margin-top:1rem;">Retour</a>
+</div>
+{% endblock %}

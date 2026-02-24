@@ -1,0 +1,210 @@
+@use "../base/variable" as *;
+
+
+.user-badge {
+  display: inline-flex;
+  align-items: center;
+  background: $primary ;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.35em 1em 0.35em 0.7em;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-left: 1.5rem;
+  box-shadow: 0 2px 8px rgba(30,136,229,0.10);
+}
+.user-badge-icon {
+  margin-right: 0.5em;
+  font-size: 1.2em;
+  color: $text-main;
+}
+.user-badge-name {
+  font-size: 1em;
+}
+
+
+
+
+
+
+
+// Style custom pour le champ file
+.actu-form input[type="file"] {
+  display: none;
+}
+
+.custom-file-label {
+  display: inline-block;
+  width: 30%;
+  background: $primary;
+  color: #fff;
+  border-radius: 6px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 1.2rem;
+  transition: background 0.2s;
+}
+.custom-file-label:hover {
+  background: $primary-hover;
+}
+
+.custom-file-name {
+  display: block;
+  margin-bottom: 1rem;
+  color: $text-main;
+  font-size: 0.95rem;
+}
+
+
+
+.actu-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: $background-card;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 2rem 2rem 1.5rem 2rem;
+}
+
+.actu-form label {
+  font-weight: 600;
+  color: $text-main;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+.actu-form input[type="text"],
+.actu-form textarea {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 1.2rem;
+  background: #232323;
+  color: $text-main;
+  font-size: 1rem;
+}
+
+.actu-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.actu-form button {
+  background: $primary;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.actu-form button:hover {
+  background: $primary-hover;
+}
+// Styles pour les cards actualités
+
+
+
+h1{
+    color: $text-main;
+}
+
+.actus-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.actu-card a {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.actu-actions {
+  padding-top: 1rem;
+}
+
+
+.actu-card {
+  background: $background-card;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  width: 320px;
+  padding: 1.5rem 1rem 1rem 1rem;
+  color: #fff;
+  transition: transform 0.15s, box-shadow 0.15s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.actu-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+}
+
+.actu-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.actu-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  text-decoration: none !important;
+  color: #fff;
+}
+
+.actu-card .date {
+  font-size: 0.95rem;
+  color: #888;
+  margin-top: 0.5rem;
+}
+
+.actu-detail {
+  max-width: 700px;
+  margin: 2rem auto;
+  background: $background-card;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 2rem;
+}
+
+.actu-detail img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.actu-detail .date {
+  font-size: 1rem;
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+.actu-detail .contenu {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.actu-detail .auteur {
+  font-size: 1rem;
+  color: $background-news;
+  text-align: right;
+}

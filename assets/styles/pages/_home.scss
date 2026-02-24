@@ -2,6 +2,9 @@
 @use "../components/button";
 
 
+
+
+
 // Espacement harmonieux des sections de la home
 .home-section {
 	margin-bottom: 3.5rem;
@@ -122,9 +125,21 @@
 // Section news
 .news-cards {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(6, 1fr);
 	gap: 2rem;
 	margin: 2rem 0;
+}
+
+.news-card {
+	grid-column: span 2;
+}
+
+// Ligne du bas : décalage d'1 colonne pour centrer les 2 cartes sous les 3
+.news-card:nth-child(4) {
+	grid-column: 2 / span 2;
+}
+.news-card:nth-child(5) {
+	grid-column: 4 / span 2;
 }
 // @media (max-width: 992px) {
 // 	.news-cards {

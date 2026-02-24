@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier une actualité{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Modifier une actualité</h1>
+    {{ form_start(form, {'attr': {'class': 'actu-form'}, 'enctype': 'multipart/form-data'}) }}
+        {{ form_row(form.titre) }}
+        {{ form_row(form.contenu) }}
+        <div>
+            <label for="actu_imageFile" class="custom-file-label">Choisir une image</label>
+            {{ form_widget(form.imageFile, {'attr': {'id': 'actu_imageFile'}}) }}
+            <span class="custom-file-name" id="file-name"></span>
+        </div>
+        <button class="btn btn-primary">Enregistrer</button>
+    {{ form_end(form) }}
+    <script>
+    // Affiche le nom du fichier sélectionné
+    document.addEventListener('DOMContentLoaded', function() {
+        var input = document.getElementById('actu_imageFile');
+        var label = document.querySelector('.custom-file-label');
+        var fileName = document.getElementById('file-name');
+        if(input && label && fileName) {
+            label.addEventListener('click', function() {
+                input.click();
+            });
+            input.addEventListener('change', function(e) {
+                if(input.files.length > 0) {
+                    fileName.textContent = input.files[0].name;
+                } else {
+                    fileName.textContent = '';
+                }
+            });
+        }
+    });
+    </script>
+    <a href="{{ path('admin_actu_index') }}" class="btn btn-secondary" style="margin-top:1rem;">Retour</a>
+</div>
+{% endblock %}
