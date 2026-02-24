@@ -22,6 +22,11 @@ class CommentaireController extends AbstractController
         if (!$commentaire) {
             throw $this->createNotFoundException('Commentaire non trouvé');
         }
+        // Restriction : seul l'auteur ou un admin peut éditer
+        $user = $this->getUser();
+        if (!$user || ($user !== $commentaire->getUser() && !in_array('ROLE_ADMIN', $user->getRoles()))) {
+            throw $this->createAccessDeniedException('Vous ne pouvez pas éditer ce commentaire.');
+        }
         if ($request->isMethod('POST')) {
             $contenu = $request->request->get('commentaire');
             if ($contenu) {
