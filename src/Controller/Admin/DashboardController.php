@@ -56,5 +56,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Écuries', 'fas fa-flag-checkered', \App\Entity\Ecurie::class);
         yield MenuItem::linkToCrud('Commentaires', 'fas fa-comments', \App\Entity\Commentaire::class);
         yield MenuItem::linkToCrud('Circuits', 'fas fa-road', \App\Entity\Circuit::class);
+        yield MenuItem::linkToRoute('Actualités', 'fas fa-newspaper', \App\Entity\Actu::class);
     }
 }
